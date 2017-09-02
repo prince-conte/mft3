@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+// selectmenu
+
+
+.ui-selectmenu-button {
+  @include font(1.6rem,1.6rem);
+  font-family: $font-family-sans;
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 2rem;
+  border: 1px solid $color-lightest;
+  color: $color-light;
+  border-radius: $border-radius-small;
+  cursor: default;
+  outline: none;
+
+  &.ui-selectmenu-button-open {
+    outline: none;
+  }
+
+  .ui-selectmenu-icon {
+    @include size(0);
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    display: block;
+    pointer-events: none;
+    border: {
+      top:   .4rem solid $color-light;
+      right: .4rem solid transparent;
+      left:  .4rem solid transparent;
+    }
+  }
+
+  .ui-selectmenu-text {
+    @include ellipsis;
+
+    &.ui-state-placeholder {
+      color: $color-lighter;
+    }
+  }
+}
+
+.ui-selectmenu-button-open {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.ui-selectmenu-menu {
+  position: absolute;
+  z-index: 1001;
+  display: none;
+
+  &.ui-selectmenu-open {
+    display: block;
+  }
+
+  .ui-menu {
+    background: #fff;
+    border: {
+      right:  1px solid $color-lightest;
+      bottom: 1px solid $color-lightest;
+      left:   1px solid $color-lightest;
+    }
+
+    border-bottom-right-radius: $border-radius-small;
+    border-bottom-left-radius: $border-radius-small;
+  }
+
+  .ui-menu-item {
+    &.ui-state-disabled {
+      display: none;
+    }
+  }
+
+  .ui-menu-item-wrapper {
+    padding: 1rem 2rem;
+    &.ui-state-active {
+      background: #eee;
+    }
+  }
+}
+

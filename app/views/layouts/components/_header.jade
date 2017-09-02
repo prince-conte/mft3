@@ -1,0 +1,39 @@
+mixin header(params)
+    - var modifier = ''
+    if params.inner
+        - modifier = 'header--inner'
+    header.header#header(class='#{modifier}')
+        .container
+            if params.inner
+                a.header__to-index(href='employees.html')
+                    i.icon.icon--36.mdi.mdi-account-multiple
+
+            .header__inner
+                .header__logo
+                    a(href='http://www.ascgroup.ru/' target='_blank')
+                        img.header__logo-img(src='../assets/images/brand/logo.jpg' alt='АвтоСпецЦентр')
+                if params.inner
+                    .header__user
+                        .user.user--employee
+                            .user__avatar
+                                img.user__avatar-img(src='../assets/images/avatar.svg' width='40' height='40' alt='')
+                if !params.inner
+                    .header__desc
+                        p Вы&nbsp;находитесь на&nbsp;странице сотрудников компании АвтоСпецЦентр (официальный дилер концерна &laquo;Ниссан&raquo; в&nbsp;России). Обращайтесь к&nbsp;сотрудникам напрямую, не&nbsp;стесняйтесь!
+                .header__nav
+                    include _navigation
+                    if params.inner
+                        + navigation([{link: 'employee_articles.html', title: 'Статьи', active: true}, {link: 'employee_reviews.html', title: 'Отзывы'}], null, {user: true})
+                    else
+                        + navigation([{link: 'employees.html', title: 'Сотрудники', active: true}, {link: 'articles.html', title: 'Статьи'}, {link: 'reviews.html', title: 'Отзывы'}])
+
+                if params.authorized
+                    .header__authorized
+                        include _authorization_user
+                else
+                    .header__support
+                        include _ft3
+
+                .header__mobile-menu
+                    a.header__mobile-menu-toggle#mobile-menu-toggle(href='#')
+                        i.icon.icon--36.mdi.mdi-menu

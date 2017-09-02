@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+.sharing {
+  display: flex;
+  align-items: center;
+
+  &__item {
+    &:not(:first-child) {
+      margin-left: .3rem;
+    }
+
+    &.sharing__item--counter { // Increasing specifity
+      @include text-small;
+      margin-left: 1rem;
+      color: $color-lightest;
+    }
+  }
+
+  &__link {
+    @include size(3rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid;
+    border-radius: 50%;
+    will-change: opacity;
+
+    &:hover {
+      opacity: .7;
+    }
+
+    &--vk {
+      border-color: $color-vk;
+      color: $color-vk;
+    }
+
+    &--facebook {
+      border-color: $color-facebook;
+      color: $color-facebook;
+    }
+
+    &--twitter {
+      border-color: $color-twitter;
+      color: $color-twitter;
+    }
+
+    &--viber {
+      border-color: $color-viber;
+      color: $color-viber;
+    }
+
+    &--whatsapp {
+      border-color: $color-whatsapp;
+      color: $color-whatsapp;
+    }
+  }
+}

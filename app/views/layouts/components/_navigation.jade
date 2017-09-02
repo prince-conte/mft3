@@ -1,0 +1,16 @@
+mixin navigation(items, id, user, main)
+    - var modifier = ''
+    - var identifier = ''
+    if main
+        - modifier = 'navigation--main'
+    if id
+        - identifier = id.id
+    nav.navigation(class='#{modifier}' id='#{identifier}')
+        ul
+            if user
+                li: a.button.button--filled(href='#') Написать
+            each item in items
+                - var active = ''
+                if item.active
+                    - active = 'is-active'
+                li: a(href='#{item.link}' class='#{active}')= item.title

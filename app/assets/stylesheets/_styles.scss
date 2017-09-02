@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  @include text-base;
+  background: $color-brand;
+  color: $color-light;
+  font-family: $font-family-sans;
+
+  &.is-mobile-menu-open {
+    height: 100vh;
+    overflow-y: hidden;
+  }
+}
+
+a {
+  color: $color-brand;
+  text-decoration: none;
+  transition: all $transition-duration-base;
+
+  &:hover,
+  &.hover {
+    text-decoration: underline;
+  }
+}
+
+b, strong {
+  font-weight: 700;
+}
+
+fieldset {
+  border: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+h1 {
+  @include h1;
+  margin: 0;
+}
+
+h2 {
+  @include h2;
+}
+
+h3 {
+  @include h3;
+}
+
+h4 {
+  @include h4;
+}
+
+h5 {
+  @include h5;
+}
+
+
+h6 {
+  @include h6;
+}
+
+hr {
+  border: 0;
+}
+
+img {
+  max-width: 100%;
+
+  &[width],
+  &[height] {
+    max-width: none;
+  }
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}

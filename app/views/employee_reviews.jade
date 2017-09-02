@@ -1,0 +1,57 @@
+extends layouts/application
+
+block title
+    title FT3 / Сотрудник
+
+block header
+    include layouts/components/_header
+    + header({authorization: false, inner: true})
+
+block main
+    .employee-layout
+        .container
+            .employee-layout__row
+                .employee-layout__column
+                    .employee-card.card
+                        .employee-card__summary
+                            img.employee-card__userpic(src='../assets/images/userpic.svg' alt='')
+                            .employee-card__content
+                                h2.employee-card__name Имя<br> Фамилия
+                                .employee-card__bio#employee-card-bio
+                                    p Lorem ipsum dolor sit amet.
+                                .employee-card__bio-details#employee-card-bio-details
+                                    a(href='#') Подробнее
+                                ul.employee-card__accounts
+                                    li: a(href='#'): i.icon.icon--24.mdi.mdi-facebook
+                        ul.employee-card__actions.employee-actions
+                            li: a.button.button--filled-large(href='#') Написать
+
+                    include layouts/components/_navigation
+                    + navigation([{link: 'employee_articles.html', title: 'Статьи'}, {link: 'employee_reviews.htmls', title: 'Отзывы', active: true}], {id: 'navigation'})
+
+                    .reviews
+                        .reviews__list
+                            - var reviewsAdd = [{authorized: false}, {authorized: true}]
+                            - each reviewAdd in reviewsAdd
+                                include layouts/components/_review_add
+                                + reviewAdd(reviewAdd.authorized)
+
+                            - var reviews = [{title: 'Имя фамилия', link: null, review: 'Костя, где же ты? Появись, наконец! Ждём с нетерпением!', reviewer: 'Аркадий Шпателев', icon: 'up', response: true}, {title: 'Имя фамилия', link: null, review: 'Так это в штатах, там тепло :)', reviewer: 'Андрей Богоявленский'}, {title: 'Имя фамилия', link: null, review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras libero neque, laoreet eu mi non, interdum sollicitudin dui. Pellentesque mollis ut massa vitae congue. Nullam ac est ut ante sodales vestibulum vitae eu leo. Mauris quis vestibulum turpis.', reviewer: 'Аркадий Шпателев'}]
+                            - each review in reviews
+                                include layouts/components/_review_card
+                                + reviewCard(review.title, review.link, review.review, review.reviewer, review.icon, review.response)
+
+                    include layouts/components/_loader
+
+block mobileMenu
+    include layouts/components/_mobile_menu
+    + mobileMenu({authorized: false, inner: true})
+
+block messengers
+    include layouts/components/_messengers
+    + messengers('multiple')
+
+block append scripts
+    script(src='../assets/javascripts/components/employees.js')
+    script(src='../assets/javascripts/components/messengers.js')
+    script(src='../assets/javascripts/components/content.js')

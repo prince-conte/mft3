@@ -1,0 +1,90 @@
+doctype html
+
+html(lang='ru')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='x-ua-compatible' content='ie=edge')
+        meta(name='viewport' content='width=device-width')
+        title FT3 / Демо
+        link(rel='stylesheet' media='all' href='../assets/stylesheets/application.css')
+
+    body
+        main
+            .container
+                .card(style='padding: 4rem;')
+                    .content
+
+                        h3 Контролы
+
+                        div(style='width: 280px;')
+                            select.js-selectmenu-select
+                                option(selected) Все сотрудники
+                                option Option 2
+                                option Option 3
+
+                        br
+                        br
+
+                        .forms
+                            input(type='search' placeholder='Поиск')
+
+                        br
+                        br
+
+
+                        .forms
+
+                            .label-grid
+                                label.label-checkbox МОИ СТАТЬИ
+
+                                span.checkbox
+                                    input(type='checkbox')
+                                    span
+                                    i
+
+                                label.label-checkbox.is-active Статьи Сотрудников
+
+
+                        h3 Попапы
+                        ol
+                            li: a.js-popup(href='#popup-authorization') Авторизация
+
+                                li: a.js-popup(href='#popup-review-not-authorized') Оставить отзыв (не авторизован)
+                                li: a.js-popup(href='#popup-review-authorized') Оставить отзыв (авторизован)
+                                li: a.js-popup(href='#popup-answer') Ответить на отзыв
+
+                                li: a.js-popup(href='#popup-mail') Написать сообщение
+
+                                li: a.js-popup(href='#popup-messages-empty') Личное сообщение (нет сообщений)
+                                li: a.js-popup(href='#popup-messages-full') Личное сообщение (есть сообщения)
+
+                                li: a.js-popup(href='#popup-message') Сообщение
+
+                        h3 Страницы
+                        ol
+                            li: a(href='employees.html') Сотрудники
+                            li: a(href='articles.html') Статьи
+                            li: a(href='reviews.html') Отзывы
+                            li: a(href='employee_articles.html') Сотрудник (статьи)
+                            li: a(href='employee_reviews.html') Сотрудник (отзывы)
+                            li: a(href='article.html') Статья
+
+
+
+
+        include layouts/components/_popups
+
+
+        script(src='../assets/javascripts/vendor/jquery.js')
+        script(src='../assets/javascripts/vendor/jquery-ui.js')
+        script(src='../assets/javascripts/vendor/smartresize.js')
+        script(src='../assets/javascripts/vendor/jquery.magnific-popup.js')
+        script(src='../assets/javascripts/vendor/autosize.js')
+
+        script(src='../assets/javascripts/variables.js')
+        script(src='../assets/javascripts/utilities.js')
+
+        script(src='../assets/javascripts/components/header.js')
+        script(src='../assets/javascripts/components/mobile_menu.js')
+        script(src='../assets/javascripts/components/popups.js')
+        script(src='../assets/javascripts/components/selectmenu.js')

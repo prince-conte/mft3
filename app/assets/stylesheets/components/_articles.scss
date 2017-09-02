@@ -1,0 +1,219 @@
+@charset "UTF-8";
+
+.articles {
+  margin: {
+    top: 4rem;
+    bottom: 8rem;
+  }
+
+  @include mq(md) {
+    margin: {
+      top: 6rem;
+      bottom: 12rem;
+    }
+  }
+
+  // Blocks
+  &__blocks {
+    @include grid;
+    margin-bottom: -1rem;
+
+    @include mq(md) {
+      margin-bottom: -1.5rem;
+    }
+  }
+
+  &__block {
+    @include grid-col;
+    @include grid-cols(1, 1);
+    margin-bottom: 1rem;
+
+    @include mq(sm) {
+      @include grid-cols(1, 2);
+    }
+
+    @include mq(md) {
+      @include grid-cols(1, 3);
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  // List
+  &__list {
+    .article-card {
+      @include mq(sm) {
+        padding: {
+          right: 4rem;
+          left: 4rem;
+        }
+      }
+
+      @include mq(md) {
+        padding: {
+          right: 6rem;
+          left: 6rem;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+
+        @include mq(md) {
+          margin-bottom: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+// Article
+.article {
+  position: relative;
+  padding: 2rem 2rem 8rem;
+  background: #fff;
+
+  @include mq(sm) {
+    padding: 2rem 4rem 8rem;
+  }
+
+  @include mq(md) {
+    padding: 3rem 6rem 12rem;
+  }
+
+  &__date {
+    @include text-small;
+    color: $color-lighter;
+  }
+
+  &__reviews {
+    position: absolute;
+    top: 2rem;
+    right: 1rem;
+
+    @include mq(sm) {
+      right: 2rem;
+    }
+
+    @include mq(md) {
+      top: 3rem;
+      right: 3rem;
+    }
+  }
+
+  &__title {
+    margin: {
+      top: 2rem;
+      bottom: 2rem;
+    }
+
+    @include mq(sm) {
+      margin-top: 3rem;
+    }
+
+    @include mq(md) {
+      margin-top: 4rem;
+    }
+  }
+
+  &__sharing {
+
+  }
+
+  &__content {
+    margin: {
+      top: 4rem;
+      bottom: 4rem;
+    }
+
+    @include mq(md) {
+      margin: {
+        top: 6rem;
+        bottom: 6rem;
+      }
+    }
+  }
+
+  + .reviews {
+    margin-top: 1rem;
+
+    @include mq(md) {
+      margin-top: 1.5rem;
+    }
+  }
+}
+
+// Layout
+.article-layout {
+  margin-top: -4rem;
+
+  @include mq(sm) {
+    margin-top: -8rem;
+  }
+
+  @include mq(md) {
+    margin-top: -12rem;
+  }
+
+  &__row {
+    @include mq(md) {
+      @include grid(x, center);
+    }
+  }
+
+  &__column {
+    @include mq(md) {
+      @include grid-col;
+      @include grid-cols(2, 3);
+    }
+  }
+}
+
+// Card
+.article-card {
+  position: relative;
+  padding: 2rem 2rem 4rem;
+
+  @include mq(md) {
+    padding: 3rem 3rem 6rem;
+  }
+
+  &__reviews {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+
+    @include mq(md) {
+      top: 1.5rem;
+      right: 1.5rem;
+    }
+  }
+
+  &__author {
+    margin-right: 4rem;
+  }
+
+  &__title {
+    margin-top: 1.25rem;
+
+    @include mq(md) {
+      margin-top: 2.5rem;
+    }
+
+    > a {
+      color: $color-light;
+
+      &:hover {
+        color: $color-brand;
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__content {
+    margin-top: 1.25rem;
+
+    > blockquote {
+      padding-left: 1.5rem;
+    }
+  }
+}

@@ -1,0 +1,391 @@
+@charset "UTF-8";
+
+// Magnific popup
+.mfp-bg {
+  position: fixed !important;
+  background: rgba($color-light, .97);
+}
+
+.mfp-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  height: auto;
+  padding: 4rem 2rem;
+
+  @include mq(sm) {
+    padding: 6rem 4rem;
+  }
+
+  @include mq(md) {
+    padding: 8rem 6rem;
+  }
+
+  .mfp-content {
+    position: static; // For .popup__close
+    justify-content: center;
+    align-items: stretch;
+    pointer-events: none;
+
+    @include mq(md) {
+      width: auto;
+    }
+  }
+}
+
+// Simple fade transition
+.mfp-fade.mfp-bg,
+.mfp-fade.mfp-wrap .mfp-content {
+  transition: all $transition-duration-base;
+  opacity: 0;
+}
+.mfp-fade.mfp-bg.mfp-ready,
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+  opacity: 1;
+}
+.mfp-fade.mfp-bg.mfp-removing,
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+  opacity: 0;
+}
+
+// Popup
+.popup {
+  display: none;
+  min-height: calc(90vh - 8rem); // 90vh instead 100vh to fix Android browser top bar
+  background: #fff;
+  pointer-events: auto;
+
+  @include mq(sm) {
+    min-height: calc(100vh - 12rem);
+  }
+
+  @include mq(md) {
+    width: 85rem;
+    min-height: calc(100vh - 16rem);
+  }
+
+  .mfp-content & {
+    display: flex;
+  }
+
+  &__close {
+    @include size(3rem);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: #fff;
+
+    &:hover {
+      color: $color-lightest;
+    }
+
+    @include mq(sm) {
+      top: 2rem;
+      right: 2rem;
+    }
+
+    @include mq(md) {
+      top: 3rem;
+      right: 3rem;
+    }
+
+    > .icon {
+      text-shadow: 0 0 3px rgba($color-base, .5);
+    }
+  }
+
+  &--message {
+    justify-content: center;
+    align-items: center;
+    min-height: 0;
+    background: transparent;
+
+    .mfp-content & {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &--authorization {
+    justify-content: center;
+    align-items: center;
+    min-height: 0;
+    background: transparent;
+
+    @include mq(md) {
+      width: 40rem;
+    }
+
+    .mfp-content & {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+// Message
+.popup-message {
+  flex: 1;
+  color: #fff;
+  text-align: center;
+
+  > p {
+    @include text-large;
+    margin-bottom: 2rem;
+  }
+
+  > .button {
+    width: 12rem;
+  }
+}
+
+// Messages
+.popup-messages {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2rem 4rem;
+
+  @include mq(md) {
+    padding: 3rem 6rem 6rem;
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+    color: $color-lightest;
+    font-weight: 400;
+
+    @include mq(sm) {
+      margin-bottom: 2rem;
+    }
+
+    @include mq(md) {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__list {
+    margin-bottom: 2rem;
+
+    @include mq(sm) {
+      margin-bottom: 4rem;
+    }
+
+    @include mq(md) {
+      margin-bottom: 6rem;
+    }
+
+    > li {
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+
+      > dl {
+        > dt {
+          color: $color-light;
+
+          @include mq(sm) {
+            display: flex;
+            align-items: baseline;
+          }
+
+          > a {
+            color: $color-brand;
+          }
+
+          > span {
+            @include text-small;
+            color: $color-lighter;
+
+            @include mq(xs) {
+              display: block;
+            }
+
+            @include mq(sm) {
+              margin-left: 1rem;
+            }
+          }
+        }
+
+        > dd {
+          @include text-large;
+          margin-top: 1rem;
+          color: $color-light;
+        }
+      }
+    }
+  }
+
+  &__answer {
+    display: flex;
+    margin-top: auto;
+
+    @include mq(xs) {
+      flex-wrap: wrap;
+    }
+
+    @include mq(sm) {
+      align-items: flex-end;
+    }
+
+    img {
+      @include mq(xs) {
+        order: 2;
+        margin-right: 1rem;
+      }
+    }
+
+    textarea {
+      @include text-base;
+      padding: .9rem;
+      border: 1px solid $color-lightest;
+      border-radius: $border-radius-small;
+      font-family: inherit;
+      outline: none;
+      resize: none;
+
+      @include mq(xs) {
+        order: 1;
+        flex: 0 0 100%;
+        margin-bottom: 1rem;
+      }
+
+      @include mq(sm) {
+        flex: 1;
+        margin: 0 1rem;
+      }
+    }
+
+    input {
+      @include mq(xs) {
+        order: 3;
+        flex: 1;
+      }
+    }
+  }
+}
+
+// Authorization
+.popup-authorization {
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: #fff;
+  text-align: center;
+
+  @include mq(sm) {
+    padding: 4rem;
+  }
+
+  @include mq(md) {
+    padding: 6rem;
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+    font-weight: 400;
+
+    @include mq(md) {
+      margin-bottom: 2rem;
+    }
+
+    @include mq(md) {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__social {
+    width: 100%;
+    margin-bottom: 2rem;
+
+    @include mq(sm) {
+      margin-bottom: 4rem;
+    }
+
+    @include mq(md) {
+      margin-bottom: 6rem;
+    }
+
+    > li {
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+
+      > a {
+        @include size(100% 6rem);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 6.4rem;
+        border-radius: $border-radius-small;
+        color: #fff;
+
+        &::before {
+          position: absolute;
+          top: 50%;
+          left: 2rem;
+          transform: translateY(-50%);
+          color: #fff;
+          font: {
+            family: "Material Design Icons";
+            size: 2.4rem;
+          }
+        }
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        &.is-twitter {
+          background: $color-twitter;
+
+          &::before {
+            content: "\F544";
+          }
+
+          &:hover {
+            background: rgba($color-twitter, .7);
+          }
+        }
+
+        &.is-facebook {
+          background: $color-facebook;
+
+          &::before {
+            content: "\F20C";
+          }
+
+          &:hover {
+            background: rgba($color-facebook, .7);
+          }
+        }
+
+        &.is-google-plus {
+          background: $color-google-plus;
+
+          &::before {
+            content: "\F2BD";
+          }
+
+          &:hover {
+            background: rgba($color-google-plus, .7);
+          }
+        }
+      }
+    }
+  }
+
+  &__support {
+    @include text-small;
+    color: $color-light;
+
+    a {
+      color: $color-base;
+      font-weight: 700;
+    }
+  }
+}

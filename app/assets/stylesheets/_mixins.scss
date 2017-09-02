@@ -1,0 +1,171 @@
+@charset "UTF-8";
+
+// Media queries
+@mixin mq($mq-breakpoint) {
+  @if map-has-key($mq-breakpoints, $mq-breakpoint) {
+    $mq-device: '';
+    @if $enable-mq-device == true {
+      $mq-device: '-device';
+    }
+
+    $mq-range: 'min';
+    @if $mq-breakpoint == nth(map-keys($mq-breakpoints), 1) {
+      $mq-range: 'max';
+    }
+
+    @media all and (#{$mq-range}#{$mq-device}-width: map-get($mq-breakpoints, $mq-breakpoint)) {
+      @content;
+    }
+  }
+}
+
+// Container
+@mixin container {
+  width: 100%;
+  margin: {
+    right: auto;
+    left: auto;
+  };
+
+  @each $mq-container-width in $mq-container-widths {
+    $mq: nth($mq-container-width, 1);
+    $container-width: nth($mq-container-width, 2);
+
+    @include mq($mq) {
+      max-width: $container-width;
+    }
+  }
+
+  @each $mq-container-indent in $mq-container-indents {
+    $mq: nth($mq-container-indent, 1);
+    $container-indent: nth($mq-container-indent, 2);
+
+    @include mq($mq) {
+      padding: {
+        right: $container-indent;
+        left:  $container-indent;
+      };
+    }
+  }
+}
+
+// Grid
+@mixin grid($main-axis: x, $justify-content: null, $align-items: null, $align-content: null) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+
+  @if $main-axis == x {
+    flex-wrap: wrap;
+    align-content: $align-content;
+  }
+
+  @if $main-axis == y {
+    flex-direction: column;
+  }
+
+  @each $mq-grid-gutter in $mq-grid-gutters {
+    $mq: nth($mq-grid-gutter, 1);
+    $grid-gutter: nth($mq-grid-gutter, 2);
+
+    @include mq($mq) {
+      margin: {
+        right: half(-$grid-gutter);
+        left:  half(-$grid-gutter);
+      };
+    }
+  }
+}
+
+@mixin grid-col {
+  @each $mq-grid-gutter in $mq-grid-gutters {
+    $mq: nth($mq-grid-gutter, 1);
+    $grid-gutter: nth($mq-grid-gutter, 2);
+
+    @include mq($mq) {
+      padding: {
+        right: half($grid-gutter);
+        left:  half($grid-gutter);
+      };
+    }
+  }
+}
+
+@mixin grid-cols($cols-count, $cols-total) {
+  width: $cols-count / $cols-total * 100%;
+}
+
+// Font
+@mixin font($font-size, $line-height) {
+  font-size: $font-size;
+  line-height: strip-units($line-height) / strip-units($font-size);
+}
+
+// Text
+@mixin text-large {
+  @include font(1.6rem, 2.2rem);
+}
+
+@mixin text-base {
+  @include font(1.4rem, 2rem);
+}
+
+@mixin text-small {
+  @include font(1.2rem, 1.8rem);
+}
+
+@mixin h1 {
+  @include font(3.2rem, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -.01em;
+
+  @include mq(sm) {
+    @include font(3.6rem, 4rem);
+  }
+
+  @include mq(md) {
+    @include font(4rem, 4rem);
+  }
+}
+
+@mixin h2 {
+  @include font(2.4rem, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -.01em;
+
+  @include mq(sm) {
+    @include font(2.8rem, 3rem);
+  }
+
+  @include mq(md) {
+    @include font(3.2rem, 3.5rem);
+  }
+}
+
+@mixin h3 {
+  @include font(1.8rem, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -.01em;
+
+  @include mq(sm) {
+    @include font(2.2rem, 2.5rem);
+  }
+
+  @include mq(md) {
+    @include font(2.6rem, 3rem);
+  }
+}
+
+@mixin h4 {
+  // Vacant
+}
+
+@mixin h5 {
+  @include text-large;
+  font-weight: 700;
+}
+
+@mixin h6 {
+  @include text-base;
+  font-weight: 400;
+}

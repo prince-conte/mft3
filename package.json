@@ -1,0 +1,22 @@
+{
+  "name": "ft3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "autosize": "^3.0.20",
+    "bourbon": "^4.3.4",
+    "fotorama": "^4.6.4",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "isotope-layout": "^3.0.3",
+    "jade": "^1.11.0",
+    "jquery": "^3.2.1",
+    "jquery-ui": "^1.12.1",
+    "magnific-popup": "^1.1.0",
+    "mdi": "^1.9.33",
+    "normalize.css": "^6.0.0"
+  }
+}

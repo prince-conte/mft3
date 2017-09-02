@@ -1,0 +1,105 @@
+
+.forms {
+  font-family: $font-family-sans;
+
+  input,
+  textarea,
+  button,
+  select {
+    -webkit-appearance: none;
+    outline: none;
+    transition: $transition-duration-base;
+  }
+
+  // Input
+  input,
+  select,
+  textarea {
+    @include font(1.6rem, 1.6rem);
+    display: block;
+    width: 100%;
+    padding: 2rem;
+    outline: none;
+    border-radius: $border-radius-small;
+    border: 1px solid $color-lightest;
+    background: #fff;
+
+    &::placeholder {
+      color: $color-lighter;
+    }
+
+  }
+
+  // checkbox
+
+  .checkbox {
+    position: relative;
+    display: block;
+    margin: 0 15px;
+    width: 3.4rem;
+    height: 2rem;
+    overflow: hidden;
+    border-radius: 2.5rem;
+    z-index: 2;
+
+    @include mq(xs) {
+      display: none;
+    }
+
+    > input {
+      @include size(100%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      z-index: 4;
+
+      + span {
+        @include size(100%);
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 2px;
+        background: #c0c0c0;
+        z-index: 2;
+
+        + i {
+          @include size(1.6rem);
+          position: absolute;
+          top: .2rem;
+          right: .2rem;
+          display: block;
+          background: #fff;
+          border-radius: 50%;
+          z-index: 3;
+        }
+
+      }
+
+      &:checked + span  {
+      }
+      &:checked + span + i {
+        right: auto;
+        left: .2rem;
+      }
+    }
+  }
+
+  .label-grid {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .label-checkbox {
+    @include font(1.4rem, 1.4rem);
+    display: block;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgba($color-light, .7);
+
+    &.is-active {
+      color: $color-light;
+    }
+  }
+
+}

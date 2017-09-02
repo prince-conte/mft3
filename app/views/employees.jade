@@ -1,0 +1,25 @@
+extends layouts/application
+
+block title
+    title FT3 / Сотрудники
+
+block header
+    include layouts/components/_header
+    + header({authorized: true})
+
+block main
+    include layouts/components/_navigation
+    + navigation([{link: 'employees.html', title: 'Сотрудники', active: true}, {link: 'articles.html', title: 'Статьи'}, {link: 'reviews.html', title: 'Отзывы'}], {id: 'navigation'}, null, {main: true})
+
+    .employees
+        .container
+            .employees__blocks
+                - var employees = [{name: 'Константин Ковалевский', desc: 'Старший менеджер', actions: [{title: 'Написать'}, {title: 'Оставить отзыв', type: 'review'}]}, {name: 'Иван Иванов', actions: [{title: 'Оставить отзыв'}]}, {name: 'Максим Скрябин', desc: 'Начав общение со мной о покупке автомобиля, процесс...', actions: [{title: 'Отблагодарить'}, {title: '+7 (903) 120-33-24', type: 'contact'}]}, {name: 'Ольга Скворцова', actions: [{title: 'Отзыв'}]}]
+                - each employee in employees
+                    .employees__block
+                        include layouts/components/_employee_card_preview
+                        + employeeCardPreview(employee.name, employee.desc, employee.actions)
+
+block mobileMenu
+    include layouts/components/_mobile_menu
+    + mobileMenu({authorized: true, inner: false})

@@ -1,0 +1,28 @@
+mixin reviewAdd(authorized)
+    .review-card.card
+        form.review-add(action='#')
+            fieldset.review-add__fieldset
+                legend.review-add__legend Ваше мнение:
+                if authorized
+                    textarea.review-add__textarea.js-textarea-autosize(rows='4' placeholder='Текст отзыва...') Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu
+                else
+                    textarea.review-add__textarea.js-textarea-autosize.js-authorization-focus(rows='4' placeholder='Текст отзыва...')
+            if authorized
+                ul.review-add__action
+                    li
+                        img.user__avatar-img(src='../assets/images/avatar.svg' width='40' height='40' alt='')
+                    li
+                        input.button.button--filled(type='submit' value='Отправить')
+                    li.review-add__action-attitude
+                        ul.review-add__attitude
+                            li
+                                input(type='radio' name='attitude')
+                                i.icon.icon--24.mdi.mdi-thumb-up-outline
+                                i.icon.icon--24.mdi.mdi-thumb-up
+                                p положительный
+                            li.is-hr: hr
+                            li
+                                input(type='radio' name='attitude')
+                                i.icon.icon--24.mdi.mdi-thumb-down-outline
+                                i.icon.icon--24.mdi.mdi-thumb-down
+                                p отрицательный

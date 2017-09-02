@@ -1,0 +1,29 @@
+.employee-card.card
+    .employee-card__summary
+        img.employee-card__userpic(src='../assets/images/userpic.svg' alt='')
+
+        .employee-card__content
+            h2.employee-card__name Максим<br> Скрябин
+            .employee-card__bio#employee-card-bio
+                p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ullamcorper luctus nunc a&nbsp;molestie. Nunc sit amet imperdiet enim.
+                p: b Vivamus dolor arcu, ultrices:
+                ul
+                    li Nulla suscipit velit ac&nbsp;enim molestie, vel cursus;
+                    li Donec varius ligula ut&nbsp;consequat vestibulum;
+                    li Sed sit amet convallis sem;
+                    li Pellentesque in&nbsp;posuere lectus.
+                p Nam ultricies ultrices turpis, et&nbsp;rutrum ligula congue non. Vivamus sed felis quis felis consectetur imperdiet.
+            .employee-card__bio-details#employee-card-bio-details
+                a(href='#') Подробнее
+            ul.employee-card__accounts
+                li: a(href='#'): i.icon.icon--24.mdi.mdi-facebook
+                li: a(href='#'): i.icon.icon--24.mdi.mdi-twitter
+                li: a(href='#'): i.icon.icon--24.mdi.mdi-instagram
+                li: a(href='#'): i.icon.icon--24.mdi.mdi-youtube-play
+                li: a(href='#'): i.icon.icon--24.mdi.mdi-vk
+
+    ul.employee-card__actions.employee-actions
+        li: a.button.button--filled-large(href='#') Написать
+        li: a.button.button--bordered-large(href='tel:89031203324' data-type='contact'): span +7 (903) 120-33-24
+        li: a.button.button--bordered-large(href='#' data-type='review'): span Оставить отзыв
+        li: a.button.button--bordered-large(href='#' data-type='thank' data-caption='Яндекс.Деньги'): span Отблагодарить

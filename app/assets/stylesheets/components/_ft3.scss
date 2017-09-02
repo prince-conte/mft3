@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+.ft3 {
+  @include text-small;
+  display: flex;
+  align-items: center;
+  color: $color-lightest;
+
+  &:hover {
+    color: $color-light;
+    text-decoration: none;
+
+    .ft3__logo > path {
+      fill: $color-light;
+    }
+  }
+
+  &__logo {
+    margin-left: 1rem;
+
+    > path {
+      transition: fill $transition-duration-base;
+    }
+  }
+}

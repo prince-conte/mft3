@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+.picture {
+  height: 14rem;
+  background: {
+    position: 50% 50%;
+    repeat: no-repeat;
+    size: cover;
+  }
+
+  @include mq(sm) {
+    height: 22rem;
+  }
+
+  @include mq(md) {
+    height: 30rem;
+  }
+}

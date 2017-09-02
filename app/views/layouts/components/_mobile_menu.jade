@@ -1,0 +1,16 @@
+mixin mobileMenu(params)
+    menu.mobile-menu#mobile-menu
+        .mobile-menu__inner
+            .mobile-menu__nav
+                include _navigation
+                if params.inner
+                    + navigation([{link: 'employee_articles.html', title: 'Статьи', active: true}, {link: 'employee_reviews.html', title: 'Отзывы'}], null, {user: true})
+                else
+                    + navigation([{link: 'employees.html', title: 'Сотрудники', active: true}, {link: 'articles.html', title: 'Статьи'}, {link: 'reviews.html', title: 'Отзывы'}])
+
+            if params.authorized
+                .mobile-menu__authorized
+                    include _authorization_user
+            else
+                .mobile-menu__support
+                    include _ft3

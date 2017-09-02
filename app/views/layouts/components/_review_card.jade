@@ -1,0 +1,23 @@
+mixin reviewCard(title, link, review, reviewer, icon, response, moderation)
+    article.review-card.card
+        if icon
+            i.review-card__attitude.icon.icon--24.mdi(class='mdi-thumb-#{icon}')
+        h6.review-card__title
+            if link
+                a(href='#{link}')= title
+            else
+                = title
+        .review-card__review.content
+            p= review
+        footer.review-card__reviewer
+            include _user
+            + user(reviewer, {datetime: '21 фев • 17:51', moderation: moderation})
+
+            if response
+                .review-card__response
+                    p.review-card__response-text Благодарю за отзыв. А Вы замечательный клиент!
+                    ul.review-card__response-meta
+                        li: a(href='employee_articles.html') Имя Фамилия
+                        li 21 фев • 17:51
+                        if moderation
+                            li <a href='#'>Очистить</a> / <a href='#'>Править</a>

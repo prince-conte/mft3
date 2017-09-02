@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+.mobile-menu {
+  @include size(100vw 100vh);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  background: #fff;
+
+  &__inner {
+    @include size(inherit);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    overflow-y: auto;
+    padding: 8rem 2rem 4rem;
+
+    @include mq(sm) {
+      padding: 8rem 4rem 4rem;
+    }
+  }
+
+  &__nav {
+    &:not(:last-child) {
+      margin-bottom: 3rem;
+    }
+  }
+}

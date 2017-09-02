@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+.user {
+  display: flex;
+  align-items: center;
+
+  &__avatar {
+
+  }
+
+  &__avatar-img {
+    vertical-align: top;
+  }
+
+  &__details {
+    flex: 1;
+    margin-left: 1rem;
+  }
+
+  &__name {
+    > a {
+      margin-left: -1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  &__meta {
+    @include text-small;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    color: $color-lighter;
+
+    > li {
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  &--employee {
+    .user__avatar,
+    .user__avatar-img {
+      border-radius: 50%;
+    }
+
+    .user__name {
+      color: $color-lightest;
+    }
+  }
+}

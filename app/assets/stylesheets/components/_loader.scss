@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+.loader {
+  display: flex;
+  justify-content: center;
+  margin: {
+    top: 8rem;
+    bottom: 8rem;
+  }
+
+  @include mq(md) {
+    margin: {
+      top: 10rem;
+      bottom: 10rem;
+    }
+  }
+}
+
+// http://tobiasahlin.com/spinkit/
+@keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+    transform: scale3D(1, 1, 1);
+  } 35% {
+      -webkit-transform: scale3D(0, 0, 1);
+      transform: scale3D(0, 0, 1);
+    }
+}
+.sk-cube-grid {
+  @include size(4rem);
+
+  .sk-cube {
+    @include size(33%);
+    background: #fff;
+    float: left;
+    animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+  }
+
+  .sk-cube1 {
+    animation-delay: 0.2s;
+  }
+  .sk-cube2 {
+    animation-delay: 0.3s;
+  }
+  .sk-cube3 {
+    animation-delay: 0.4s;
+  }
+  .sk-cube4 {
+    animation-delay: 0.1s;
+  }
+  .sk-cube5 {
+    animation-delay: 0.2s;
+  }
+  .sk-cube6 {
+    animation-delay: 0.3s;
+  }
+  .sk-cube7 {
+    animation-delay: 0s;
+  }
+  .sk-cube8 {
+    animation-delay: 0.1s;
+  }
+  .sk-cube9 {
+    animation-delay: 0.2s;
+  }
+}
+

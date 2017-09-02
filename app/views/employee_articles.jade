@@ -1,0 +1,40 @@
+extends layouts/application
+
+block title
+    title FT3 / Сотрудник
+
+block header
+    include layouts/components/_header
+    + header({authorization: false, inner: true})
+
+block main
+    .employee-layout
+        .container
+            .employee-layout__row
+                .employee-layout__column
+                    include layouts/components/_employee_card
+
+                    include layouts/components/_navigation
+                    + navigation([{link: 'employee_articles.html', title: 'Статьи', active: true}, {link: 'employee_reviews.html', title: 'Отзывы'}], {id: 'navigation'})
+
+                    .articles
+                        .articles__list
+                            - var articles = [{reviews: 2, author: 'Имя Фамилия', title: 'Добавляем видео', content: 'video'}, {reviews: 117, author: 'Максим Скрябин', title: 'Как продают автомобили в штатах', content: 'photo'}, {reviews: 0, author: 'Валентин Моренко', title: 'Продаю Nissan Murano', content: 'quote'}]
+                            - each article in articles
+                                include layouts/components/_article_card
+                                + articleCard(article.reviews, article.author, null, article.title, article.content)
+
+                    include layouts/components/_loader
+
+block mobileMenu
+    include layouts/components/_mobile_menu
+    + mobileMenu({authorized: false, inner: true})
+
+block messengers
+    include layouts/components/_messengers
+    + messengers('single')
+
+block append scripts
+    script(src='../assets/javascripts/components/employees.js')
+    script(src='../assets/javascripts/components/messengers.js')
+    script(src='../assets/javascripts/components/content.js')

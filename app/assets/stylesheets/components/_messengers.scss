@@ -1,0 +1,163 @@
+@charset "UTF-8";
+
+@mixin messengers-round {
+  background: #fff;
+  box-shadow: 0 .5rem 2rem 0 rgba($color-base, .1);
+  border-radius: 50%;
+}
+
+.messengers {
+  @include size(7rem);
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 999;
+  border-radius: 50%;
+
+  @include mq(sm) {
+    right: 2rem;
+    bottom: 2rem;
+  }
+
+  @include mq(md) {
+    right: 3rem;
+    bottom: 3rem;
+  }
+
+  &[data-type="single"] {
+    > a {
+      @include messengers-round;
+      @include size(7rem);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $color-light;
+    }
+  }
+
+  &[data-type="multiple"] {
+    > button {
+      @include messengers-round;
+      @include size(7rem);
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $color-light;
+      cursor: pointer;
+
+      > .icon { // iPhone 6 Plus
+        margin: {
+          right: auto;
+          left: auto;
+        }
+      }
+
+      .mod_no-touchevents & {
+        &:hover {
+          color: $color-brand;
+        }
+      }
+
+      &:not(.is-active) {
+        > .icon:nth-child(2) {
+          display: none !important;
+        }
+      }
+
+      &.is-active {
+        background: transparent;
+        box-shadow: none;
+        color: #fff;
+        text-shadow: 0 0 5px rgba($color-base, .5);
+
+        > .icon:nth-child(1) {
+          display: none !important;
+        }
+
+        .mod_no-touchevents & {
+          &:hover {
+            color: $color-light;
+            text-shadow: none;
+          }
+        }
+
+        + ul {
+          > li {
+            &:nth-child(1) {
+              transform: translate(1rem, -8rem) scale(1);
+            }
+
+            &:nth-child(2) {
+              transform: translate(-6rem, -6rem) scale(1);
+            }
+
+            &:nth-child(3) {
+              transform: translate(-8rem, 1rem) scale(1);
+            }
+          }
+        }
+      }
+    }
+
+    > ul {
+      @include size(100%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+
+      > li {
+        @include size(100%);
+        transform: translate(0, 0) scale(0);
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform .1s ease-in-out;
+        will-change: transform;
+
+
+        &:nth-child(1) {
+          transition-delay: .2s;
+        }
+
+        &:nth-child(2) {
+          transition-delay: .1s;
+        }
+
+        &:nth-child(3) {
+          transition-delay: .15s;
+        }
+
+        > a {
+          @include messengers-round;
+          @include size(5rem);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: $color-light;
+        }
+      }
+    }
+  }
+
+  .mod_no-touchevents & {
+    a {
+      &.is-facebook-messenger:hover {
+        color: $color-facebook-messenger;
+      }
+
+      &.is-telegram:hover {
+        color: $color-telegram;
+      }
+
+      &.is-whatsapp:hover {
+        color: $color-whatsapp;
+      }
+    }
+  }
+}

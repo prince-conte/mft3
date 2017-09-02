@@ -1,0 +1,25 @@
+mixin user(name, meta, type, link)
+    - var modifier = ''
+    if type
+        - modifier = type
+    article.user.js-hover-container(class='#{modifier}')
+        .user__avatar
+            if link
+                a.js-hover(href='#{link}')
+                    img.user__avatar-img(src='../assets/images/avatar.svg' width='40' height='40' alt='')
+            else
+                img.user__avatar-img(src='../assets/images/avatar.svg' width='40' height='40' alt='')
+        .user__details
+            h6.user__name
+                if link
+                    a.js-hover(href='#{link}')= name
+                else
+                    = name
+            if meta
+                ul.user__meta
+                    if meta.datetime
+                        li= meta.datetime
+                    if meta.actions
+                        li Actions
+                    if meta.moderation
+                        li <a href='#'>Забанить</a> / <a href='#'>Спрятать</a> / <a href='#'>Ответить</a>

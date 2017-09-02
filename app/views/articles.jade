@@ -1,0 +1,31 @@
+extends layouts/application
+
+block title
+    title FT3 / Статьи
+
+block header
+    include layouts/components/_header
+    + header({authorized: false})
+
+block main
+    include layouts/components/_navigation
+    + navigation([{link: 'employees.html', title: 'Сотрудники'}, {link: 'articles.html', title: 'Статьи', active: true}, {link: 'reviews.html', title: 'Отзывы'}], {id: 'navigation'}, null, {main: true})
+
+    .articles
+        .container
+            .articles__blocks#articles-blocks
+                - var articles = [{reviews: 2, author: 'Имя Фамилия', title: 'Добавляем видео', content: 'video'}, {reviews: 117, author: 'Максим Скрябин', title: 'Как продают автомобили в штатах', content: 'photo'}, {reviews: 0, author: 'Валентин Моренко', title: 'Продаю Nissan Murano', content: 'quote'}, {reviews: 333, author: 'Константин Поспелов', title: 'Карточка с текстом', content: 'text'}, {reviews: 2, author: 'Имя Фамилия', title: 'Добавляем видео', content: 'video'}, {reviews: 117, author: 'Максим Скрябин', title: 'Как продают автомобили в штатах', content: 'photo'}, {reviews: 0, author: 'Валентин Моренко', title: 'Продаю Nissan Murano', content: 'quote'}, {reviews: 333, author: 'Константин Поспелов', title: 'Карточка с текстом', content: 'text'}]
+                - each article in articles
+                    .articles__block
+                        include layouts/components/_article_card
+                        + articleCard(article.reviews, article.author, 'employee_articles.html', article.title, article.content)
+
+block mobileMenu
+    include layouts/components/_mobile_menu
+    + mobileMenu({authorized: false, inner: false})
+
+block append scripts
+    script(src='../assets/javascripts/vendor/isotope.pkgd.js')
+
+    script(src='../assets/javascripts/components/articles.js')
+    script(src='../assets/javascripts/components/content.js')

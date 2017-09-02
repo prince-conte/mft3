@@ -1,0 +1,109 @@
+.popup.popup--authorization#popup-authorization
+    include _popup_close
+    article.popup-authorization
+        h5.popup-authorization__title Выберите соцсеть для входа или регистрации:
+        ul.popup-authorization__social
+            li
+                a.is-twitter(href='#') Twitter
+            li
+                a.is-facebook(href='#') Facebook
+            li
+                a.is-google-plus(href='#') Google
+        footer.popup-authorization__support При поддержке <a href='#'>ft3.com</a>
+
+.popup#popup-review-not-authorized
+    include _popup_close
+    .review-card.review-card--popup.review-card--add.card
+        form.review-add(action='#')
+            fieldset.review-add__fieldset
+                legend.review-add__legend Максим Скрябин
+                textarea.review-add__textarea.js-textarea-autosize.js-authorization-focus(rows='1' placeholder='Текст отзыва...')
+
+.popup#popup-review-authorized
+    include _popup_close
+    .review-card.review-card--popup.card
+        form.review-add(action='#')
+            fieldset.review-add__fieldset
+                legend.review-add__legend Максим Скрябин
+                textarea.review-add__textarea.js-textarea-autosize(rows='1' placeholder='Текст отзыва...' autofocus)
+            ul.review-add__action
+                li
+                    img.user__avatar-img(src='../assets/images/avatar.svg' width='40' height='40' alt='')
+                li
+                    input.button.button--filled(type='submit' value='Отправить')
+                li.review-add__action-attitude
+                    ul.review-add__attitude
+                        li
+                            input(type='radio' name='attitude')
+                            i.icon.icon--24.mdi.mdi-thumb-up-outline
+                            i.icon.icon--24.mdi.mdi-thumb-up
+                            p положительный
+                        li.is-hr: hr
+                        li
+                            input(type='radio' name='attitude')
+                            i.icon.icon--24.mdi.mdi-thumb-down-outline
+                            i.icon.icon--24.mdi.mdi-thumb-down
+                            p отрицательный
+
+.popup#popup-answer
+    include _popup_close
+    .review-card.review-card--popup.card
+        form.review-add(action='#')
+            fieldset.review-add__fieldset
+                legend.review-add__legend.review-add__legend--employee Андрей Богоявленский
+                textarea.review-add__textarea.js-textarea-autosize(rows='4' placeholder='Текст ответа...' autofocus)
+            ul.review-add__action
+                li.review-add__action-send
+                    input.button.button--filled(type='submit' value='Ответить')
+
+.popup#popup-mail
+    include _popup_close
+    .review-card.review-card--popup.card
+        form.review-add(action='#')
+            fieldset.review-add__fieldset
+                legend.review-add__legend Максим Скрябин
+                input.review-add__input-text(type='text' placeholder='Тема' autofocus)
+                textarea.review-add__textarea.js-textarea-autosize(rows='1' placeholder='Сообщение...')
+            ul.review-add__action
+                li
+                    img.user__avatar-img(src='../assets/images/avatar.svg' width='40' height='40' alt='')
+                li.review-add__action-send
+                    input.button.button--filled(type='submit' value='Отправить')
+
+.popup#popup-messages-empty
+    include _popup_close
+    article.popup-messages
+        h6.popup-messages__title Личное сообщение Максиму Скрябину
+        form(action='#').popup-messages__answer
+            img(src='../assets/images/avatar.svg' width='40' height='40' alt='')
+            textarea.js-textarea-autosize(rows='1' placeholder='Напишите сообщение...' autofocus)
+            input.button.button--filled(type='submit' value='Отправить')
+
+.popup#popup-messages-full
+    include _popup_close
+    article.popup-messages
+        h6.popup-messages__title Личное сообщение Максиму Скрябину
+        ul.popup-messages__list
+            li
+                dl
+                    dt <b>Андрей Богоявленский</b><span>21 фев &bull; 17:52</span>
+                    dd Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            li
+                dl
+                    dt <a href='#'><b>Максим Скрябин</b></a><span>21 фев &bull; 17:52</span>
+                    dd Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            li
+                dl
+                    dt <b>Андрей Богоявленский</b><span>21 фев &bull; 17:52</span>
+                    dd Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+        form(action='#').popup-messages__answer
+            img(src='../assets/images/avatar.svg' width='40' height='40' alt='')
+            textarea.js-textarea-autosize(rows='1' placeholder='Напишите сообщение...' autofocus)
+            input.button.button--filled(type='submit' value='Отправить')
+
+.popup.popup--message#popup-message
+    include _popup_close
+    article.popup-message
+        h5 Спасибо!
+        p Ваше мнение очень важно для меня.
+        a.button.button--filled.js-popup-close(href='#') Ок

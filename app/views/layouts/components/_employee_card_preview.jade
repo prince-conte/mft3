@@ -1,0 +1,22 @@
+mixin employeeCardPreview(name, desc, actions)
+    article.employee-card-preview.card.js-hover-container
+        .employee-card-preview__content
+            a.js-hover(href='employee_articles.html')
+                img.employee-card-preview__userpic(src='../assets/images/userpic.svg' alt='')
+            h2.employee-card-preview__title
+                a.employee-card-preview__title-link.js-hover(href='employee_articles.html')= name
+
+            if desc
+                p.employee-card-preview__desc= desc
+
+        if actions
+            ul.employee-card-preview__actions.employee-actions
+                case actions.length
+                    when 1
+                        li
+                            a.button.button--filled(href='#')= actions[0].title
+                    when 2
+                        li
+                            a.button.button--filled(href='#')= actions[0].title
+                        li
+                            a.button.button--bordered(href='#' data-type=actions[1].type): span= actions[1].title

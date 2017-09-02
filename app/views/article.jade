@@ -1,0 +1,86 @@
+extends layouts/application
+
+block title
+    title FT3 / Статья
+
+block header
+    include layouts/components/_header
+    + header({authorization: false, inner: true})
+
+block main
+    .article-layout
+        .container
+            .article-layout__row
+                .article-layout__column
+                    include layouts/components/_employee_card_article
+
+                    .article
+                        .article__date 21 фев
+                        .article__reviews.reviews-count
+                            span 117
+                            i.icon.icon--24.mdi.mdi-comment-outline
+
+                        h1.article__title Как продают автомобили в&nbsp;штатах
+
+                        include layouts/components/_article_sharing
+
+                        .article__content.content.content--promo.js-content
+                            img(src='https://i.ytimg.com/vi/7bSKVRMQKxU/maxresdefault.jpg' alt='')
+                        .article__content.content.content--promo.js-content
+                            .fotorama
+                                img(src='https://i.ytimg.com/vi/7bSKVRMQKxU/maxresdefault.jpg' alt='' data-caption='Подпись к изображению 1')
+                                img(src='https://i.ytimg.com/vi/7bSKVRMQKxU/maxresdefault.jpg' alt='' data-caption='Подпись к изображению 2')
+                                img(src='https://i.ytimg.com/vi/7bSKVRMQKxU/maxresdefault.jpg' alt='' data-caption='Подпись к изображению 3')
+                        .article__content.content.content--promo.js-content
+                            iframe(width="560" height="315" src="https://www.youtube.com/embed/6KxtgS2lU94" frameborder="0" allowfullscreen)
+
+                        .article__content.content.content--standalone.js-content
+                            p Proin at&nbsp;<a href='#'>ipsum in&nbsp;ipsum</a> rutrum elementum. <i>Quisque semper convallis malesuada. Ut&nbsp;vitae iaculis nulla, eu&nbsp;tempor ligula.</i> Aenean efficitur arcu sed arcu dignissim imperdiet. Cras eu&nbsp;fermentum metus. <b>Nulla blandit tincidunt nunc a&nbsp;fermentum.</b> Etiam eget ex&nbsp;leo. Curabitur accumsan ante id&nbsp;nibh pellentesque pulvinar. Vestibulum dui nibh, mattis sit amet elit&nbsp;et, mollis aliquet risus.
+                            p Vestibulum et&nbsp;odio in&nbsp;dolor viverra lacinia et&nbsp;vel tortor. Nunc ex&nbsp;turpis, aliquam sed libero&nbsp;at, auctor varius arcu.
+                            iframe(width="560" height="315" src="https://www.youtube.com/embed/6KxtgS2lU94" frameborder="0" allowfullscreen)
+                            p In&nbsp;posuere, mi&nbsp;non sollicitudin tempor, magna dui suscipit&nbsp;mi, in&nbsp;consectetur neque nisl sit amet mauris. Fusce ex&nbsp;risus, tristique at&nbsp;mi&nbsp;eget, facilisis sodales enim. Phasellus efficitur orci vel libero mattis, id&nbsp;interdum odio efficitur. In&nbsp;id&nbsp;ex&nbsp;non ex&nbsp;tempor accumsan in&nbsp;nec nisl.
+                            h2 Lorem ipsum dolor sit amet
+                            p Proin at&nbsp;ipsum in&nbsp;ipsum rutrum elementum. Quisque semper convallis malesuada. Ut&nbsp;vitae iaculis nulla, eu&nbsp;tempor ligula. Aenean efficitur arcu sed arcu dignissim imperdiet. Cras eu&nbsp;fermentum metus. Nulla blandit tincidunt nunc a&nbsp;fermentum. Etiam eget ex&nbsp;leo. Curabitur accumsan ante id&nbsp;nibh pellentesque pulvinar.
+                            img(src='http://bse.sci-lib.com/pictures/04/16/295642757.jpg' alt='')
+                            p Proin at&nbsp;ipsum in&nbsp;ipsum rutrum elementum. Quisque semper convallis malesuada. Ut&nbsp;vitae iaculis nulla, eu&nbsp;tempor ligula. Aenean efficitur arcu sed arcu dignissim imperdiet. Cras eu&nbsp;fermentum metus. Nulla blandit tincidunt nunc a&nbsp;fermentum. Etiam eget ex&nbsp;leo. Curabitur accumsan ante id&nbsp;nibh pellentesque pulvinar.
+                            blockquote По&nbsp;результатам проведенной комплексной диагностики технических неисправностей и&nbsp;отклонений не&nbsp;выявлено, что подтверждается сервисным заказ-нарядом.
+                            p Vestibulum dui nibh, mattis sit amet elit et, mollis aliquet risus. <a href='#'>Vestibulum et odio in dolor</a> viverra lacinia et vel tortor. Nunc ex turpis, aliquam sed libero at, auctor varius arcu.
+                            figure
+                                img(src='https://i.ytimg.com/vi/7bSKVRMQKxU/maxresdefault.jpg' alt='')
+                                figcaption Подпись под изображением
+                            p In&nbsp;posuere, mi&nbsp;non sollicitudin tempor, magna dui suscipit&nbsp;mi, in&nbsp;consectetur neque nisl sit amet mauris. Fusce ex&nbsp;risus, tristique at&nbsp;mi&nbsp;eget, facilisis sodales enim. Phasellus efficitur orci vel libero mattis, id&nbsp;interdum odio efficitur. In&nbsp;id&nbsp;ex&nbsp;non ex&nbsp;tempor accumsan in&nbsp;nec nisl. Proin consequat fringilla lacus, eget eleifend tortor gravida eget. Nullam at&nbsp;posuere&nbsp;ex, id&nbsp;laoreet ipsum. Praesent id&nbsp;sodales lorem. Sed congue tellus et&nbsp;mollis convallis. Class aptent taciti sociosqu ad&nbsp;litora torquent per conubia nostra, per inceptos himenaeos.
+                            h3 Lorem ipsum dolor sit amet
+                            ul
+                                li Proin at&nbsp;ipsum in&nbsp;ipsum rutrum elementum.
+                                li Quisque semper convallis malesuada.
+                                li Ut&nbsp;vitae iaculis nulla, eu&nbsp;tempor ligula.
+                                li Aenean efficitur arcu sed arcu dignissim imperdiet.
+                                li Cras eu&nbsp;fermentum metus.
+
+                        include layouts/components/_article_sharing
+
+                    .reviews
+                        .reviews__list
+                            - var reviewsAdd = [{authorized: false}, {authorized: true}]
+                            - each reviewAdd in reviewsAdd
+                                include layouts/components/_review_add
+                                + reviewAdd(reviewAdd.authorized)
+
+                            - var reviews = [{title: 'Максим Скрябин', link: null, review: 'Костя, где же ты? Появись, наконец! Ждём с нетерпением!', reviewer: 'Аркадий Шпателев', icon: 'up', response: true, moderation: true}, {title: 'Максим Скрябин', link: null, review: 'Так это в штатах, там тепло :)', reviewer: 'Андрей Богоявленский'}, {title: 'Максим Скрябин', link: null, review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras libero neque, laoreet eu mi non, interdum sollicitudin dui. Pellentesque mollis ut massa vitae congue. Nullam ac est ut ante sodales vestibulum vitae eu leo. Mauris quis vestibulum turpis.', reviewer: 'Аркадий Шпателев'}]
+                            - each review in reviews
+                                include layouts/components/_review_card
+                                + reviewCard(review.title, review.link, review.review, review.reviewer, review.icon, review.response, review.moderation)
+
+block mobileMenu
+    include layouts/components/_mobile_menu
+    + mobileMenu({authorized: false, inner: true})
+
+block messengers
+    include layouts/components/_messengers
+    + messengers('multiple')
+
+block append scripts
+    script(src='../assets/javascripts/vendor/fotorama.js')
+
+    script(src='../assets/javascripts/components/messengers.js')
+    script(src='../assets/javascripts/components/content.js')

@@ -1,0 +1,34 @@
+doctype html
+
+html(lang='ru')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='x-ua-compatible' content='ie=edge')
+        meta(name='viewport' content='width=device-width, initial-scale=1')
+        block title
+        link(rel='stylesheet' media='all' href='../assets/stylesheets/application.css')
+        script(src='../assets/javascripts/vendor/modernizr-custom.js')
+
+    body
+        block header
+
+        main
+            include components/_picture
+
+            block main
+
+        block messengers
+        block mobileMenu
+        include components/_popups
+
+        block scripts
+            script(src='../assets/javascripts/vendor/jquery.js')
+            script(src='../assets/javascripts/vendor/jquery.magnific-popup.js')
+            script(src='../assets/javascripts/vendor/autosize.js')
+
+            script(src='../assets/javascripts/variables.js')
+            script(src='../assets/javascripts/utilities.js')
+
+            script(src='../assets/javascripts/components/header.js')
+            script(src='../assets/javascripts/components/mobile_menu.js')
+            script(src='../assets/javascripts/components/popups.js')

@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+// Media queries
+$mq-breakpoints: (
+  'xs': 767px,
+  'sm': 768px,
+  'md': 1024px
+);
+
+// Container
+$mq-container-widths: (
+  'xs': 100%,
+  'sm': 100%,
+  'md': 1440px
+);
+
+$mq-container-indents: (
+  'xs': 2rem,
+  'sm': 4rem,
+  'md': 6rem
+);
+
+// Grid
+$mq-grid-gutters: (
+  'xs': 2rem,
+  'sm': 2rem,
+  'md': 3rem
+);
+
+// Border-radius
+$border-radius-small: .6rem;
+$border-radius-base: 1.2rem;
+
+// Colors
+$color-base: #000;
+
+$color-brand: #c71633;
+
+$color-light:    #4d4d4d;
+$color-lighter:  #b2b2b2;
+$color-lightest: #d9d9d9;
+
+$color-facebook: #3b5998;
+$color-facebook-messenger: #0084ff;
+$color-google-plus: #ea4335;
+$color-skype: #00aff0;
+$color-telegram: #08c;
+$color-twitter: #55acee;
+$color-viber: #675ca8;
+$color-vk: #45668e;
+$color-whatsapp: #075e54;
+$color-lk: #f2f2f2;
+
+// Fonts
+$font-family-sans:  Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
+$font-family-serif: Georgia, Times, "Times New Roman", serif;
+
+// Transition
+$transition-duration-base: .2s;

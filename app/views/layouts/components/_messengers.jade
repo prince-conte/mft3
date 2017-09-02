@@ -1,0 +1,18 @@
+mixin messengers(type)
+    if type == 'single'
+        .messengers(data-type='#{type}')
+            a.is-facebook-messenger(href='demo.html')
+                i.icon.icon--36.mdi.mdi-facebook-messenger
+    else
+        .messengers(data-type='#{type}')
+            button#messengers-action(type='button')
+                i.icon.icon--36.mdi.mdi-comment-processing-outline
+                i.icon.icon--36.mdi.mdi-window-close
+            ul#messengers
+                li: a.is-whatsapp(href='demo.html')
+                    i.icon.icon--30.mdi.mdi-whatsapp
+                li: a.is-facebook-messenger(href='demo.html')
+                    i.icon.icon--30.mdi.mdi-facebook-messenger
+                li: a.is-telegram(href='demo.html')
+                    i.icon.icon--30.mdi.mdi-telegram
+

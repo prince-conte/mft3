@@ -1,0 +1,201 @@
+@charset "UTF-8";
+
+@mixin content-indents-base {
+  &:not(:first-child) {
+    margin-top: 2rem;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+}
+
+@mixin content-indents-large {
+  &:not(:first-child) {
+    margin-top: 4rem;
+
+    @include mq(md) {
+      margin-top: 6rem;
+    }
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 4rem;
+
+    @include mq(md) {
+      margin-bottom: 6rem;
+    }
+  }
+}
+
+.content {
+  @include text-large;
+  font-family: $font-family-serif;
+
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  > h2,
+  > h3 {
+    font-family: $font-family-sans;
+
+    &:not(:first-child) {
+      margin-top: 3rem;
+
+      @include mq(sm) {
+        margin-top: 4rem;
+      }
+
+      @include mq(md) {
+        margin-top: 6rem;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  // Blockquote
+  > blockquote {
+    @include content-indents-base;
+    @include font(1.8rem, 2.5rem);
+    padding-left: 2rem;
+    border-left: 1px solid $color-light;
+    font-style: italic;
+
+    @include mq(md) {
+      @include font(2rem, 2.5rem);
+      padding-left: 3rem;
+    }
+  }
+
+  // Figure
+  > figure {
+    @include content-indents-large;
+    position: relative;
+
+    > img {
+      display: block;
+      margin: {
+        right: auto;
+        left: auto;
+      }
+      vertical-align: top;
+    }
+
+    > figcaption {
+      @include text-base;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      margin-top: 1rem;
+      color: $color-lighter;
+      font-family: $font-family-sans;
+      text-align: center;
+    }
+  }
+
+  // Img
+  > img {
+    @include content-indents-large;
+    display: block;
+    margin: {
+      right: auto;
+      left: auto;
+    }
+    vertical-align: top;
+  }
+
+  // Lists
+  > ol,
+  > ul {
+    @include content-indents-base;
+    margin-left: 2rem;
+
+    @include mq(sm) {
+      margin-left: 3rem;
+    }
+
+    @include mq(md) {
+      margin-left: 4.5rem;
+    }
+
+    > li {
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  > ol {
+    list-style: decimal;
+  }
+
+  > ul {
+    list-style: disc;
+  }
+
+  // Paragraph
+  > p {
+    @include content-indents-base;
+  }
+
+  // Video (Youtube, Vimeo)
+  &__video {
+    @include content-indents-large;
+    position: relative;
+    padding-bottom: 56.25%; // 16:9
+    height: 0;
+
+    > iframe {
+      @include size(100%);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &--promo {
+    margin: {
+      right: -2rem;
+      left: -2rem;
+    }
+
+    @include mq(sm) {
+      margin: {
+        right: -4rem;
+        left: -4rem;
+      }
+    }
+
+    @include mq(md) {
+      margin: {
+        right: -6rem;
+        left: -6rem;
+      }
+    }
+
+    > img {
+      max-width: none;
+      width: 100%;
+    }
+  }
+
+  &--standalone {
+    > .content__video {
+      @include mq(md) {
+        margin: {
+          right: 4rem;
+          left: 4rem;
+        }
+      }
+    }
+  }
+}
