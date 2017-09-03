@@ -1,0 +1,33 @@
+extends layouts/lk_application
+
+block title
+    title FT3 / Сотрудники
+
+block header
+    include layouts/components/_header
+    + header({authorized: true})
+
+block main
+
+    section
+        .container
+            .setting-form
+                .setting-form__title-line
+                    h1 Персональные данные
+
+                .setting-form__header
+
+                    .setting-form__image-block
+                        img(src='../assets/images/userpic.svg' alt='photo')
+                        a(href='#') Изменить
+
+                    .setting-form__image-block
+                        img(src='../assets/images/qr.png' alt='photo')
+                        a(href='#') Скачать
+
+
+
+
+block mobileMenu
+    include layouts/components/_mobile_menu
+    + mobileMenu({authorized: true, inner: false})

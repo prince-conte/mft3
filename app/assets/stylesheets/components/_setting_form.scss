@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+.setting-form {
+  font-family: $font-family-sans;
+  margin-top: 4rem;
+
+  @include mq(md) {
+    margin-left: 23.5rem;
+    margin-right: 23.5rem;
+  }
+
+  @include mq(sm) {
+    margin-top: 6rem;
+  }
+
+  &__title-line {
+
+    > h1 {
+      @include font(1.4rem,2.2rem);
+      text-transform: uppercase;
+      color: $color-light;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+
+    @include mq(sm) {
+      margin: 6rem 13.5rem;
+    }
+  }
+
+  &__image-block {
+    @include size(12rem);
+
+    @include mq(sm) {
+      @include size(24rem)
+    }
+
+    > img {
+      width: 100%;
+      height: auto;
+      vertical-align: top;
+      border-radius: 50%;
+    }
+
+    > a {
+      @include font(1.4rem,2rem);
+      margin-top: 1rem;
+      display: block;
+      text-align: center;
+      color: #4d4d4d;
+    }
+  }
+
+  // settings form
+
+  &__form {
+    margin-top: 4rem;
+
+    @include mq(sm) {
+      margin: 6rem 22rem;
+    }
+  }
+
+  &__form-input-block {
+
+  }
+
+
+}

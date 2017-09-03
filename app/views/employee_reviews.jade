@@ -36,10 +36,10 @@ block main
                                 include layouts/components/_review_add
                                 + reviewAdd(reviewAdd.authorized)
 
-                            - var reviews = [{title: 'Имя фамилия', link: null, review: 'Костя, где же ты? Появись, наконец! Ждём с нетерпением!', reviewer: 'Аркадий Шпателев', icon: 'up', response: true}, {title: 'Имя фамилия', link: null, review: 'Так это в штатах, там тепло :)', reviewer: 'Андрей Богоявленский'}, {title: 'Имя фамилия', link: null, review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras libero neque, laoreet eu mi non, interdum sollicitudin dui. Pellentesque mollis ut massa vitae congue. Nullam ac est ut ante sodales vestibulum vitae eu leo. Mauris quis vestibulum turpis.', reviewer: 'Аркадий Шпателев'}]
+                            - var reviews = [{title: 'Имя фамилия', link: null, review: 'Костя, где же ты? Появись, наконец! Ждём с нетерпением!', reviewer: 'Аркадий Шпателев1', icon: 'up', response: true, moderation: true}, {title: 'Имя фамилия', link: null, review: 'Так это в штатах, там тепло :)', reviewer: 'Андрей Богоявленский'}, {title: 'Имя фамилия', link: null, review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras libero neque, laoreet eu mi non, interdum sollicitudin dui. Pellentesque mollis ut massa vitae congue. Nullam ac est ut ante sodales vestibulum vitae eu leo. Mauris quis vestibulum turpis.', reviewer: 'Аркадий Шпателев'}]
                             - each review in reviews
                                 include layouts/components/_review_card
-                                + reviewCard(review.title, review.link, review.review, review.reviewer, review.icon, review.response)
+                                + reviewCard(review.title, review.link, review.review, review.reviewer, review.icon, review.response, review.moderation)
 
                     include layouts/components/_loader
 
