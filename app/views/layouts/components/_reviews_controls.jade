@@ -1,0 +1,42 @@
+mixin reviews_controls()
+
+    form.page-controls.forms
+        .container
+            .page-controls__input-grid.page-controls__input-grid--between
+
+                .page-controls__input-block.page-controls__input-block--full
+
+                    .ui-article-select
+                        select.js-selectmenu-select
+                            option(selected) Отзывы Сотрудников
+                            option Мои отзывы
+
+
+                    .label-grid
+                        label.label-checkbox Мои отзывы
+
+                        span.checkbox
+                            input(type='checkbox')
+                            span
+                            i
+
+                        label.label-checkbox.is-active Отзывы Сотрудников
+
+
+            .page-controls__input-grid.page-controls__input-grid--filter
+
+                .page-controls__filter-input-block
+                    input(type='search' placeholder='Быстрый поиск...')
+
+                .page-controls__filter-input-block
+                    select.js-selectmenu-select
+                        option(selected) Все отзывы
+                        option Option 2
+                        option Option 3
+
+                .page-controls__filter-input-block
+                    select.js-selectmenu-select
+                        option(selected) Все сотрудники
+                        option Option 2
+                        option Option 3
+

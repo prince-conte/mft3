@@ -10,13 +10,21 @@ mixin employeeCardPreview(name, desc, actions)
                 p.employee-card-preview__desc= desc
 
         if actions
-            ul.employee-card-preview__actions.employee-actions
-                case actions.length
-                    when 1
-                        li
-                            a.button.button--filled(href='#')= actions[0].title
-                    when 2
-                        li
-                            a.button.button--filled(href='#')= actions[0].title
-                        li
-                            a.button.button--bordered(href='#' data-type=actions[1].type): span= actions[1].title
+            .controls-button-grid.controls-button-grid--top-auto
+
+                    a.control-button.control-button--edit Редактировать
+
+                    a.control-button.control-button--delete
+                        span.is-desktop Удалить
+                        i.mdi.mdi-close.not-desktop
+
+
+                //case actions.length
+                //    when 1
+                //        li
+                //            a.button.button--filled(href='#')= actions[0].title
+                //    when 2
+                //        li
+                //            a.button.button--filled(href='#')= actions[0].title
+                //        li
+                //            a.button.button--bordered(href='#' data-type=actions[1].type): span= actions[1].title

@@ -1,0 +1,53 @@
+mixin article_controls()
+
+    form.page-controls.forms
+        .container
+            .page-controls__input-grid.page-controls__input-grid--between
+
+                .page-controls__input-block
+
+                    .ui-article-select
+                        select.js-selectmenu-select
+                            option(selected) Статьи Сотрудников
+                            option Мои статьи
+
+
+                    .label-grid
+                        label.label-checkbox МОИ СТАТЬИ
+
+                        span.checkbox
+                            input(type='checkbox')
+                            span
+                            i
+
+                        label.label-checkbox.is-active Статьи Сотрудников
+
+                .page-controls__input-block
+                    a.control-button.control-button--create(href='#')
+                        span.not-mobile Создать статью
+                        i.mdi.mdi-plus.is-mobile
+
+
+            .page-controls__input-grid.page-controls__input-grid--filter
+
+                .page-controls__filter-input-block.page-controls__filter-input-block--1-4
+                    input(type='search' placeholder='Быстрый поиск...')
+
+                .page-controls__filter-input-block.page-controls__filter-input-block--1-4
+                    select.js-selectmenu-select
+                        option(selected) Все категории
+                        option Option 2
+                        option Option 3
+
+                .page-controls__filter-input-block.page-controls__filter-input-block--1-4
+                    select.js-selectmenu-select
+                        option(selected) Все статьи
+                        option Option 2
+                        option Option 3
+
+                .page-controls__filter-input-block.page-controls__filter-input-block--1-4
+                    select.js-selectmenu-select
+                        option(selected) Все сотрудники
+                        option Option 2
+                        option Option 3
+

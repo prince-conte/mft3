@@ -73,3 +73,115 @@
     padding: 1.8rem 1.9rem;
   }
 }
+
+.controls-button-grid {
+  display: flex;
+
+  &--top-auto {
+    margin-top: auto;
+  }
+
+  > a {
+
+    &:not(:first-child) {
+      margin-left: 1rem;
+    }
+
+    @include mq(xs) {
+      &:first-child {
+        flex-grow: 3;
+      }
+    }
+
+    @include mq(sm) {
+      &:first-child {
+        flex-grow: 4;
+      }
+    }
+
+    @include mq(md) {
+      width: 50%;
+
+      &:first-child {
+        flex-grow: 1;
+      }
+    }
+  }
+
+}
+
+.control-button {
+  @include font(1.4rem,1.4rem);
+  display: inline-block;
+  padding: 1.25rem 2.6rem;
+  border-radius: $border-radius-small;
+  border: 1px solid $color-light;
+  text-align: center;
+  text-decoration: none;
+  background: $color-light;
+  color: #fff;
+  transition: $transition-duration-base;
+  cursor: default;
+
+  @include mq(md) {
+    &:hover {
+      text-decoration: none;
+      opacity: .7;
+    }
+  }
+
+  &--edit, &--delete {
+
+    @include mq(md) {
+      flex-grow: 1;
+
+      &:hover {
+        border-color: #b3b3b3;
+        background: #b3b3b3;
+        color: #fff;
+        cursor: default;
+      }
+    }
+  }
+
+  &--create, &--delete {
+
+    @include mq(xs) {
+      padding: .8rem;
+    }
+
+    > i {
+      @include font(2.1rem,2.1rem);
+      font-weight: 700;
+    }
+
+  }
+
+  &--edit {
+    border-color: #b3b3b3;
+    background: #b3b3b3;
+  }
+
+  &--delete {
+    background: #fff;
+    border-color: #b3b3b3;
+    color: #b3b3b3;
+
+    @include mq(xs) {
+      padding: .8rem;
+    }
+
+    @include mq(sm) {
+      padding: .8rem;
+    }
+
+    @include mq(md) {
+      padding: 1.25rem 2.6rem;
+    }
+
+  }
+}
+
+.team-controls-button {
+
+}

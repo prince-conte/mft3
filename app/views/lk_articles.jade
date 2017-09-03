@@ -8,8 +8,8 @@ block header
     + header({authorized: false})
 
 block main
-    include layouts/components/_navigation
-    + navigation([{link: 'employees.html', title: 'Сотрудники'}, {link: 'articles.html', title: 'Статьи', active: true}, {link: 'reviews.html', title: 'Отзывы'}], {id: 'navigation'}, null, {main: true})
+    include layouts/components/_article_controls
+    + article_controls
 
     .articles
         .container

@@ -177,6 +177,19 @@
     padding: 3rem 3rem 6rem;
   }
 
+  &--controls {
+    padding-bottom: 2rem;
+
+    @include mq(sm) {
+      padding-bottom: 3rem;
+    }
+
+  }
+
+  &__controls {
+    margin-top: 2rem;
+  }
+
   &__reviews {
     position: absolute;
     top: 1rem;

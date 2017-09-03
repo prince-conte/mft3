@@ -1,0 +1,36 @@
+.is-mobile {
+  @include mq(sm) {
+    display: none;
+  }
+}
+
+.not-mobile {
+
+  @include mq(xs) {
+    display: none;
+  }
+}
+
+.is-desktop {
+
+  @include mq(xs) {
+    display: none;
+  }
+
+  @include mq(sm) {
+    display: none;
+  }
+
+  @include mq(md) {
+    display: block;
+  }
+
+
+}
+
+.not-desktop {
+
+  @include mq(md) {
+    display: none;
+  }
+}

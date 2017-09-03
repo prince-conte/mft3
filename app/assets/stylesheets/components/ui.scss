@@ -2,6 +2,29 @@
 
 // selectmenu
 
+.ui-article-select {
+
+  @include mq(sm) {
+    display: none;
+  }
+
+  .ui-selectmenu-button {
+    @include font(1.4rem, 1.4rem);
+    padding: 1.2rem 0;
+    border: 1px solid transparent;
+    background: transparent;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: $color-light;
+  }
+
+  .ui-selectmenu-button-open {
+    padding: 1.2rem 2rem;
+    border: 1px solid $color-lightest;
+    background: #fff;
+  }
+}
+
 
 .ui-selectmenu-button {
   @include font(1.6rem,1.6rem);
@@ -10,9 +33,10 @@
   display: block;
   width: 100%;
   padding: 2rem;
-  border: 1px solid $color-lightest;
-  color: $color-light;
   border-radius: $border-radius-small;
+  border: 1px solid $color-lightest;
+  background: #fff;
+  color: $color-light;
   cursor: default;
   outline: none;
 

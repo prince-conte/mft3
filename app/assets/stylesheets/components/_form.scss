@@ -88,6 +88,10 @@
   .label-grid {
     display: inline-flex;
     align-items: center;
+
+    @include mq(xs) {
+      display: none;
+    }
   }
 
   .label-checkbox {
@@ -96,6 +100,10 @@
     text-transform: uppercase;
     font-weight: 700;
     color: rgba($color-light, .7);
+
+    @include mq(xs) {
+      display: none;
+    }
 
     &.is-active {
       color: $color-light;

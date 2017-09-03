@@ -1,5 +1,5 @@
 mixin articleCard(reviews, author, authorLink, title, content)
-    article.article-card.card
+    article.article-card.article-card--controls.card
         .article-card__reviews.reviews-count
             span= reviews
             i.icon.icon--24.mdi.mdi-comment-outline
@@ -25,3 +25,12 @@ mixin articleCard(reviews, author, authorLink, title, content)
                         img(src='http://static.kavtoday.ru/images/intros/20161214/74c8028efb14a7e582533384e2d1b7d0.jpg' alt='')
                     when 'video'
                         iframe(width="560" height="315" src="https://www.youtube.com/embed/6KxtgS2lU94" frameborder="0" allowfullscreen)
+
+            .article-card__controls
+                .controls-button-grid
+
+                    a.control-button.control-button--edit(href='#') Редактировать
+                    a.control-button.control-button--delete(href='#')
+                        span.is-desktop Удалить
+                        i.mdi.mdi-close.not-desktop
+
