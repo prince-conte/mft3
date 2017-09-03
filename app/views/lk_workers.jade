@@ -1,0 +1,23 @@
+extends layouts/lk_application
+
+block title
+    title FT3 / Сотрудники
+
+block header
+    include layouts/components/_header
+    + header({authorized: true})
+
+block main
+    include layouts/components/_workers_controls
+    + workers_controls
+
+
+    .employees
+        .container
+            .employees__blocks
+                include layouts/components/_workers_cards
+                + workersCards
+
+block mobileMenu
+    include layouts/components/_mobile_menu
+    + mobileMenu({authorized: true, inner: false})
