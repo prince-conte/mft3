@@ -1,30 +1,40 @@
 extends layouts/lk_application
 
 block title
-    title FT3 / Отзывы
+    title FT3 / Сотрудник
 
 block header
     include layouts/components/_header
-    + header({authorized: false})
+    + header({authorization: false, inner: true})
 
 block main
     include layouts/components/_reviews_controls
     + reviews_controls
-
-    .reviews
+    .employee-layout.employee-layout--alt
         .container
-            .reviews__blocks#reviews-blocks
-                - var reviews = [{title: 'Konstantin Nait', link: 'employee_articles.html', review: 'Костя, где же ты? Появись, наконец! Ждём с нетерпением!', reviewer: 'Аркадий Шпателев', icon: 'up'}, {title: 'Как продают автомобили в штатах', link: 'article.html', review: 'Так это в штатах, там тепло :)', reviewer: 'Андрей Богоявленский'}, {title: 'Подборка YouTube каналов — что посмотреть про автомобили', link: 'article.html', review: 'Веселая подборка каналов у вас получилась, больше всего понравился — «Natashka PLUS»', reviewer: 'Аркадий Шпателев'}, {title: 'Максим Скрябин', link: 'employee_articles.html', review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tristique non tellus vel blandit. Sed mauris orci, feugiat nec nisl ultrices, consequat condimentum lacus. Donec suscipit vulputate semper. Morbi non rutrum erat. Maecenas accumsan vehicula ante, sit amet fermentum velit lobortis...', reviewer: 'Иван Иванов', icon: 'down'}, {title: 'Как продают автомобили в штатах', link: 'article.html', review: 'Прям хороший продавец, все показал рассказал.. Приятно общаться, веселый парень.', reviewer: 'Андрей Богоявленский'}, {title: 'Konstantin Nait', link: 'employee_articles.html', review: 'Долго ждал пока с другим клиентом общался. Понравилось, что посоветовал не переплачивать за доп опции по гарантии.', reviewer: 'Аркадий Шпателев', icon: 'up'}]
-                - each review in reviews
-                    .reviews__block
-                        include layouts/components/_review_card
-                        + reviewCard(review.title, review.link, review.review, review.reviewer, review.icon, false)
+            .employee-layout__row
+                .employee-layout__column
+
+                    .reviews
+
+                        .reviews__list
+
+                            - var reviews = [{title: 'Имя фамилия', link: null, review: 'Костя, где же ты? Появись, наконец! Ждём с нетерпением!', reviewer: 'Аркадий Шпателев1', icon: 'up', response: true, moderation: true}, {title: 'Имя фамилия', link: null, review: 'Так это в штатах, там тепло :)', reviewer: 'Андрей Богоявленский'}, {title: 'Имя фамилия', link: null, review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras libero neque, laoreet eu mi non, interdum sollicitudin dui. Pellentesque mollis ut massa vitae congue. Nullam ac est ut ante sodales vestibulum vitae eu leo. Mauris quis vestibulum turpis.', reviewer: 'Аркадий Шпателев'}]
+                            - each review in reviews
+                                include layouts/components/_review_card
+                                + reviewCard(review.title, review.link, review.review, review.reviewer, review.icon, review.response, review.moderation)
+
+                    include layouts/components/_loader
 
 block mobileMenu
     include layouts/components/_mobile_menu
-    + mobileMenu({authorized: false, inner: false})
+    + mobileMenu({authorized: false, inner: true})
+
+block messengers
+    include layouts/components/_messengers
+    + messengers('multiple')
 
 block append scripts
-    script(src='../assets/javascripts/vendor/isotope.pkgd.js')
-
-    script(src='../assets/javascripts/components/reviews.js')
+    script(src='../assets/javascripts/components/employees.js')
+    script(src='../assets/javascripts/components/messengers.js')
+    script(src='../assets/javascripts/components/content.js')

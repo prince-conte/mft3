@@ -2159,6 +2159,16 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   @media all and (min-width: 1024px) {
     .employee-layout {
       margin-top: -12rem; } }
+  .employee-layout--alt {
+    margin-top: 0; }
+    @media all and (min-width: 768px) {
+      .employee-layout--alt {
+        margin-top: 0rem; } }
+    @media all and (min-width: 1024px) {
+      .employee-layout--alt {
+        margin-top: 0rem; } }
+    .employee-layout--alt .reviews {
+      margin-top: 0; }
   @media all and (min-width: 1024px) {
     .employee-layout__row {
       display: -webkit-box;
