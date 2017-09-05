@@ -219,8 +219,13 @@
   }
 
   &__title-link {
+    @include font(1.8rem,2.2rem);
     display: inline-block;
     color: $color-light;
+
+    @include mq(sm) {
+      @include font(2.6rem,3rem);
+    }
 
     &:hover,
     &.hover {

@@ -4,7 +4,7 @@
   font-family: $font-family-sans;
   margin-top: 4rem;
 
-  @include mq(md) {
+  @media (min-width: 1180px) {
     margin-left: 23.5rem;
     margin-right: 23.5rem;
   }
@@ -24,19 +24,35 @@
 
   &__header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 4rem;
 
+    @include mq(xs) {
+      justify-content: space-between;
+    }
+
     @include mq(sm) {
-      margin: 6rem 13.5rem;
+      margin-top: 6rem;
+    }
+
+    @media (min-width: 1180px) {
+      margin-left: 13.5rem;
+      margin-right: 13.5rem;
+      justify-content: space-between;
     }
   }
 
   &__image-block {
-    @include size(12rem);
+    width: 12rem;
+
+    @media (min-width: 1180px) {
+      width: 24rem;
+    }
 
     @include mq(sm) {
-      @include size(24rem)
+      &:not(:last-child) {
+        margin-right: 4rem;
+      }
     }
 
     > img {
@@ -57,16 +73,110 @@
 
   // settings form
 
-  &__form {
+  &__form-body {
     margin-top: 4rem;
 
-    @include mq(sm) {
+    @include mq(md) {
       margin: 6rem 22rem;
     }
   }
 
   &__form-input-block {
+    position: relative;
 
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    &--absolute-label {
+
+      > label:not(.forms__label-check), > p {
+        @media (min-width: 1180px) {
+          position: absolute;
+          top: 50%;
+        }
+      }
+
+      > label:not(.forms__label-check) {
+        @include font(1.6rem,2.2rem);
+        display: block;
+        font-weight: 700;
+        color: $color-base-alt;
+
+        &:not(:last-child) {
+          margin-bottom: 1rem;
+        }
+
+        @include mq(sm) {
+          display: block;
+        }
+
+        @media (min-width: 1180px) {
+          left: -3rem;
+          transform: translate(-100%, -50%);
+        }
+      }
+
+      > p {
+        @include font(1.2rem,1.8rem);
+        display: block;
+        color: $color-lighter;
+
+        &:not(:first-child) {
+          margin-top: .6rem;
+        }
+
+        @media (min-width: 1180px) {
+          right: -3rem;
+          transform: translate(100%, -50%);
+          max-width: 19rem;
+        }
+      }
+    }
+
+    > textarea {
+      height: 18rem;
+      resize: none;
+    }
+
+    &--for-button {
+      margin-top: 4rem;
+
+      @include mq(sm) {
+        margin-top: 6rem;
+      }
+
+      > button {
+        @include font(1.6rem, 2rem);
+        display: block;
+        width: 100%;
+        padding: 2rem;
+        text-align: center;
+        border-radius: $border-radius-small;
+        background: $color-base-alt;
+        color: #fff;
+
+        @include mq(md) {
+          &:hover {
+            background: rgba($color-base-alt, .7);
+          }
+        }
+      }
+    }
+  }
+
+  &__group-title {
+    @include font(1.4rem,2.2rem);
+    margin: 3.8rem 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .075em;
+    color: $color-base-alt;
+
+
+    @media (min-width: 1180px) {
+      margin: 5rem 0 5rem -22rem;
+    }
   }
 
 

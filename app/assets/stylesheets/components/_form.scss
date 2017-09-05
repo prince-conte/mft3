@@ -29,6 +29,77 @@
     }
   }
 
+  // form-checkbox
+
+  &__label-check {
+    position: relative;
+    display: block;
+    padding-left: 3rem;
+
+    &:not(:first-child) {
+      margin-top: 1rem;
+    }
+
+    span:not(.forms__checkbox) {
+      @include font(1.6rem,2.2rem);
+      color: $color-base-alt;;
+    }
+  }
+
+  &__checkbox {
+    @include size(2rem);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    overflow: hidden;
+    border-radius: $border-radius-small;
+    border: 1px solid $color-lightest;
+    z-index: 2;
+
+    > input {
+      @include size(100%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      padding: 0;
+      z-index: 4;
+
+      + span {
+        @include size(100%);
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 2px;
+        background: #fff;
+        z-index: 2;
+
+        + i {
+          @include size(1.2rem);
+          display: none;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+          border-radius: .3rem;
+          background: $color-base-alt;
+          z-index: 3;
+        }
+
+      }
+
+      &:checked + span  {
+
+      }
+
+      &:checked + span + i {
+        right: auto;
+        display: block;
+      }
+    }
+  }
+
   // checkbox
 
   .checkbox {

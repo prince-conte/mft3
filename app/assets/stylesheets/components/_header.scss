@@ -179,10 +179,9 @@ $header-size-md: 10rem;
   }
 
   &__nav {
-    display: none;
 
     @include mq(md) {
-      margin-right: 3rem;
+      flex: 2;
     }
   }
 
@@ -208,6 +207,8 @@ $header-size-md: 10rem;
 
   // Mobile menu
   &__mobile-menu {
+    display: inline-flex;
+    align-items: center;
     margin: {
       right: -.9rem;
       left: auto;
@@ -215,6 +216,31 @@ $header-size-md: 10rem;
 
     @include mq(md) {
       display: none;
+    }
+  }
+
+
+  &__user-photo {
+    display: none;
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+
+    @include mq(xs) {
+      display: block;
+    }
+
+    > a {
+      @include size(4rem);
+      display: block;
+      border-radius: 50%;
+      overflow: hidden;
+
+      > img {
+        width: 100%;
+        height: auto;
+        vertical-align: top;
+      }
     }
   }
 

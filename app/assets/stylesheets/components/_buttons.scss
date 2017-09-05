@@ -154,8 +154,8 @@
       flex-grow: 1;
 
       &:hover {
-        border-color: rgba(#b3b3b3, .7);
-        background: rgba(#b3b3b3, .7);
+        border-color: rgba($color-brand, .7);
+        background: rgba($color-brand, .7);
         color: #fff;
         cursor: default;
       }
@@ -176,14 +176,14 @@
   }
 
   &--edit {
-    border-color: #b3b3b3;
-    background: #b3b3b3;
+    border-color: $color-brand;
+    background: $color-brand;
   }
 
   &--delete {
     background: #fff;
-    border-color: #b3b3b3;
-    color: #b3b3b3;
+    border-color: $color-brand;
+    color: $color-brand;
 
     @include mq(xs) {
       padding: .8rem;
