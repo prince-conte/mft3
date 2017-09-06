@@ -69,6 +69,13 @@
       text-align: center;
       color: #4d4d4d;
     }
+
+    &--qr {
+
+      > img {
+        border-radius: 0;
+      }
+    }
   }
 
   // settings form

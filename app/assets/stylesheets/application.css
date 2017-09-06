@@ -989,6 +989,8 @@ main .navigation {
       display: block;
       text-align: center;
       color: #4d4d4d; }
+    .setting-form__image-block--qr > img {
+      border-radius: 0; }
   .setting-form__form-body {
     margin-top: 4rem; }
     @media all and (min-width: 1024px) {
