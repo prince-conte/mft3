@@ -27,6 +27,10 @@
     &::placeholder {
       color: $color-lighter;
     }
+
+    &:disabled {
+      background: transparent;
+    }
   }
 
   // form-checkbox

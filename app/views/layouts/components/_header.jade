@@ -10,7 +10,7 @@ mixin header(params)
             .header__inner
                 .header__logo
                     a(href='http://www.ascgroup.ru/' target='_blank')
-                        img.header__logo-img(src='../assets/images/brand/logo.jpg' alt='АвтоСпецЦентр')
+                        img.header__logo-img(src='../assets/images/brand/logo.svg' alt='АвтоСпецЦентр')
 
                 .header__nav
 
@@ -22,7 +22,7 @@ mixin header(params)
 
                             li: a(href='#') Статьи
 
-                            li: a(href='#') ПРОФИЛЬ
+                            li: a.is-active(href='#') ПРОФИЛЬ
 
                             li: a(href='#') Отзывы
 
@@ -32,7 +32,13 @@ mixin header(params)
 
                             li.buttons
 
-                                a.button-menu(href='#') Найти команду
+                                - var logo = true
+                                if logo == true
+                                    a.navigation__company-logo(href='#')
+                                        img(src='../assets/images/logo_av.png' alt='company name')
+                                else
+                                    a.button-menu(href='#') Найти команду
+
                                 a.button-menu.button-menu--exit(href='#') Выход
 
 

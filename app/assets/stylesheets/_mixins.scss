@@ -169,3 +169,17 @@
   @include text-base;
   font-weight: 400;
 }
+
+
+// custom
+
+@mixin mq-custom($mq-range, $mq-breakpoint) {
+  $mq-device: '';
+  @if $enable-mq-device == true {
+    $mq-device: '-device';
+  }
+
+  @media all and (#{$mq-range}#{$mq-device}-width: $mq-breakpoint) {
+    @content;
+  }
+}

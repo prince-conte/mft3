@@ -16,12 +16,18 @@ mixin mobileMenu(params)
 
                         li.buttons
 
-                            a.button-menu(href='#') Найти команду
+                            - var logo = true
+                            if logo == true
+                                a.navigation__company-logo(href='#')
+                                    img(src='../assets/images/logo_av.png' alt='company name')
+                            else
+                                a.button-menu(href='#') Найти команду
+
                             a.button-menu.button-menu--exit(href='#') Выход
 
-            if params.authorized
-                .mobile-menu__authorized
-                    include _authorization_user
-            else
-                .mobile-menu__support
-                    include _ft3
+            //if params.authorized
+            //    .mobile-menu__authorized
+            //        include _authorization_user
+            //else
+            //    .mobile-menu__support
+            //        include _ft3

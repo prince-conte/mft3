@@ -1,0 +1,73 @@
+extends layouts/lk_application
+
+block title
+    title FT3 / Сотрудники
+
+block header
+    include layouts/components/_header
+    + header({authorized: true})
+
+block main
+
+    section
+        .container
+            .setting-form
+                .setting-form__title-line
+                    h1 Новая компании
+
+                .setting-form__form-body.forms
+
+                    .setting-form__upload-container
+
+                        .setting-form__image-uploader
+                            .setting-form__upload-box
+                                span Перетащите сюда логотип или нажмите для выбора файла...
+                            span Изменить логотип
+
+
+                        .setting-form__image-uploader
+                            .setting-form__upload-box
+                                span Перетащите сюда фоновое изображение или нажмите для выбора файла...
+                            span Изменить фоновое изображение
+
+
+                    .setting-form__form-input-block.setting-form__form-input-block--absolute-label
+                        label Название
+                        input(type='text')
+
+
+                    .setting-form__form-input-block.setting-form__form-input-block--absolute-label
+                        label Фирменный цвет
+                        .setting-form__color-brand
+                            input(type='text')
+                            span
+                        p В формате кодов HTML,<br>например: #b3b3b3
+
+                    .setting-form__form-input-block.setting-form__form-input-block--absolute-label
+                        label Домен для управления
+                        input(value='team.avilon.ru/mad_max83')
+
+                    .setting-form__form-input-block.setting-form__form-input-block--absolute-label
+                        label Ссылка с логотипа
+                        input(type='text')
+
+                    .setting-form__form-input-block.setting-form__form-input-block--absolute-label.setting-form__form-input-block--custom-absolute
+                        label Описание
+                        textarea
+
+
+                    .setting-form__form-input-block.setting-form__form-input-block--absolute-label
+                        label Язык
+                        select.js-selectmenu-select
+                            option Русский
+                            option Deutsch
+                            option Spain
+
+                    .setting-form__form-input-block.setting-form__form-input-block--for-button
+                        button Сохранить изменения
+                        a(href='#') Удалить компанию
+
+
+block mobileMenu
+    include layouts/components/_mobile_menu
+    + mobileMenu({authorized: true, inner: false})
