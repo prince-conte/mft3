@@ -6,11 +6,13 @@
   "dependencies": {
     "autosize": "^3.0.20",
     "bourbon": "^4.3.4",
+    "dropzone": "^5.1.1",
     "fotorama": "^4.6.4",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-jade": "^1.1.0",
     "gulp-sass": "^3.1.0",
+    "install": "^0.10.1",
     "isotope-layout": "^3.0.3",
     "jade": "^1.11.0",
     "jquery": "^3.2.1",

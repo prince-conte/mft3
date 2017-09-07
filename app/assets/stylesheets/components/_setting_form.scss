@@ -294,6 +294,7 @@
     background-position: 50% 50%;
     background-size: cover;
     background-repeat: no-repeat;
+    overflow: hidden;
 
     > span {
       @include font(1.2rem,1.8rem);
