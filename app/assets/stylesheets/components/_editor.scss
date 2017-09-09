@@ -1,0 +1,119 @@
+.editor {
+  font-family: $font-family-sans;
+
+
+  &__box {
+
+    @media (min-width: 1280px) {
+      margin-left: 22rem;
+      margin-right: 23rem;
+    }
+  }
+
+  &__body {
+    padding: 3.4rem 2rem;
+    background: #fff;
+    min-height: 500px; // todo remove
+
+    @include mq(sm) {
+      padding: 5.4rem 6rem;
+    }
+  }
+
+  &__input-block {
+    position: relative;
+    margin-bottom: 1.5rem;
+
+    @include mq(sm) {
+      margin-bottom: 2rem;
+    }
+
+    > input {
+      @include font(3.2rem,3.4rem);
+      display: block;
+      width: 100%;
+      font-weight: 700;
+      color: $color-base;
+      border: 0;
+      outline: none;
+
+      &::placeholder {
+        color: $color-lighter;
+    }
+
+      @include mq(sm) {
+        @include font(4rem,4rem);
+      }
+    }
+
+    &--description {
+      margin: 1.2rem 0 1.5rem;
+
+      @include mq(sm) {
+        margin: 1.6rem 0 2.5rem;
+      }
+
+      > input {
+        @include font(1.6rem, 2.2rem);
+        font-family: 'Georgia';
+        font-weight: 400;
+      }
+    }
+  }
+
+  &__content-box {
+    position: relative;
+  }
+
+  &__buttons {
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: -1rem;
+    transform: translateX(-100%);
+    padding: .7rem 1rem;
+    background: #b3b3b3;
+
+    > a {
+      display: block;
+      color: #e8e8e8;
+
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+
+      &:hover {
+        color: #fff;
+      }
+
+      > i {
+        @include font(2rem, 2rem);
+      }
+    }
+  }
+
+}
+
+
+// quilljs overrides
+
+.ql-bubble .ql-tooltip {
+  background-color: $color-light;
+  border-radius: 0;
+  color: #fff;
+}
+
+.ql-editor {
+  padding: 0;
+}
+
+.ql-editor p {
+  @include font(1.6rem, 2.2rem);
+  font-family: 'Georgia';
+}
+
+.ql-editor.ql-blank::before {
+    left: auto;
+    right: auto;
+    color: $color-lightest;
+}

@@ -1,6 +1,11 @@
 mixin employeeCardPreview(name, desc, actions)
     article.employee-card-preview.card.js-hover-container
         .employee-card-preview__content
+            .employee-card-preview__lk-info
+                .employee-card-preview__info-date
+                    span 21.08.17
+                .employee-card-preview__info-request
+                    a(href='#') Непрочитанное
             a.js-hover(href='employee_articles.html')
                 img.employee-card-preview__userpic(src='../assets/images/userpic.svg' alt='')
             h2.employee-card-preview__title
@@ -12,10 +17,10 @@ mixin employeeCardPreview(name, desc, actions)
         if actions
             .controls-button-grid.controls-button-grid--top-auto
 
-                    a.control-button.control-button--edit Редактировать
+                    a.control-button.control-button--edit Написать
 
                     a.control-button.control-button--delete
-                        span.is-desktop Удалить
+                        span.is-desktop В архив
                         i.mdi.mdi-close.not-desktop
 
 

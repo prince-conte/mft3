@@ -15,11 +15,27 @@ mixin user(name, meta, type, link)
                     a.js-hover(href='#{link}')= name
                 else
                     = name
-            if meta
-                ul.user__meta
-                    if meta.datetime
-                        li= meta.datetime
-                    if meta.actions
-                        li Actions
-                    if meta.moderation
-                        li <a href='#'>Забанить</a> / <a href='#'>Спрятать</a> / <a href='#'>Ответить</a>
+
+            // for lk
+
+            .user__lk-info
+                .user__info-date
+                    span 21.08.17
+
+                // Опубликован
+                .user__info-request
+                    a(href='#') Опубликован
+
+                // Черновик
+                .user__info-request.user__info-request--no-publick
+                    a(href='#') Черновик
+
+
+            //if meta
+            //    ul.user__meta
+            //        if meta.datetime
+            //            li= meta.datetime
+            //        if meta.actions
+            //            li Actions
+            //        if meta.moderation
+            //            li <a href='#'>Забанить</a> / <a href='#'>Спрятать</a> / <a href='#'>Ответить</a>

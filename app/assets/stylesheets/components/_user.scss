@@ -48,4 +48,74 @@
       color: $color-lightest;
     }
   }
+
+
+  // lk
+
+  &__lk-info {
+    display: flex;
+    align-items: center;
+  }
+
+  &__info-date {
+    @include font(1.2rem,1.8rem);
+    color: $color-lighter;
+  }
+
+  &__info-request {
+    position: relative;
+    margin-left: .8rem;
+    padding-left: 1rem;
+
+
+    &:empty {
+      margin: 0;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    > a, > span {
+      @include font(1.2rem,1.8rem);
+      color: $color-light;
+    }
+
+    > a {
+
+      &:hover {
+        text-decoration: underline;
+        color: $color-light;
+      }
+    }
+
+    &::before {
+      @include size(.4rem);
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      background: $color-lighter;
+      content: '';
+    }
+
+    &--no-publick {
+      > a, > span {
+        @include font(1.2rem,1.8rem);
+        color: $color-lighter;
+
+        &:hover {
+          text-decoration: none;
+          color: $color-light;
+        }
+
+      }
+    }
+
+
+  }
+
+
+
 }

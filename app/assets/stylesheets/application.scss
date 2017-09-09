@@ -5,6 +5,7 @@
 @import "vendor/normalize.css";
 @import "vendor/magnific-popup.css";
 @import "vendor/mdi/css/materialdesignicons.css";
+@import "vendor/quill.bubble.css";
 
 @import 'config';
 @import 'variables';
@@ -41,6 +42,7 @@
 @import 'components/sharing';
 @import 'components/user';
 @import 'components/_personal_area.scss';
+@import 'components/_editor.scss';
 
 @import 'components/articles';
 @import 'components/employees';

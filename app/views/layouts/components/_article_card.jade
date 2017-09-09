@@ -14,6 +14,9 @@ mixin articleCard(reviews, author, authorLink, title, content)
         h3.article-card__title
             a(href='article.html')= title
 
+        a.article-card__category(href='#') Категория
+
+
         if content
             .article-card__content.content.js-content
                 case content

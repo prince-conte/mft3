@@ -65,6 +65,10 @@
     min-height: calc(100vh - 16rem);
   }
 
+  &--no-min-height {
+    min-height: auto;
+  }
+
   .mfp-content & {
     display: flex;
   }
@@ -388,4 +392,166 @@
       font-weight: 700;
     }
   }
+}
+
+// lk
+
+.controls-popup {
+  width: 100%;
+  padding: 5.4rem 3rem;
+
+  @include mq(sm) {
+    padding: 5.5rem 6rem;
+  }
+
+  &__title {
+    @include text-large;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 400;
+
+    @include mq(sm) {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__input-block, &__input-grid {
+
+    &:not(:last-child) {
+      margin-bottom: 4rem;
+    }
+
+    > input {
+      padding: 1rem;
+    }
+
+    @include mq(sm) {
+      &:not(:last-child) {
+        margin-bottom: 6rem;
+      }
+    }
+  }
+
+
+  &__input-grid {
+    display: flex;
+    > a, > button {
+      margin-left: 1rem;
+    }
+  }
+
+
+  &__team {
+    padding-bottom: 3rem;
+
+    &:not(:last-child) {
+      margin-bottom: 3rem;
+      border-bottom: 1px solid $color-lk;
+    }
+  }
+
+  &__team-date-create {
+    @include font(1.2rem,1.8rem);
+    margin-bottom: 1.5rem;
+    color: $color-lighter;
+  }
+
+
+  &__content-grid {
+
+    @include mq(sm) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__information {
+    @include mq(sm) {
+      width: 50%;
+    }
+  }
+
+  &__team-title {
+    @include h3;
+    color: $color-light;
+  }
+
+  &__links {
+    margin-top: 1.5rem;
+
+    > a {
+      @include text-large;
+      display: block;
+      color: $color-light;
+
+      &:not(:first-child) {
+        margin-top: .6rem;
+      }
+
+      > span {
+        color: $color-lighter ;
+      }
+
+      &:hover {
+        text-decoration: underline;
+        color: $color-light;
+
+        > span {
+          color: $color-lighter;
+        }
+      }
+    }
+  }
+
+
+  &__buttons-box {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    @include mq(xs) {
+      margin-top: 2rem;
+    }
+
+    @include mq(sm) {
+      width: 50%;
+
+      > a, buttons {
+        display: inline-block;
+        min-width: 17rem;
+        flex-grow: 0;
+      }
+    }
+
+    .control-button--edit {
+
+      @include mq(xs) {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+
+  &__buttons-box-message {
+    @include text-base;
+    color: $color-lighter;
+
+    @include mq(xs) {
+      width: 70%;
+      text-align: right;
+    }
+  }
+
+  &__mail {
+    @include text-large;
+    display: inline-block;
+    color: $color-light;
+
+    &:hover {
+      text-decoration: underline;
+      color: $color-light;
+    }
+
+  }
+
 }

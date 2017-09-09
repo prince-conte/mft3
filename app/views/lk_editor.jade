@@ -1,0 +1,78 @@
+extends layouts/lk_application
+
+block title
+    title FT3 / Редактирование
+
+block header
+    include layouts/components/_header
+    + header({authorized: true})
+
+block main
+
+    .editor
+        .container
+
+            .editor__box
+                form.page-controls.page-controls--editor.forms
+                    .page-controls__input-grid.page-controls__input-grid--filter
+
+                        .page-controls__filter-input-block.page-controls__filter-input-block--1-4
+                            select.js-selectmenu-select
+                                option(disabled selected) Категория
+                                option Option 2
+                                option Option 3
+
+                        .page-controls__filter-input-block.page-controls__filter-input-block--1-4
+                            select.js-selectmenu-select
+                                option(disabled selected) Приоритет
+                                option Option 2
+                                option Option 3
+
+                        .page-controls__filter-input-block.page-controls__filter-input-block--editor-buttons
+                            .page-controls__filter-input-grid
+                                .page-controls__filter-input-grid-item
+                                    a.filter-button(href='#') Черновик
+
+                                .page-controls__filter-input-grid-item
+                                    a.filter-button.filter-button--create(href='#') Опубликовать
+
+
+                .editor__body
+
+                    form.editor__article
+
+                        .editor__input-block
+                            input(placeholder='Заголовок статьи')
+
+                        .editor__input-block.editor__input-block--description
+                            input(placeholder='Описание статьи')
+
+                        .editor__content-box
+
+                            //.editor__buttons#toolbar2
+                            //
+                            //    a(href='#')
+                            //        i.mdi.mdi-code-tags
+                            //
+                            //    a.ql-image(href='#')
+                            //        i.mdi.mdi-camera
+                            //
+                            //    a(href='#')
+                            //        i.mdi.mdi-camcorder
+
+
+                            .editor__content#editor-container
+
+                                p Proin at ipsum in ipsum rutrum elementum. Quisque semper convallis malesuada. Ut vitae iaculis nulla, eu tempor ligula. Aenean efficitur arcu sed arcu dignissim imperdiet. Cras eu fermentum metus. Nulla blandit tincidunt nunc a fermentum. Etiam eget ex leo. Curabitur accumsan ante id nibh pellentesque pulvinar.
+
+
+
+
+
+
+
+
+
+block mobileMenu
+    include layouts/components/_mobile_menu
+    + mobileMenu({authorized: true, inner: false})

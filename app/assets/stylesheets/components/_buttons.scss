@@ -197,7 +197,28 @@
       padding: 1.25rem 2.6rem;
     }
 
+    &[data-state-info] {
+      position: relative;
+
+      &::before {
+        @include text-base;
+        position: absolute;
+        top: 50%;
+        left: -1rem;
+        transform: translate(-100%, -50%);
+        white-space: nowrap;
+        color: $color-lightest;
+        content: attr(data-state-info);
+      }
+    }
   }
+
+  &--delete-gray {
+    border-color: $color-brand;
+    background: $color-brand;
+    color: #fff;
+  }
+
 
   &--min-buttons {
     width: 100%;
@@ -267,6 +288,16 @@
       color: $color-brand;
       text-decoration: none;
     }
+  }
+
+  &--create {
+    background: $color-light;
+    color: #fff;
+
+    &:hover {
+      opacity: .7;
+    }
+
   }
 
 }

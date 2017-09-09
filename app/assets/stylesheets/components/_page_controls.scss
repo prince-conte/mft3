@@ -8,6 +8,10 @@
     margin: 5rem 0 6rem;
   }
 
+  &--editor {
+    margin-bottom: 3rem;
+  }
+
   &__input-grid {
     align-items: center;
 
@@ -78,6 +82,13 @@
         width: 50%;
         padding: .5rem;
         margin-bottom: 1rem;
+      }
+    }
+
+    &--editor-buttons {
+      @include mq(md) {
+        width: 50%;
+        padding: .5rem;
       }
     }
 

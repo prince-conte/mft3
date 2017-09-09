@@ -222,6 +222,23 @@
     }
   }
 
+  &__category {
+    @include font(1.4rem,2.2rem);
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    color: rgba($color-brand, .7);
+
+    &:hover {
+      color: $color-brand;
+      text-decoration: none;
+    }
+
+
+  }
+
   &__content {
     margin-top: 1.25rem;
 
