@@ -4,6 +4,7 @@
 @import url(vendor/magnific-popup.css);
 @import url(vendor/mdi/css/materialdesignicons.css);
 @import url(vendor/quill.bubble.css);
+@import url(vendor/croppie.css);
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -1028,10 +1029,18 @@ main .navigation {
     .setting-form__image-block > a {
       font-size: 1.4rem;
       line-height: 1.42857;
+      position: relative;
       margin-top: 1rem;
       display: block;
       text-align: center;
       color: #4d4d4d; }
+      .setting-form__image-block > a > input {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0; }
     .setting-form__image-block--qr > img {
       border-radius: 0; }
   .setting-form__form-body {
@@ -2604,6 +2613,122 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   left: auto;
   right: auto;
   color: #d9d9d9; }
+
+.crop-popup-fade {
+  display: none; }
+
+.crop-popup-fade {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(77, 77, 77, 0.97);
+  z-index: 1002; }
+
+.crop-popup {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  opacity: 0;
+  z-index: 1003; }
+  .crop-popup p {
+    font-size: 1.6rem;
+    line-height: 1.375;
+    display: block;
+    width: 100%;
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #fff; }
+    @media all and (min-width: 768px) {
+      .crop-popup p {
+        margin-bottom: 4rem; } }
+    .crop-popup p > b {
+      display: block;
+      font-weight: 700; }
+    @media all and (max-width: 767px) {
+      .crop-popup p span {
+        display: none; } }
+  .crop-popup__result-button {
+    font-size: 1.4rem;
+    line-height: 1.42857;
+    margin-top: 3.5rem;
+    padding: 1.5rem;
+    display: block;
+    border-radius: 0.6rem;
+    text-align: center;
+    background: #fff;
+    color: #4d4d4d;
+    cursor: default; }
+    .crop-popup__result-button:hover {
+      opacity: .7;
+      text-decoration: none; }
+    @media all and (min-width: 768px) {
+      .crop-popup__result-button {
+        display: block;
+        width: 41rem;
+        margin: 3.5rem auto; } }
+
+.crop-box {
+  position: relative;
+  display: block;
+  padding: 3.4rem 2rem;
+  width: 100%; }
+  @media all and (min-width: 768px) {
+    .crop-box {
+      width: 76rem; } }
+  .crop-box > .croppie-container {
+    height: 36rem; }
+    @media all and (min-width: 768px) {
+      .crop-box > .croppie-container {
+        height: 50rem; } }
+
+.croppie-container .cr-boundary {
+  background: #4d4d4d;
+  opacity: 1; }
+
+.cr-slider-wrap {
+  display: none; }
+
+.croppie-container .cr-viewport, .croppie-container .cr-resizer {
+  border: 2px dashed #fff; }
+  .croppie-container .cr-viewport::before, .croppie-container .cr-resizer::before {
+    height: 3.6rem;
+    width: 3.6rem;
+    font-size: 2rem;
+    line-height: 1;
+    position: absolute;
+    top: .8rem;
+    right: 2.5rem;
+    border-radius: 50%;
+    background: #fff;
+    content: ''; }
+  .croppie-container .cr-viewport::after, .croppie-container .cr-resizer::after {
+    font-size: 2.4rem;
+    line-height: 1;
+    position: absolute;
+    top: 1rem;
+    right: 3rem;
+    border-radius: 50%;
+    font: normal normal normal 24px/1 "Material Design Icons";
+    text-rendering: auto;
+    line-height: inherit;
+    -webkit-font-smoothing: antialiased;
+    content: "\F190"; }
 
 .articles {
   margin-top: 4rem;

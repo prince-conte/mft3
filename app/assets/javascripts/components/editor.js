@@ -1,6 +1,5 @@
 'use strict';
 
-
 var quill = new Quill('#editor-container', {
     modules: {
 
@@ -14,12 +13,4 @@ var quill = new Quill('#editor-container', {
 
     theme: 'bubble',   // Specify theme in configuration
     placeholder: 'Здесь будет контент статьи...'
-});
-
-
-
-
-var customButton = document.querySelector('#custom-button');
-$(document).on('click', '#custom-button', function() {
-    quill.format('bold');
 });

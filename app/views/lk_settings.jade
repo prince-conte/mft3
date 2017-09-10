@@ -18,8 +18,10 @@ block main
                 .setting-form__header
 
                     .setting-form__image-block
-                        img(src='../assets/images/userpic.svg' alt='photo')
-                        a(href='#') Изменить
+                        img#user-photo(src='../assets/images/userpic.svg' alt='photo')
+                        a.js-open-crop(href="javascript:void(0);")
+                            span Изменить
+                            input(type="file" id="upload" value="Choose a file" accept="image/*")
 
                     .setting-form__image-block.setting-form__image-block--qr
                         img(src='../assets/images/qr.png' alt='photo')
