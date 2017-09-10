@@ -1,11 +1,12 @@
-extends layouts/lk_application
+extends layouts/lk_application_no_team
+
 
 block title
     title FT3 / Сотрудники
 
 block header
     include layouts/components/_header
-    + header({authorized: true})
+    + header({authorized: false},{team: false})
 
 block main
 
@@ -39,8 +40,8 @@ block main
                     .setting-form__form-input-block.setting-form__form-input-block--absolute-label
                         label Фирменный цвет
                         .setting-form__color-brand
-                            input(type='text')
-                            span
+                            input#js-color(type='text')
+                            span#color-label
                         p В формате кодов HTML,<br>например: #b3b3b3
 
                     .setting-form__form-input-block.setting-form__form-input-block--absolute-label

@@ -2730,6 +2730,106 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     -webkit-font-smoothing: antialiased;
     content: "\F190"; }
 
+@-webkit-keyframes alert-animation {
+  0% {
+    -webkit-transform: translate(-50%, -100%);
+    transform: translate(-50%, -100%); }
+  100% {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0); } }
+
+@keyframes alert-animation {
+  0% {
+    -webkit-transform: translate(-50%, -100%);
+    transform: translate(-50%, -100%); }
+  100% {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0); } }
+
+.alert {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  -webkit-transform: translate(-50%, -100%);
+  transform: translate(-50%, -100%);
+  z-index: 1005; }
+  @media all and (min-width: 768px) {
+    .alert {
+      width: 85rem;
+      min-height: 7rem;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; } }
+  @media all and (min-width: 768px) and (min-width: 768px) {
+    .alert .alert__content {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; } }
+  .alert[data-save] {
+    background: #d9edf7;
+    color: #31708f; }
+  .alert[data-delete] {
+    background: #f2dede;
+    color: #ad4442; }
+  .alert__content {
+    width: 100%;
+    padding: 1.8rem 2rem; }
+    @media all and (min-width: 768px) {
+      .alert__content {
+        padding: 1.5rem 3rem; } }
+    .alert__content p {
+      font-size: 1.6rem;
+      line-height: 1.375; }
+  .alert__buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0 -1rem; }
+    @media all and (max-width: 767px) {
+      .alert__buttons {
+        margin: 1.6rem -1rem 0; } }
+    @media all and (min-width: 768px) {
+      .alert__buttons {
+        width: 17rem; } }
+  .alert__buttons-col {
+    width: 50%;
+    padding: 0 .5rem; }
+  .alert__button {
+    font-size: 1.4rem;
+    line-height: 1.42857;
+    display: block;
+    width: 100%;
+    padding: 1.3rem;
+    text-align: center;
+    border: 1px solid #4d4d4d;
+    border-radius: 0.6rem;
+    color: #4d4d4d; }
+    .alert__button--delete {
+      background: #4d4d4d;
+      color: #fff; }
+    .alert__button:hover {
+      color: #fff;
+      border-color: rgba(77, 77, 77, 0.7);
+      background: rgba(77, 77, 77, 0.7); }
+
+.alert.alert-animate {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-animation: alert-animation .1s linear .1s 1 alternate forwards;
+  animation: alert-animation .1s linear .1s 1 alternate forwards; }
+
 .articles {
   margin-top: 4rem;
   margin-bottom: 8rem; }

@@ -237,6 +237,7 @@
                 .controls-popup__buttons-box
                     .controls-popup__buttons-box-message Приглашение отправлено
 
+// crop
 
 .crop-popup-fade.js-popup-fade
     .crop-popup.js-crop-popup
@@ -247,6 +248,23 @@
             a.crop-popup__result-button.js-upload-result(href='#') Сохранить изменения
         a.popup__close.js-crop-popup-close(href='#')
             i.icon.icon--30.mdi.mdi-window-close
+
+
+// alerts
+
+.alert.js-alert-save(data-save)
+    .alert__content
+        p <b>Поздравляем!</b> Изменения успешно сохранены.
+
+
+.alert.js-alert-delete(data-delete)
+    .alert__content
+        p <b>Внимание!</b> Вы уверены, что хотите удалить эту статью?
+        .alert__buttons
+            .alert__buttons-col
+                a.button.alert__button.js-alert-button-close(href='#') Нет
+            .alert__buttons-col
+                a.button.alert__button.alert__button--delete.js-alert-button-close(href='#') Да
 
 
 

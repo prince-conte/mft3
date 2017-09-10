@@ -12,15 +12,15 @@ mixin article_controls()
                             option Мои статьи
 
 
-                    .label-grid
-                        label.label-checkbox МОИ СТАТЬИ
+                    .label-grid.js-label-switch
+                        label.label-checkbox.js-label-switch-one МОИ СТАТЬИ
 
                         span.checkbox
                             input(type='checkbox')
                             span
                             i
 
-                        label.label-checkbox.is-active Статьи Сотрудников
+                        label.label-checkbox.js-label-switch-two.is-active Статьи Сотрудников
 
                 .page-controls__input-block
                     a.control-button.control-button--create(href='#')

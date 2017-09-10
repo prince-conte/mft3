@@ -12,15 +12,15 @@ mixin workers_controls()
                             option Управление сотрудниками
 
 
-                    .label-grid
-                        label.label-checkbox Сотрудник
+                    .label-grid.js-label-switch
+                        label.label-checkbox.js-label-switch-one Сотрудник
 
                         span.checkbox
                             input(type='checkbox')
                             span
                             i
 
-                        label.label-checkbox.is-active Управление сотрудниками
+                        label.label-checkbox.js-label-switch-two.is-active Управление сотрудниками
 
                 .page-controls__input-block
                     a.control-button.control-button--create(href='#')

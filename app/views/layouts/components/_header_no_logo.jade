@@ -3,7 +3,7 @@ mixin header(params)
     if params.inner
     header.header#header(class='#{modifier}')
         .container
-            if autorized == false
+            if params.inner
                 a.header__to-index(href='employees.html')
                     i.icon.icon--36.mdi.mdi-account-multiple
 
@@ -16,10 +16,9 @@ mixin header(params)
 
                     nav.navigation
                         ul
-                            if team == true
-                                li.navigation__user-photo
-                                    a(href='#')
-                                        img(src='../assets/images/avatar.svg')
+                            li.navigation__user-photo
+                                a(href='#')
+                                    img(src='../assets/images/avatar.svg')
 
                             li: a(href='#') Статьи
 
@@ -33,7 +32,8 @@ mixin header(params)
 
                             li.buttons
 
-                                if team == true
+                                - var logo = false
+                                if logo == true
                                     a.navigation__company-logo(href='#')
                                         img(src='../assets/images/logo_av.png' alt='company name')
                                 else

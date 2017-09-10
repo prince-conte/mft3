@@ -17,18 +17,28 @@ html(lang='ru')
                         h3 ЛК
 
                         ol
-                            li: a(href='lk_editor.html') Редактирование
-                            li: a(href='lk_create.html') Создание
+                            li: a(href='lk_editor.html') Редактирование(Шапка - есть команда)
+                            li: a(href='lk_create.html') Создание(Шапка - нет команд)
                             li: a(href='lk_settings.html') Настройки
                             li: a(href='lk_articles.html') Статьи
                             li: a(href='lk_reviews.html') Отзывы
                             li: a(href='lk_employees.html') Сотрудники
                             li: a(href='lk_workers.html') Управление Сотрудниками
 
-                            li: <b>Попапы</b>
+                        h3 ЛК Попапы
+
+                        ol
+
                             li: a.js-popup(href='#popup-search-team-result') Попап 1
                             li: a.js-popup(href='#popup-search-team') Попап 2.1
                             li: a.js-popup(href='#popup-search-team-add') Попап 2.2
+
+                        h3 ЛК Alerts
+
+                        ol
+
+                            li: a.js-alert-open-save(href='#') Сохранить
+                            li: a.js-alert-open-delete(href='#') Удалить
 
 
                         h3 Попапы
@@ -47,6 +57,7 @@ html(lang='ru')
                                 li: a.js-popup(href='#popup-message') Сообщение
 
                         h3 Страницы
+
                         ol
                             li: a(href='employees.html') Сотрудники
                             li: a(href='articles.html') Статьи
@@ -74,3 +85,4 @@ html(lang='ru')
         script(src='../assets/javascripts/components/mobile_menu.js')
         script(src='../assets/javascripts/components/popups.js')
         script(src='../assets/javascripts/components/selectmenu.js')
+        script(src='../assets/javascripts/components/alerts.js')

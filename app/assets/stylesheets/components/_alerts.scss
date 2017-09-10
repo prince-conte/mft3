@@ -1,0 +1,107 @@
+@include keyframes(alert-animation)  {
+
+  0% {
+    transform: translate(-50%,-100%);
+  }
+
+  100% {
+    transform: translate(-50%,0);
+  }
+}
+
+.alert {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%,-100%);
+  z-index: 1005;
+
+  @include mq(sm) {
+    width: 85rem;
+    min-height: 7rem;
+    justify-content: center;
+    align-items: center;
+
+      .alert__content {
+
+        @include mq(sm) {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+    }
+
+  &[data-save] {
+    background: #d9edf7;
+    color: #31708f;
+  }
+
+  &[data-delete] {
+    background: #f2dede;
+    color: #ad4442;
+
+  }
+
+  &__content {
+    width: 100%;
+    padding: 1.8rem 2rem;
+
+    @include mq(sm) {
+      padding: 1.5rem 3rem;
+    }
+
+    p {
+      @include text-large;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    margin: 0 -1rem;
+
+
+    @include mq(xs){
+      margin: 1.6rem -1rem 0;
+    }
+
+    @include mq(sm) {
+      width: 17rem;
+    }
+  }
+
+  &__buttons-col {
+    width: 50%;
+    padding: 0 .5rem;
+  }
+
+  &__button {
+    @include text-base;
+    display: block;
+    width: 100%;
+    padding: 1.3rem;
+    text-align: center;
+    border: 1px solid $color-light;
+    border-radius: $border-radius-small;
+    color: $color-light;
+
+    &--delete {
+      background: $color-light;
+      color: #fff;
+    }
+
+    &:hover {
+      color: #fff;
+      border-color: rgba($color-light, .7);
+      background: rgba($color-light, .7);
+    }
+
+  }
+}
+
+.alert.alert-animate {
+  display: flex;
+  animation: alert-animation .1s linear .1s 1 alternate forwards;
+}

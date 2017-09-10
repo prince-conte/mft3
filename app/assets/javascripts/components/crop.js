@@ -113,12 +113,3 @@ $(document).on('click touchend', '.js-crop-popup-close', function() {
 });
 
 
-// $(document).on('click touchend', '.js-open-crop', function() {
-//
-//     $('#upload').trigger('click');
-//
-//     console.log($(this).find('input:file'));
-//
-//     return false
-// });
-
