@@ -22,13 +22,17 @@ mixin user(name, meta, type, link)
                 .user__info-date
                     span 21.08.17
 
-                // Опубликован
-                .user__info-request
-                    a(href='#') Опубликован
+                if status == true
 
-                // Черновик
-                .user__info-request.user__info-request--no-publick
-                    a(href='#') Черновик
+                    // Опубликован
+                    .user__info-request
+                        a(href='#') Опубликован
+
+                else
+
+                    // Черновик
+                    .user__info-request.user__info-request--no-publick
+                        a(href='#') Черновик
 
 
             //if meta

@@ -14,7 +14,6 @@ mixin workersCards()
                 h2.employee-card-preview__title
                     a.employee-card-preview__title-link.js-hover(href='employee_articles.html') Matvey Bogatov
 
-                a.employee-card-preview__company(href='#') Авилон
                 p.employee-card-preview__desc Консультант. Финансовый аналитик
 
 
@@ -31,7 +30,7 @@ mixin workersCards()
                     .employee-card-preview__info-date
                         span 21.08.17
                     .employee-card-preview__info-request
-                        a(href='#') Запрос &nbsp/ Активен
+                        a(href='#') Запрос
 
                 a.js-hover(href='employee_articles.html')
                     img.employee-card-preview__userpic(src='../assets/images/userpic.svg' alt='')
@@ -45,6 +44,7 @@ mixin workersCards()
             .controls-button-grid.controls-button-grid--full.controls-button-grid--top-auto
 
                 a.control-button.control-button--edit(href='#')  Отменить
+
 
 
     .employees__block
@@ -81,12 +81,15 @@ mixin workersCards()
                 .employee-card-preview__lk-info
                     .employee-card-preview__info-date
                         span 21.08.17
+                    .employee-card-preview__info-request
+                        a(href='#') Активен
 
                 a.js-hover(href='employee_articles.html')
                     img.employee-card-preview__userpic(src='../assets/images/userpic.svg' alt='')
                 h2.employee-card-preview__title
                     a.employee-card-preview__title-link.js-hover(href='employee_articles.html') Ирина Иванович
 
+                a.employee-card-preview__company(href='#') Авилон
 
             .controls-button-grid.controls-button-grid--top-auto.controls-button-grid--full
 
@@ -110,3 +113,25 @@ mixin workersCards()
                             i.mdi.mdi-close
 
 
+    .employees__block
+
+        article.employee-card-preview.card.js-hover-container
+            .employee-card-preview__content
+                .employee-card-preview__lk-info
+                    .employee-card-preview__info-date
+                        span 21.08.17
+                    .employee-card-preview__info-request
+                        a(href='#') Запрос
+
+                a.js-hover(href='employee_articles.html')
+                    img.employee-card-preview__userpic(src='../assets/images/userpic.svg' alt='')
+                h2.employee-card-preview__title
+                    a.employee-card-preview__title-link.js-hover(href='employee_articles.html') Константин Ковалевский
+
+                a.employee-card-preview__company(href='#') Авилон
+                p.employee-card-preview__desc Старший менеджер
+
+
+            .controls-button-grid.controls-button-grid--full.controls-button-grid--top-auto
+
+                a.control-button.control-button--edit(href='#')  Принять

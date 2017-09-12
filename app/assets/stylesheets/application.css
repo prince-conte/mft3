@@ -367,6 +367,7 @@ table {
     display: block; }
   .ui-selectmenu-menu .ui-menu {
     background: #fff;
+    overflow: hidden;
     border-right: 1px solid #d9d9d9;
     border-bottom: 1px solid #d9d9d9;
     border-left: 1px solid #d9d9d9;
@@ -855,7 +856,8 @@ main .navigation {
   display: block;
   max-height: 4.2rem;
   width: auto;
-  line-height: 1; }
+  line-height: 1;
+  opacity: .15; }
   .navigation__company-logo::after {
     display: none !important; }
   @media all and (max-width: 767px) {
@@ -892,6 +894,7 @@ main .navigation {
       color: rgba(77, 77, 77, 0.7);
       text-decoration: none; } }
   .navigation .button-menu--exit {
+    padding: 0;
     min-width: 0;
     border-color: transparent;
     padding-left: 0;
@@ -901,6 +904,7 @@ main .navigation {
       text-decoration: underline; }
     @media all and (max-width: 767px) {
       .navigation .button-menu--exit {
+        padding: 1.2rem 1.2rem 1.4rem;
         min-width: 0; } }
 
 .page-controls {
@@ -950,6 +954,15 @@ main .navigation {
     .page-controls__filter-input-block {
       width: 33.333333%;
       padding: .5rem; } }
+  @media all and (min-width: 1024px) {
+    .page-controls__filter-input-block--1-2 {
+      width: 50%;
+      padding: .5rem; } }
+  @media (min-width: 768px) and (max-width: 1180px) {
+    .page-controls__filter-input-block--1-2 {
+      width: 50%;
+      padding: .5rem;
+      margin-bottom: 1rem; } }
   @media all and (min-width: 1024px) {
     .page-controls__filter-input-block--1-4 {
       width: 25%;
@@ -1512,20 +1525,20 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
       color: #b2b2b2;
       font-family: Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
       text-align: center; }
-  .content > img {
+  .content > img, .content > a > img {
     display: block;
     margin-right: auto;
     margin-left: auto;
     vertical-align: top; }
-    .content > img:not(:first-child) {
+    .content > img:not(:first-child), .content > a > img:not(:first-child) {
       margin-top: 4rem; }
       @media all and (min-width: 1024px) {
-        .content > img:not(:first-child) {
+        .content > img:not(:first-child), .content > a > img:not(:first-child) {
           margin-top: 6rem; } }
-    .content > img:not(:last-child) {
+    .content > img:not(:last-child), .content > a > img:not(:last-child) {
       margin-bottom: 4rem; }
       @media all and (min-width: 1024px) {
-        .content > img:not(:last-child) {
+        .content > img:not(:last-child), .content > a > img:not(:last-child) {
           margin-bottom: 6rem; } }
   .content > ol,
   .content > ul {

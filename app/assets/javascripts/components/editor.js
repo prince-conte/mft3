@@ -8,10 +8,7 @@ $(function() {
             modules: {
 
                 toolbar: [
-                    ['bold', 'italic', 'underline'],
-                    [{ 'align': [] }],
-                    [{ 'header': 1 }, { 'header': 2 }],
-                    ['image', 'video', 'link', { 'list': 'ordered'}, { 'list': 'bullet'}],
+                    ['bold', 'italic','link', { 'header': 1 }, { 'header': 2 }, 'blockquote', { 'list': 'bullet'}]
                 ]
             },
 

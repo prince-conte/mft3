@@ -1,42 +1,79 @@
-mixin reviews_controls()
+mixin reviews_controls(mod)
 
-    form.page-controls.forms
-        .container
-            .page-controls__input-grid.page-controls__input-grid--between
+    - var user = mod
+    if user == true
 
-                .page-controls__input-block.page-controls__input-block--full
+        form.page-controls.forms
+            .container
+                .page-controls__input-grid.page-controls__input-grid--between
 
-                    .ui-article-select
+                    .page-controls__input-block.page-controls__input-block--full
+
+                        .ui-article-select
+                            select.js-selectmenu-select
+                                option(selected) Отзывы Сотрудников
+                                option Мои отзывы
+
+
+                        .label-grid.js-label-switch
+                            label.label-checkbox.js-label-switch-one Мои отзывы
+
+                            span.checkbox
+                                input(type='checkbox')
+                                span
+                                i
+
+                            label.label-checkbox.js-label-switch-two.is-active Отзывы Сотрудников
+
+
+                .page-controls__input-grid.page-controls__input-grid--filter
+
+                    .page-controls__filter-input-block
+                        input(type='search' placeholder='Быстрый поиск...')
+
+                    .page-controls__filter-input-block
                         select.js-selectmenu-select
-                            option(selected) Отзывы Сотрудников
-                            option Мои отзывы
+                            option(selected) Все отзывы
+                            option Option 2
+                            option Option 3
+
+                    .page-controls__filter-input-block
+                        select.js-selectmenu-select
+                            option(selected) Все сотрудники
+                            option Option 2
+                            option Option 3
+
+    else
+        form.page-controls.forms
+            .container
+                .page-controls__input-grid.page-controls__input-grid--between
+
+                    .page-controls__input-block.page-controls__input-block--full
+
+                        .ui-article-select
+                            select.js-selectmenu-select
+                                option Отзывы Сотрудников
+                                option(selected) Мои отзывы
 
 
-                    .label-grid.js-label-switch
-                        label.label-checkbox.js-label-switch-one Мои отзывы
+                        .label-grid.js-label-switch
+                            label.label-checkbox.js-label-switch-one Мои отзывы
 
-                        span.checkbox
-                            input(type='checkbox')
-                            span
-                            i
+                            span.checkbox
+                                input(type='checkbox' checked)
+                                span
+                                i
 
-                        label.label-checkbox.js-label-switch-two.is-active Отзывы Сотрудников
+                            label.label-checkbox.js-label-switch-two.is-active Отзывы Сотрудников
 
 
-            .page-controls__input-grid.page-controls__input-grid--filter
+                .page-controls__input-grid.page-controls__input-grid--filter
 
-                .page-controls__filter-input-block
-                    input(type='search' placeholder='Быстрый поиск...')
+                    .page-controls__filter-input-block.page-controls__filter-input-block--1-2
+                        input(type='search' placeholder='Быстрый поиск...')
 
-                .page-controls__filter-input-block
-                    select.js-selectmenu-select
-                        option(selected) Все отзывы
-                        option Option 2
-                        option Option 3
-
-                .page-controls__filter-input-block
-                    select.js-selectmenu-select
-                        option(selected) Все сотрудники
-                        option Option 2
-                        option Option 3
-
+                    .page-controls__filter-input-block.page-controls__filter-input-block--1-2
+                        select.js-selectmenu-select
+                            option(selected) Все отзывы
+                            option Option 2
+                            option Option 3

@@ -103,7 +103,7 @@
   }
 
   // Img
-  > img {
+  > img, > a > img {
     @include content-indents-large;
     display: block;
     margin: {

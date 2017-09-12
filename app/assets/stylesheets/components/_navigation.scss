@@ -229,6 +229,7 @@
     max-height: 4.2rem;
     width: auto;
     line-height: 1;
+    opacity: .15;
 
     &::after {
       display: none !important;
@@ -288,6 +289,7 @@
     }
 
     &--exit {
+      padding: 0;
       min-width: 0;
       border-color: transparent;
       padding-left: 0;
@@ -299,6 +301,7 @@
       }
 
       @include mq(xs) {
+        padding: 1.2rem 1.2rem 1.4rem;
         min-width: 0;
       }
     }

@@ -20,7 +20,7 @@ block main
                 - each article in articles
                     .articles__block
                         include layouts/components/_article_card
-                        + articleCard(article.reviews, article.author, 'employee_articles.html', article.title, article.content)
+                        + articleCard(article.reviews, article.author, 'employee_articles.html', article.title, article.content, article.status)
 
 block mobileMenu
     include layouts/components/_mobile_menu

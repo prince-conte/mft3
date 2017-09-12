@@ -1,4 +1,4 @@
-mixin articleCard(reviews, author, authorLink, title, content)
+mixin articleCard(reviews, author, authorLink, title, content, status)
     article.article-card.article-card--controls.card
         .article-card__reviews.reviews-count
             span= reviews
@@ -6,6 +6,7 @@ mixin articleCard(reviews, author, authorLink, title, content)
 
         .article-card__author
             include _user
+
             if authorLink
                 + user(author, {datetime: '21 фев'}, 'user--employee', 'employee_articles.html')
             else
@@ -25,7 +26,8 @@ mixin articleCard(reviews, author, authorLink, title, content)
                     when 'quote'
                         blockquote По&nbsp;результатам проведенной комплексной диагностики технических неисправностей и&nbsp;отклонений не&nbsp;выявлено, что подтверждается сервисным заказ-нарядом.
                     when 'photo'
-                        img(src='http://static.kavtoday.ru/images/intros/20161214/74c8028efb14a7e582533384e2d1b7d0.jpg' alt='')
+                        a(href='#')
+                            img(src='http://static.kavtoday.ru/images/intros/20161214/74c8028efb14a7e582533384e2d1b7d0.jpg' alt='')
                     when 'video'
                         iframe(width="560" height="315" src="https://www.youtube.com/embed/6KxtgS2lU94" frameborder="0" allowfullscreen)
 

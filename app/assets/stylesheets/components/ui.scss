@@ -84,6 +84,7 @@
 
   .ui-menu {
     background: #fff;
+    overflow: hidden;
     border: {
       right:  1px solid $color-lightest;
       bottom: 1px solid $color-lightest;

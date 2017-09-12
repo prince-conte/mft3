@@ -5,11 +5,11 @@ block title
 
 block header
     include layouts/components/_header
-    + header({authorization: false, inner: true})
+    + header({authorization: false, inner: false})
 
 block main
     include layouts/components/_reviews_controls
-    + reviews_controls(true)
+    + reviews_controls(false)
     .employee-layout.employee-layout--alt
         .container
             .employee-layout__row
