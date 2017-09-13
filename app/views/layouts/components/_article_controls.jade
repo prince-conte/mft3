@@ -1,53 +1,105 @@
-mixin article_controls()
+mixin article_controls(mod)
 
-    form.page-controls.forms
-        .container
-            .page-controls__input-grid.page-controls__input-grid--between
+    - var user = mod
+    if user == true
 
-                .page-controls__input-block
+        form.page-controls.forms
+            .container
+                .page-controls__input-grid.page-controls__input-grid--between
 
-                    .ui-article-select
+                    .page-controls__input-block
+
+                        .ui-article-select
+                            select.js-selectmenu-select
+                                option(selected) Статьи Сотрудников
+                                option Мои статьи
+
+
+                        .label-grid.js-label-switch
+                            label.label-checkbox.js-label-switch-one МОИ СТАТЬИ
+
+                            span.checkbox
+                                input(type='checkbox')
+                                span
+                                i
+
+                            label.label-checkbox.js-label-switch-two.is-active Статьи Сотрудников
+
+                    .page-controls__input-block
+                        a.control-button.control-button--create(href='#')
+                            span.not-mobile Создать статью
+                            i.mdi.mdi-plus.is-mobile
+
+
+                .page-controls__input-grid.page-controls__input-grid--filter
+
+                    .page-controls__filter-input-block.page-controls__filter-input-block--1-4
+                        input(type='search' placeholder='Быстрый поиск...')
+
+                    .page-controls__filter-input-block.page-controls__filter-input-block--1-4
                         select.js-selectmenu-select
-                            option(selected) Статьи Сотрудников
-                            option Мои статьи
+                            option(selected) Все категории
+                            option Option 2
+                            option Option 3
+
+                    .page-controls__filter-input-block.page-controls__filter-input-block--1-4
+                        select.js-selectmenu-select
+                            option(selected) Все статьи
+                            option Option 2
+                            option Option 3
+
+                    .page-controls__filter-input-block.page-controls__filter-input-block--1-4
+                        select.js-selectmenu-select
+                            option(selected) Все сотрудники
+                            option Option 2
+                            option Option 3
+    else
+
+        form.page-controls.forms
+            .container
+                .page-controls__input-grid.page-controls__input-grid--between
+
+                    .page-controls__input-block
+
+                        .ui-article-select
+                            select.js-selectmenu-select
+                                option Статьи Сотрудников
+                                option(selected) Мои статьи
 
 
-                    .label-grid.js-label-switch
-                        label.label-checkbox.js-label-switch-one МОИ СТАТЬИ
+                        .label-grid.js-label-switch
+                            label.label-checkbox.js-label-switch-one МОИ СТАТЬИ
 
-                        span.checkbox
-                            input(type='checkbox')
-                            span
-                            i
+                            span.checkbox
+                                input(type='checkbox' checked)
+                                span
+                                i
 
-                        label.label-checkbox.js-label-switch-two.is-active Статьи Сотрудников
+                            label.label-checkbox.js-label-switch-two.is-active Статьи Сотрудников
 
-                .page-controls__input-block
-                    a.control-button.control-button--create(href='#')
-                        span.not-mobile Создать статью
-                        i.mdi.mdi-plus.is-mobile
+                    .page-controls__input-block
+                        a.control-button.control-button--create(href='#')
+                            span.not-mobile Создать статью
+                            i.mdi.mdi-plus.is-mobile
 
 
-            .page-controls__input-grid.page-controls__input-grid--filter
+                .page-controls__input-grid.page-controls__input-grid--filter
 
-                .page-controls__filter-input-block.page-controls__filter-input-block--1-4
-                    input(type='search' placeholder='Быстрый поиск...')
+                    .page-controls__filter-input-block
+                        input(type='search' placeholder='Быстрый поиск...')
 
-                .page-controls__filter-input-block.page-controls__filter-input-block--1-4
-                    select.js-selectmenu-select
-                        option(selected) Все категории
-                        option Option 2
-                        option Option 3
+                    .page-controls__filter-input-block
+                        select.js-selectmenu-select
+                            option(selected) Все категории
+                            option Option 2
+                            option Option 3
 
-                .page-controls__filter-input-block.page-controls__filter-input-block--1-4
-                    select.js-selectmenu-select
-                        option(selected) Все статьи
-                        option Option 2
-                        option Option 3
+                    .page-controls__filter-input-block
+                        select.js-selectmenu-select
+                            option(selected) Все статьи
+                            option Option 2
+                            option Option 3
 
-                .page-controls__filter-input-block.page-controls__filter-input-block--1-4
-                    select.js-selectmenu-select
-                        option(selected) Все сотрудники
-                        option Option 2
-                        option Option 3
+
+
 

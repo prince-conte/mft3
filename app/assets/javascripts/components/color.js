@@ -10,8 +10,6 @@ $(function() {
             $('#color-label').css('background-color' , $(this).val());
         }
 
-
-
     });
 
 });
