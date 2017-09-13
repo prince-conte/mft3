@@ -16,11 +16,330 @@ block main
         .container
             .articles__blocks#articles-blocks
 
-                - var articles = [{reviews: 2, author: 'Имя Фамилия', title: 'Добавляем видео', content: 'video'}, {reviews: 117, author: 'Максим Скрябин', title: 'Как продают автомобили в штатах', content: 'photo'}, {reviews: 0, author: 'Валентин Моренко', title: 'Продаю Nissan Murano', content: 'quote'}, {reviews: 333, author: 'Константин Поспелов', title: 'Карточка с текстом', content: 'text'}, {reviews: 2, author: 'Имя Фамилия', title: 'Добавляем видео', content: 'video'}, {reviews: 117, author: 'Максим Скрябин', title: 'Как продают автомобили в штатах', content: 'photo'}, {reviews: 0, author: 'Валентин Моренко', title: 'Продаю Nissan Murano', content: 'quote'}, {reviews: 333, author: 'Константин Поспелов', title: 'Карточка с текстом', content: 'text'}]
-                - each article in articles
-                    .articles__block
-                        include layouts/components/_article_card
-                        + articleCard(article.reviews, article.author, 'employee_articles.html', article.title, article.content, article.status)
+
+                .articles__block(style='position: absolute; left: 0px; top: 0px;')
+                    article.article-card.article-card--controls.card
+                        .article-card__reviews.reviews-count
+                            span 2
+                            i.icon.icon--24.mdi.mdi-comment-outline
+                        .article-card__author
+                            article.user.js-hover-container.user--employee
+                                .user__avatar
+                                    a.js-hover(href='employee_articles.html')
+                                        img.user__avatar-img(src='../assets/images/avatar.svg', width='40', height='40', alt='')
+                                .user__details
+                                    h6.user__name
+                                        a.js-hover(href='employee_articles.html') Имя Фамилия
+                                    // for lk
+                                    .user__lk-info
+                                        .user__info-date
+                                            span 21.08.17
+
+                                        // Опубликован
+                                        .user__info-request
+                                            a(href='#') Опубликован
+
+
+                                    // if meta
+                                    // ul.user__meta
+                                    // if meta.datetime
+                                    // li= meta.datetime
+                                    // if meta.actions
+                                    // li Actions
+                                    // if meta.moderation
+                                    // li <a href='#'>Забанить</a> / <a href='#'>Спрятать</a> / <a href='#'>Ответить</a>
+                        h3.article-card__title
+                            a(href='article.html') Добавляем видео
+                        a.article-card__category(href='#') Категория
+                        .article-card__content.content.js-content
+                            .content__video
+                                iframe(width='560', height='315', src='https://www.youtube.com/embed/6KxtgS2lU94', frameborder='0', allowfullscreen='')
+                        .article-card__controls
+                            .controls-button-grid
+                                a.control-button.control-button--edit(href='#') Редактировать
+                                a.control-button.control-button--delete.js-alert-open-delete(href='#')
+                                    span.is-desktop Удалить
+                                    i.mdi.mdi-close.not-desktop
+                .articles__block(style='position: absolute; left: 449px; top: 0px;')
+                    article.article-card.article-card--controls.card
+                        .article-card__reviews.reviews-count
+                            span 117
+                            i.icon.icon--24.mdi.mdi-comment-outline
+                        .article-card__author
+                            article.user.js-hover-container.user--employee
+                                .user__avatar
+                                    a.js-hover(href='employee_articles.html')
+                                        img.user__avatar-img(src='../assets/images/avatar.svg', width='40', height='40', alt='')
+                                .user__details
+                                    h6.user__name
+                                        a.js-hover(href='employee_articles.html') Максим Скрябин
+                                    // for lk
+                                    .user__lk-info
+                                        .user__info-date
+                                            span 21.08.17
+                                        // Опубликован
+                                        .user__info-request
+                                            a(href='#') Опубликован
+                                    // if meta
+                                    // ul.user__meta
+                                    // if meta.datetime
+                                    // li= meta.datetime
+                                    // if meta.actions
+                                    // li Actions
+                                    // if meta.moderation
+                                    // li <a href='#'>Забанить</a> / <a href='#'>Спрятать</a> / <a href='#'>Ответить</a>
+                        h3.article-card__title
+                            a(href='article.html') Как продают автомобили в штатах
+                        a.article-card__category(href='#') Категория
+                        .article-card__content.content.js-content
+                            a(href='#')
+                                img(src='http://static.kavtoday.ru/images/intros/20161214/74c8028efb14a7e582533384e2d1b7d0.jpg', alt='')
+                        .article-card__controls
+                            .controls-button-grid
+                                a.control-button.control-button--edit(href='#') Редактировать
+                                a.control-button.control-button--delete.js-alert-open-delete(href='#')
+                                    span.is-desktop Удалить
+                                    i.mdi.mdi-close.not-desktop
+                .articles__block(style='position: absolute; left: 899px; top: 0px;')
+                    article.article-card.article-card--controls.card
+                        .article-card__reviews.reviews-count
+                            span 0
+                            i.icon.icon--24.mdi.mdi-comment-outline
+                        .article-card__author
+                            article.user.js-hover-container.user--employee
+                                .user__avatar
+                                    a.js-hover(href='employee_articles.html')
+                                        img.user__avatar-img(src='../assets/images/avatar.svg', width='40', height='40', alt='')
+                                .user__details
+                                    h6.user__name
+                                        a.js-hover(href='employee_articles.html') Валентин Моренко
+                                    // for lk
+                                    .user__lk-info
+                                        .user__info-date
+                                            span 21.08.17
+                                        // Черновик
+                                        .user__info-request.user__info-request--no-publick
+                                            a(href='#') Черновик
+                                    // if meta
+                                    // ul.user__meta
+                                    // if meta.datetime
+                                    // li= meta.datetime
+                                    // if meta.actions
+                                    // li Actions
+                                    // if meta.moderation
+                                    // li <a href='#'>Забанить</a> / <a href='#'>Спрятать</a> / <a href='#'>Ответить</a>
+                        h3.article-card__title
+                            a(href='article.html') Продаю Nissan Murano
+                        a.article-card__category(href='#') Категория
+                        .article-card__content.content.js-content
+                            blockquote
+                                | По результатам проведенной комплексной диагностики технических неисправностей и отклонений не выявлено, что подтверждается сервисным заказ-нарядом.
+                        .article-card__controls
+                            .controls-button-grid
+                                a.control-button.control-button--edit(href='#') Редактировать
+                                a.control-button.control-button--delete.js-alert-open-delete(href='#')
+                                    span.is-desktop Удалить
+                                    i.mdi.mdi-close.not-desktop
+                .articles__block(style='position: absolute; left: 899px; top: 425px;')
+                    article.article-card.article-card--controls.card
+                        .article-card__reviews.reviews-count
+                            span 333
+                            i.icon.icon--24.mdi.mdi-comment-outline
+                        .article-card__author
+                            article.user.js-hover-container.user--employee
+                                .user__avatar
+                                    a.js-hover(href='employee_articles.html')
+                                        img.user__avatar-img(src='../assets/images/avatar.svg', width='40', height='40', alt='')
+                                .user__details
+                                    h6.user__name
+                                        a.js-hover(href='employee_articles.html') Константин Поспелов
+                                    // for lk
+                                    .user__lk-info
+                                        .user__info-date
+                                            span 21.08.17
+                                        // Черновик
+                                        .user__info-request.user__info-request--no-publick
+                                            a(href='#') Черновик
+                                    // if meta
+                                    // ul.user__meta
+                                    // if meta.datetime
+                                    // li= meta.datetime
+                                    // if meta.actions
+                                    // li Actions
+                                    // if meta.moderation
+                                    // li <a href='#'>Забанить</a> / <a href='#'>Спрятать</a> / <a href='#'>Ответить</a>
+                        h3.article-card__title
+                            a(href='article.html') Карточка с текстом
+                        a.article-card__category(href='#') Категория
+                        .article-card__content.content.js-content
+                            p
+                                | По результатам проведенной комплексной диагностики технических неисправностей и отклонений не выявлено, что подтверждается сервисным заказ-нарядом.
+                        .article-card__controls
+                            .controls-button-grid
+                                a.control-button.control-button--edit(href='#') Редактировать
+                                a.control-button.control-button--delete.js-alert-open-delete(href='#')
+                                    span.is-desktop Удалить
+                                    i.mdi.mdi-close.not-desktop
+                .articles__block(style='position: absolute; left: 0px; top: 477px;')
+                    article.article-card.article-card--controls.card
+                        .article-card__reviews.reviews-count
+                            span 2
+                            i.icon.icon--24.mdi.mdi-comment-outline
+                        .article-card__author
+                            article.user.js-hover-container.user--employee
+                                .user__avatar
+                                    a.js-hover(href='employee_articles.html')
+                                        img.user__avatar-img(src='../assets/images/avatar.svg', width='40', height='40', alt='')
+                                .user__details
+                                    h6.user__name
+                                        a.js-hover(href='employee_articles.html') Имя Фамилия
+                                    // for lk
+                                    .user__lk-info
+                                        .user__info-date
+                                            span 21.08.17
+                                        // Черновик
+                                        .user__info-request.user__info-request--no-publick
+                                            a(href='#') Черновик
+                                    // if meta
+                                    // ul.user__meta
+                                    // if meta.datetime
+                                    // li= meta.datetime
+                                    // if meta.actions
+                                    // li Actions
+                                    // if meta.moderation
+                                    // li <a href='#'>Забанить</a> / <a href='#'>Спрятать</a> / <a href='#'>Ответить</a>
+                        h3.article-card__title
+                            a(href='article.html') Добавляем видео
+                        a.article-card__category(href='#') Категория
+                        .article-card__content.content.js-content
+                            .content__video
+                                iframe(width='560', height='315', src='https://www.youtube.com/embed/6KxtgS2lU94', frameborder='0', allowfullscreen='')
+                        .article-card__controls
+                            .controls-button-grid
+                                a.control-button.control-button--edit(href='#') Редактировать
+                                a.control-button.control-button--delete.js-alert-open-delete(href='#')
+                                    span.is-desktop Удалить
+                                    i.mdi.mdi-close.not-desktop
+                .articles__block(style='position: absolute; left: 449px; top: 512px;')
+                    article.article-card.article-card--controls.card
+                        .article-card__reviews.reviews-count
+                            span 117
+                            i.icon.icon--24.mdi.mdi-comment-outline
+                        .article-card__author
+                            article.user.js-hover-container.user--employee
+                                .user__avatar
+                                    a.js-hover(href='employee_articles.html')
+                                        img.user__avatar-img(src='../assets/images/avatar.svg', width='40', height='40', alt='')
+                                .user__details
+                                    h6.user__name
+                                        a.js-hover(href='employee_articles.html') Максим Скрябин
+                                    // for lk
+                                    .user__lk-info
+                                        .user__info-date
+                                            span 21.08.17
+                                        // Черновик
+                                        .user__info-request.user__info-request--no-publick
+                                            a(href='#') Черновик
+                                    // if meta
+                                    // ul.user__meta
+                                    // if meta.datetime
+                                    // li= meta.datetime
+                                    // if meta.actions
+                                    // li Actions
+                                    // if meta.moderation
+                                    // li <a href='#'>Забанить</a> / <a href='#'>Спрятать</a> / <a href='#'>Ответить</a>
+                        h3.article-card__title
+                            a(href='article.html') Как продают автомобили в штатах
+                        a.article-card__category(href='#') Категория
+                        .article-card__content.content.js-content
+                            a(href='#')
+                                img(src='http://static.kavtoday.ru/images/intros/20161214/74c8028efb14a7e582533384e2d1b7d0.jpg', alt='')
+                        .article-card__controls
+                            .controls-button-grid
+                                a.control-button.control-button--edit(href='#') Редактировать
+                                a.control-button.control-button--delete.js-alert-open-delete(href='#')
+                                    span.is-desktop Удалить
+                                    i.mdi.mdi-close.not-desktop
+                .articles__block(style='position: absolute; left: 899px; top: 789px;')
+                    article.article-card.article-card--controls.card
+                        .article-card__reviews.reviews-count
+                            span 0
+                            i.icon.icon--24.mdi.mdi-comment-outline
+                        .article-card__author
+                            article.user.js-hover-container.user--employee
+                                .user__avatar
+                                    a.js-hover(href='employee_articles.html')
+                                        img.user__avatar-img(src='../assets/images/avatar.svg', width='40', height='40', alt='')
+                                .user__details
+                                    h6.user__name
+                                        a.js-hover(href='employee_articles.html') Валентин Моренко
+                                    // for lk
+                                    .user__lk-info
+                                        .user__info-date
+                                            span 21.08.17
+                                        // Черновик
+                                        .user__info-request.user__info-request--no-publick
+                                            a(href='#') Черновик
+                                    // if meta
+                                    // ul.user__meta
+                                    // if meta.datetime
+                                    // li= meta.datetime
+                                    // if meta.actions
+                                    // li Actions
+                                    // if meta.moderation
+                                    // li <a href='#'>Забанить</a> / <a href='#'>Спрятать</a> / <a href='#'>Ответить</a>
+                        h3.article-card__title
+                            a(href='article.html') Продаю Nissan Murano
+                        a.article-card__category(href='#') Категория
+                        .article-card__content.content.js-content
+                            blockquote
+                                | По результатам проведенной комплексной диагностики технических неисправностей и отклонений не выявлено, что подтверждается сервисным заказ-нарядом.
+                        .article-card__controls
+                            .controls-button-grid
+                                a.control-button.control-button--edit(href='#') Редактировать
+                                a.control-button.control-button--delete.js-alert-open-delete(href='#')
+                                    span.is-desktop Удалить
+                                    i.mdi.mdi-close.not-desktop
+                .articles__block(style='position: absolute; left: 0px; top: 955px;')
+                    article.article-card.article-card--controls.card
+                        .article-card__reviews.reviews-count
+                            span 333
+                            i.icon.icon--24.mdi.mdi-comment-outline
+                        .article-card__author
+                            article.user.js-hover-container.user--employee
+                                .user__avatar
+                                    a.js-hover(href='employee_articles.html')
+                                        img.user__avatar-img(src='../assets/images/avatar.svg', width='40', height='40', alt='')
+                                .user__details
+                                    h6.user__name
+                                        a.js-hover(href='employee_articles.html') Константин Поспелов
+                                    // for lk
+                                    .user__lk-info
+                                        .user__info-date
+                                            span 21.08.17
+                                        // Опублкован
+                                        .user__info-request
+                                            a(href='#') Опубликован
+                                    // if meta
+                                    // ul.user__meta
+                                    // if meta.datetime
+                                    // li= meta.datetime
+                                    // if meta.actions
+                                    // li Actions
+                                    // if meta.moderation
+                                    // li <a href='#'>Забанить</a> / <a href='#'>Спрятать</a> / <a href='#'>Ответить</a>
+                        h3.article-card__title
+                            a(href='article.html') Карточка с текстом
+                        a.article-card__category(href='#') Категория
+                        .article-card__content.content.js-content
+                            p
+                                | По результатам проведенной комплексной диагностики технических неисправностей и отклонений не выявлено, что подтверждается сервисным заказ-нарядом.
+                        .article-card__controls
+                            .controls-button-grid
+                                a.control-button.control-button--edit(href='#') Редактировать
+                                a.control-button.control-button--delete.js-alert-open-delete(href='#')
+                                    span.is-desktop Удалить
+                                    i.mdi.mdi-close.not-desktop
 
 block mobileMenu
     include layouts/components/_mobile_menu
