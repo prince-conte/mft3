@@ -77,14 +77,14 @@
 
         &:not(.button-menu) {
           position: relative;
-          color: #4d4d4d;
+          color: rgba($color-light, .7);
           font-weight: 700;
           letter-spacing: .075em;
           text-transform: uppercase;
 
           &:hover {
             .mod_no-touchevents & {
-              color: $color-brand;
+              color: $color-light;
               text-decoration: none;
 
               &::after {
@@ -94,11 +94,12 @@
           }
 
           &.is-active {
-            color: $color-brand;
+            color: #4c4c4c;
             cursor: default;
 
             &::after {
               width: 100%;
+              background: $color-light;
             }
           }
 
@@ -108,7 +109,7 @@
             bottom: 0;
             left: 50%;
             transform: translate(-50%, .5rem);
-            background: $color-brand;
+            background: $color-light;
             content: "";
             transition: width $transition-duration-base;
           }

@@ -1,58 +1,88 @@
-mixin workers_controls()
+mixin workers_controls(mod)
 
-    form.page-controls.forms
-        .container
-            .page-controls__input-grid.page-controls__input-grid--between
+    - var user = mod
+    if user == true
 
-                .page-controls__input-block
+        form.page-controls.forms
+            .container
+                .page-controls__input-grid.page-controls__input-grid--between
 
-                    .ui-article-select
+                    .page-controls__input-block
+
+                        .ui-article-select
+                            select.js-selectmenu-select
+                                option Cотрудник
+                                option(selected) Управление сотрудниками
+
+
+                        .label-grid.js-label-switch
+                            label.label-checkbox.js-label-switch-one Сотрудник
+
+                            span.checkbox
+                                input(type='checkbox')
+                                span
+                                i
+
+                            label.label-checkbox.js-label-switch-two.is-active Управление сотрудниками
+
+                    .page-controls__input-block
+                        a.control-button.control-button--create(href='#')
+                            span.not-mobile Создать команду
+                            i.mdi.mdi-plus.is-mobile
+
+
+                .page-controls__input-grid.page-controls__input-grid--filter
+
+                    .page-controls__filter-input-block.page-controls__filter-input-block--1-4
+                        input(type='search' placeholder='Быстрый поиск...')
+
+                    .page-controls__filter-input-block.page-controls__filter-input-block--1-4
                         select.js-selectmenu-select
-                            option(selected) Cотрудник
-                            option Управление сотрудниками
+                            option(selected) Автомир
+                            option Option 2
+                            option Option 3
+
+                    .page-controls__filter-input-block.page-controls__filter-input-block--1-4
+                        select.js-selectmenu-select
+                            option(selected) Все сотрудники
+                            option Option 2
+                            option Option 3
+
+                    .page-controls__filter-input-block.page-controls__filter-input-block--1-4
+                        .page-controls__filter-input-grid
+                            .page-controls__filter-input-grid-item
+                                a.filter-button(href='#')
+                                    span.is-desktop Изменить сайт
+                                    span.not-desktop Изменить
+
+                            .page-controls__filter-input-grid-item
+                                a.filter-button(href='#') + Сотрудник
+
+    else
+
+        form.page-controls.forms
+            .container
+                .page-controls__input-grid.page-controls__input-grid--between
+
+                    .page-controls__input-block
+
+                        .ui-article-select
+                            select.js-selectmenu-select
+                                option(selected) Cотрудник
+                                option Управление сотрудниками
 
 
-                    .label-grid.js-label-switch
-                        label.label-checkbox.js-label-switch-one Сотрудник
+                        .label-grid.js-label-switch
+                            label.label-checkbox.js-label-switch-one Сотрудник
 
-                        span.checkbox
-                            input(type='checkbox')
-                            span
-                            i
+                            span.checkbox
+                                input(type='checkbox' checked)
+                                span
+                                i
 
-                        label.label-checkbox.js-label-switch-two.is-active Управление сотрудниками
+                            label.label-checkbox.js-label-switch-two.is-active Управление сотрудниками
 
-                .page-controls__input-block
-                    a.control-button.control-button--create(href='#')
-                        span.not-mobile Создать команду
-                        i.mdi.mdi-plus.is-mobile
-
-
-            .page-controls__input-grid.page-controls__input-grid--filter
-
-                .page-controls__filter-input-block.page-controls__filter-input-block--1-4
-                    input(type='search' placeholder='Быстрый поиск...')
-
-                .page-controls__filter-input-block.page-controls__filter-input-block--1-4
-                    select.js-selectmenu-select
-                        option(selected) Автомир
-                        option Option 2
-                        option Option 3
-
-                .page-controls__filter-input-block.page-controls__filter-input-block--1-4
-                    select.js-selectmenu-select
-                        option(selected) Все сотрудники
-                        option Option 2
-                        option Option 3
-
-                .page-controls__filter-input-block.page-controls__filter-input-block--1-4
-                    .page-controls__filter-input-grid
-                        .page-controls__filter-input-grid-item
-                            a.filter-button(href='#')
-                                span.is-desktop Изменить сайт
-                                span.not-desktop Изменить
-
-                        .page-controls__filter-input-grid-item
-                            a.filter-button(href='#') + Сотрудник
-
-
+                    .page-controls__input-block
+                        a.control-button.control-button--create(href='#')
+                            span.not-mobile Создать команду
+                            i.mdi.mdi-plus.is-mobile

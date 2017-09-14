@@ -210,7 +210,7 @@ $header-size-md: 10rem;
     display: inline-flex;
     align-items: center;
     margin: {
-      right: -.9rem;
+      right: -.4rem;
       left: auto;
     }
 
@@ -226,8 +226,8 @@ $header-size-md: 10rem;
       margin-right: 2rem;
     }
 
-    @include mq(xs) {
-      display: block;
+    @include mq(sm) {
+      display: none;
     }
 
     > a {

@@ -554,7 +554,7 @@
   line-height: 22px;
 }
 .ql-bubble .ql-picker-options {
-  background-color: #444;
+  background-color: $color-light;
   display: none;
   min-width: 100%;
   padding: 4px 8px;
@@ -747,11 +747,7 @@
 .ql-bubble .ql-color-picker .ql-picker-item:hover {
   border-color: #fff;
 }
-.ql-bubble .ql-tooltip {
-  background-color: #444;
-  border-radius: 25px;
-  color: #fff;
-}
+
 .ql-bubble .ql-tooltip-arrow {
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
@@ -762,11 +758,11 @@
   position: absolute;
 }
 .ql-bubble .ql-tooltip:not(.ql-flip) .ql-tooltip-arrow {
-  border-bottom: 6px solid #444;
+  border-bottom: 6px solid $color-light;
   top: -6px;
 }
 .ql-bubble .ql-tooltip.ql-flip .ql-tooltip-arrow {
-  border-top: 6px solid #444;
+  border-top: 6px solid $color-light;
   bottom: -6px;
 }
 .ql-bubble .ql-tooltip.ql-editing .ql-tooltip-editor {
@@ -805,7 +801,7 @@
   white-space: nowrap;
 }
 .ql-container.ql-bubble:not(.ql-disabled) a::before {
-  background-color: #444;
+  background-color: $color-light;
   border-radius: 15px;
   top: -5px;
   font-size: 12px;
@@ -818,7 +814,7 @@
   z-index: 1;
 }
 .ql-container.ql-bubble:not(.ql-disabled) a::after {
-  border-top: 6px solid #444;
+  border-top: 6px solid $color-light;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
   top: 0;
@@ -839,4 +835,95 @@
 .ql-container.ql-bubble:not(.ql-disabled) a:hover::after {
   visibility: visible;
 }
+
+.ql-bubble.ql-toolbar button, .ql-bubble .ql-toolbar button.ql-header {
+  font-weight: 700;
+  color: rgba(#fff, .7);
+
+  &:hover {
+    color: #fff;
+  }
+
+  &[value='2'] {
+    @include font(2rem,2rem);
+  }
+
+  &[value='3'] {
+    @include font(1.6rem,1.6rem);
+    padding: .5rem .5rem .1rem;
+  }
+}
+
+
+
+.ql-bubble .ql-tooltip {
+  background-color: $color-light;
+  border-radius: 0;
+  color: #fff;
+}
+
+.ql-bubble .ql-toolbar button.ql-link {
+
+  i {
+    @include font(2rem,2rem);
+    display: block;
+    color: rgba(#fff, .7);
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+
+
+.ql-bubble .ql-toolbar button.ql-bold, .ql-bubble .ql-toolbar button.ql-italic {
+
+  i {
+    @include font(2.4rem,2.4rem);
+    display: block;
+    color: rgba(#fff, .7);
+
+    transform: translate(-.2rem,-.2rem);
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+
+.ql-bubble .ql-toolbar button.ql-blockquote {
+
+  i {
+    @include font(3.2rem,3.2rem);
+    display: block;
+    color: rgba(#fff, .7);
+
+    transform: translate(-.7rem,-.7rem);
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+
+
+
+.ql-bubble .ql-toolbar button.ql-list  {
+
+  i {
+    @include font(3rem,3rem);
+    display: block;
+    color: rgba(#fff, .7);
+
+    transform: translate(-.2rem,-.2rem);
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
 
