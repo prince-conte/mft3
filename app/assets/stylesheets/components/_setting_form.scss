@@ -45,13 +45,18 @@
   &__image-block {
     width: 12rem;
 
-    @media (min-width: 1280px) {
-      width: 24rem;
-    }
 
     @include mq(sm) {
       &:not(:last-child) {
         margin-right: 4rem;
+      }
+    }
+
+    @media (min-width: 1280px) {
+      width: 24rem;
+
+      &:not(:last-child) {
+        margin-right: 10rem;
       }
     }
 

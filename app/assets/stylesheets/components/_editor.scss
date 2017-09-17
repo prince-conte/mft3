@@ -105,18 +105,57 @@ padding: 1.5rem 0;
   display: block;
 }
 
+
+.medium-editor-insert-plugin .clearfix:before, .medium-editor-insert-plugin:before, .medium-editor-insert-plugin .clearfix:after, .medium-editor-insert-plugin:after {
+  display: none;
+}
+
+.medium-editor-insert-plugin .medium-insert-buttons {
+  @include mq(xs) {
+    display: block;
+    width: 100%;
+  }
+}
+
 .medium-editor-insert-plugin .medium-insert-buttons .medium-insert-buttons-addons {
   display: block !important;
+  max-width: 7.6rem;
   left: 0;
   top: 50%;
   padding: 0 .6rem;
   transform: translate(-120%, -15%);
   background: #b3b3b3;
 
+  @include mq(xs) {
+    right: auto;
+    left: 50%;
+    transform: translate(-50%, -15%);
+
+    &::after {
+      @include triangle(1rem, #b3b3b3, left);
+      left: -1rem;
+      transform: translate(-100%,-50%);
+    }
+  }
+
+  &::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translate(100%,-50%);
+    content: '';
+
+    @include mq(sm) {
+      @include triangle(1rem, #b3b3b3, right);
+      right: .1rem;
+    }
+  }
+
   li {
     margin: 0;
   }
 }
+
 .medium-insert-buttons-show {
   display: none !important;
 }
@@ -335,9 +374,15 @@ padding: 1.5rem 0;
   // Paragraph
   > p {
     @include content-indents-base;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   // Video (Youtube, Vimeo)
+
+
   &__video {
     @include content-indents-large;
     position: relative;
@@ -349,6 +394,22 @@ padding: 1.5rem 0;
       position: absolute;
       top: 0;
       left: 0;
+    }
+  }
+
+
+  .medium-insert-embeds {
+    @include content-indents-large;
+    position: relative;
+    padding-bottom: 56.25%; // 16:9
+    height: 0;
+
+    iframe {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
     }
   }
 
@@ -376,5 +437,16 @@ padding: 1.5rem 0;
       max-width: none;
       width: 100%;
     }
+  }
+}
+
+.medium-insert-embed {
+  position: static !important;
+  width: auto !important;
+
+  > div {
+    position: static !important;
+    width: auto !important;
+    max-width: none !important;
   }
 }
