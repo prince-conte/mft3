@@ -98,7 +98,12 @@
 // editor overrides
 
 .medium-editor-toolbar {
-padding: 1.5rem 0;
+    padding: 0 0 2.5rem;
+}
+
+.medium-editor-toolbar-actions {
+   position: relative;
+    left: -2.4rem;
 }
 
 .medium-toolbar-arrow-under {
@@ -240,19 +245,44 @@ padding: 1.5rem 0;
   display: block;
   height: 0px;
   left: 50%;
-  margin-left: -8px;
   position: absolute;
   width: 0px;
   border-style: solid;
 }
 
-.medium-toolbar-arrow-under::after {
-  top: 5.4rem;
-  border-color: #4d4d4d transparent transparent;
-}
 
 .medium-toolbar-arrow-under:after {
+  margin: 0;
+  transform: translateX(calc(-50% - 2.5rem));
   border-width: 6px 6px 0;
+  border-color: #4d4d4d transparent transparent transparent;
+}
+
+.medium-toolbar-arrow-over:after {
+  margin: 0;
+  transform: translateX(calc(-50% - 2.5rem));
+}
+
+.medium-toolbar-arrow-over {
+  padding: 0;
+
+  .medium-editor-toolbar-actions {
+    transform: translateY(1rem);
+  }
+}
+
+
+.medium-toolbar-arrow-over::before {
+  border-width: 0 6px 6px 6px;
+  top: .4rem;
+  transform: translateX(calc(-50% - 2rem));
+  border-color: transparent transparent #4d4d4d transparent;
+
+}
+
+.medium-toolbar-over-under::after {
+  border-width: 6px 6px 0;
+  border-color: #4d4d4d transparent transparent transparent;
 }
 
 
@@ -449,4 +479,8 @@ padding: 1.5rem 0;
     width: auto !important;
     max-width: none !important;
   }
+}
+
+.medium-insert-images-toolbar {
+  display: none !important;
 }

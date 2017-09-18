@@ -44,7 +44,7 @@
             },
             actions: {
                 remove: {
-                    label: '<span class="fa fa-times"></span>',
+                    label: '<i class="mdi mdi-close"></i>',
                     clicked: function () {
                         var $event = $.Event('keydown');
 

@@ -1061,7 +1061,7 @@ main .navigation {
     .setting-form__image-block--qr > img {
       border-radius: 0; }
   .setting-form__form-body {
-    margin-top: 4rem; }
+    margin: 4rem 0 8rem; }
     @media all and (min-width: 1024px) {
       .setting-form__form-body {
         margin: 6rem 22rem; } }
@@ -2614,7 +2614,11 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
         line-height: 1; }
 
 .medium-editor-toolbar {
-  padding: 1.5rem 0; }
+  padding: 0 0 2.5rem; }
+
+.medium-editor-toolbar-actions {
+  position: relative;
+  left: -2.4rem; }
 
 .medium-toolbar-arrow-under {
   display: block; }
@@ -2748,17 +2752,38 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   display: block;
   height: 0px;
   left: 50%;
-  margin-left: -8px;
   position: absolute;
   width: 0px;
   border-style: solid; }
 
-.medium-toolbar-arrow-under::after {
-  top: 5.4rem;
-  border-color: #4d4d4d transparent transparent; }
-
 .medium-toolbar-arrow-under:after {
-  border-width: 6px 6px 0; }
+  margin: 0;
+  -webkit-transform: translateX(calc(-50% - 2.5rem));
+  transform: translateX(calc(-50% - 2.5rem));
+  border-width: 6px 6px 0;
+  border-color: #4d4d4d transparent transparent transparent; }
+
+.medium-toolbar-arrow-over:after {
+  margin: 0;
+  -webkit-transform: translateX(calc(-50% - 2.5rem));
+  transform: translateX(calc(-50% - 2.5rem)); }
+
+.medium-toolbar-arrow-over {
+  padding: 0; }
+  .medium-toolbar-arrow-over .medium-editor-toolbar-actions {
+    -webkit-transform: translateY(1rem);
+    transform: translateY(1rem); }
+
+.medium-toolbar-arrow-over::before {
+  border-width: 0 6px 6px 6px;
+  top: .4rem;
+  -webkit-transform: translateX(calc(-50% - 2rem));
+  transform: translateX(calc(-50% - 2rem));
+  border-color: transparent transparent #4d4d4d transparent; }
+
+.medium-toolbar-over-under::after {
+  border-width: 6px 6px 0;
+  border-color: #4d4d4d transparent transparent transparent; }
 
 .editor__content {
   font-size: 1.6rem;
@@ -2935,6 +2960,9 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     position: static !important;
     width: auto !important;
     max-width: none !important; }
+
+.medium-insert-images-toolbar {
+  display: none !important; }
 
 .crop-popup-fade {
   display: none; }
