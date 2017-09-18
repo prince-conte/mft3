@@ -21,18 +21,13 @@
   }
 
   &__input-block {
-    position: relative;
-    margin-bottom: 1.5rem;
 
-    @include mq(sm) {
-      margin-bottom: 2rem;
-    }
 
     > input {
-      @include font(3.2rem,3.4rem);
+
       display: block;
       width: 100%;
-      font-weight: 700;
+
       color: $color-base;
       border: 0;
       outline: none;
@@ -129,7 +124,19 @@
   top: 50%;
   padding: 0 .6rem;
   transform: translate(-120%, -15%);
-  background: #b3b3b3;
+  background: transparent;
+
+  @include mq(xs) {
+    &::after {
+      display: none !important;
+    }
+  }
+
+  @include mq(sm) {
+    background: #b3b3b3;
+  }
+
+
 
   @include mq(xs) {
     right: auto;
@@ -182,10 +189,40 @@
   color: rgba(#fff, .7);
   cursor: default;
 
+  @include mq(xs) {
+    color: $color-base;
+  }
+
   > i {
     @include font(2.2rem,2.2rem);
   }
 
+}
+
+.editor__content .medium-insert-embeds:not(:last-child) {
+  margin: 2rem 0 !important;
+}
+
+.medium-insert-embeds-placeholder {
+  margintop: 2rem !important;
+
+  &:first-child {
+    margin-top: 0 !important;
+  }
+
+  &:last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+.medium-insert-images figure figcaption, .mediumInsert figure figcaption, .medium-insert-embeds figure figcaption, .mediumInsert-embeds figure figcaption {
+  @include text-small;
+  color: $color-base;
+}
+
+.medium-insert-embeds-placeholder:after {
+  @include text-small;
+  color: $color-base;
 }
 
 
@@ -296,6 +333,38 @@
 
     &:hover {
       text-decoration: none;
+    }
+  }
+
+  > h1 {
+    @include font(3.2rem,3.4rem);
+    font-family: $font-family-sans;
+    position: relative;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+
+    @include mq(sm) {
+      margin-bottom: 2rem;
+    }
+
+
+    &::after {
+      @include text-large;
+      font-family: $font-family-serif;
+      display: block;
+      margin-top: 1.6rem ;
+      font-weight: 400;
+      color: $color-lighter;
+      content: attr(data-description);
+    }
+
+    &:empty {
+
+      &::before {
+        display: block;
+        color: $color-lighter;
+        content: attr(data-label);
+      }
     }
   }
 
@@ -431,7 +500,6 @@
   .medium-insert-embeds {
     @include content-indents-large;
     position: relative;
-    padding-bottom: 56.25%; // 16:9
     height: 0;
 
     iframe {

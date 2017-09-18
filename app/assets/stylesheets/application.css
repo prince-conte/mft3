@@ -324,7 +324,7 @@ table {
   position: relative;
   display: block;
   width: 100%;
-  padding: 2rem;
+  padding: 2rem 3rem 2rem 2rem;
   border-radius: 0.6rem;
   border: 1px solid #d9d9d9;
   background: #fff;
@@ -338,7 +338,7 @@ table {
     width: 0;
     position: absolute;
     top: 50%;
-    right: 1rem;
+    right: 2rem;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     display: block;
@@ -378,6 +378,9 @@ table {
     display: none; }
   .ui-selectmenu-menu .ui-menu-item-wrapper {
     padding: 1rem 2rem; }
+    @media all and (max-width: 767px) {
+      .ui-selectmenu-menu .ui-menu-item-wrapper {
+        padding: 2rem; } }
     .ui-selectmenu-menu .ui-menu-item-wrapper.ui-state-active {
       background: #eee; }
 
@@ -949,6 +952,16 @@ main .navigation {
     margin-left: 1rem; }
   .page-controls__input-block--full {
     width: 100%; }
+  .page-controls__filter-input-block.is-fixed {
+    position: fixed;
+    top: 0;
+    background: #f2f2f2;
+    z-index: 999; }
+    @media all and (max-width: 767px) {
+      .page-controls__filter-input-block.is-fixed {
+        left: 0 !important;
+        width: 100% !important;
+        padding: .5rem 2rem !important; } }
   @media all and (max-width: 767px) {
     .page-controls__filter-input-block:not(:last-child) {
       margin-bottom: 1rem; } }
@@ -2554,41 +2567,32 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     @media all and (min-width: 768px) {
       .editor__body {
         padding: 5.4rem 6rem; } }
-  .editor__input-block {
-    position: relative;
-    margin-bottom: 1.5rem; }
+  .editor__input-block > input {
+    display: block;
+    width: 100%;
+    color: #000;
+    border: 0;
+    outline: none; }
+    .editor__input-block > input::-webkit-input-placeholder {
+      color: #b2b2b2; }
+    .editor__input-block > input:-ms-input-placeholder {
+      color: #b2b2b2; }
+    .editor__input-block > input::placeholder {
+      color: #b2b2b2; }
     @media all and (min-width: 768px) {
-      .editor__input-block {
-        margin-bottom: 2rem; } }
-    .editor__input-block > input {
-      font-size: 3.2rem;
-      line-height: 1.0625;
-      display: block;
-      width: 100%;
-      font-weight: 700;
-      color: #000;
-      border: 0;
-      outline: none; }
-      .editor__input-block > input::-webkit-input-placeholder {
-        color: #b2b2b2; }
-      .editor__input-block > input:-ms-input-placeholder {
-        color: #b2b2b2; }
-      .editor__input-block > input::placeholder {
-        color: #b2b2b2; }
-      @media all and (min-width: 768px) {
-        .editor__input-block > input {
-          font-size: 4rem;
-          line-height: 1; } }
-    .editor__input-block--description {
-      margin: 1.2rem 0 1.5rem; }
-      @media all and (min-width: 768px) {
-        .editor__input-block--description {
-          margin: 1.6rem 0 2.5rem; } }
-      .editor__input-block--description > input {
-        font-size: 1.6rem;
-        line-height: 1.375;
-        font-family: 'Georgia';
-        font-weight: 400; }
+      .editor__input-block > input {
+        font-size: 4rem;
+        line-height: 1; } }
+  .editor__input-block--description {
+    margin: 1.2rem 0 1.5rem; }
+    @media all and (min-width: 768px) {
+      .editor__input-block--description {
+        margin: 1.6rem 0 2.5rem; } }
+    .editor__input-block--description > input {
+      font-size: 1.6rem;
+      line-height: 1.375;
+      font-family: 'Georgia';
+      font-weight: 400; }
   .editor__content-box {
     position: relative; }
   .editor__buttons {
@@ -2639,7 +2643,13 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   padding: 0 .6rem;
   -webkit-transform: translate(-120%, -15%);
   transform: translate(-120%, -15%);
-  background: #b3b3b3; }
+  background: transparent; }
+  @media all and (max-width: 767px) {
+    .medium-editor-insert-plugin .medium-insert-buttons .medium-insert-buttons-addons::after {
+      display: none !important; } }
+  @media all and (min-width: 768px) {
+    .medium-editor-insert-plugin .medium-insert-buttons .medium-insert-buttons-addons {
+      background: #b3b3b3; } }
   @media all and (max-width: 767px) {
     .medium-editor-insert-plugin .medium-insert-buttons .medium-insert-buttons-addons {
       right: auto;
@@ -2696,9 +2706,32 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   background: transparent;
   color: rgba(255, 255, 255, 0.7);
   cursor: default; }
+  @media all and (max-width: 767px) {
+    .medium-editor-insert-plugin .medium-insert-buttons button {
+      color: #000; } }
   .medium-editor-insert-plugin .medium-insert-buttons button > i {
     font-size: 2.2rem;
     line-height: 1; }
+
+.editor__content .medium-insert-embeds:not(:last-child) {
+  margin: 2rem 0 !important; }
+
+.medium-insert-embeds-placeholder {
+  margintop: 2rem !important; }
+  .medium-insert-embeds-placeholder:first-child {
+    margin-top: 0 !important; }
+  .medium-insert-embeds-placeholder:last-child {
+    margin-bottom: 0 !important; }
+
+.medium-insert-images figure figcaption, .mediumInsert figure figcaption, .medium-insert-embeds figure figcaption, .mediumInsert-embeds figure figcaption {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #000; }
+
+.medium-insert-embeds-placeholder:after {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #000; }
 
 .medium-editor-toolbar-actions {
   display: -webkit-box;
@@ -2793,6 +2826,29 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     text-decoration: underline; }
     .editor__content a:hover {
       text-decoration: none; }
+  .editor__content > h1 {
+    font-size: 3.2rem;
+    line-height: 1.0625;
+    font-family: Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
+    position: relative;
+    margin-bottom: 1.5rem;
+    font-weight: 700; }
+    @media all and (min-width: 768px) {
+      .editor__content > h1 {
+        margin-bottom: 2rem; } }
+    .editor__content > h1::after {
+      font-size: 1.6rem;
+      line-height: 1.375;
+      font-family: Georgia, Times, "Times New Roman", serif;
+      display: block;
+      margin-top: 1.6rem;
+      font-weight: 400;
+      color: #b2b2b2;
+      content: attr(data-description); }
+    .editor__content > h1:empty::before {
+      display: block;
+      color: #b2b2b2;
+      content: attr(data-label); }
   .editor__content > h2,
   .editor__content > h3 {
     font-family: Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif; }
@@ -2920,7 +2976,6 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
       left: 0; }
   .editor__content .medium-insert-embeds {
     position: relative;
-    padding-bottom: 56.25%;
     height: 0; }
     .editor__content .medium-insert-embeds:not(:first-child) {
       margin-top: 4rem; }

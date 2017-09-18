@@ -60,6 +60,24 @@
 
   &__filter-input-block {
 
+    &.is-fixed {
+      position: fixed;
+      top: 0;
+      background: #f2f2f2;
+      z-index: 999;
+
+      @include mq(xs) {
+        left: 0 !important;;
+        width: 100% !important;
+        padding: .5rem 2rem !important;
+      }
+
+      @include mq(ms) {
+        margin-left: -.7rem;
+        padding: 0 .5rem;
+      }
+    }
+
     @include mq(xs) {
       &:not(:last-child) {
         margin-bottom: 1rem;
