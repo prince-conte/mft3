@@ -74,7 +74,10 @@ var editor = new MediumEditor('.editable', {
     },
 
     placeholder: {
-        text: 'Текст или видео'
+        /* This example includes the default options for placeholder,
+           if nothing is passed this is what it used */
+        text: 'Type your text',
+        hideOnClick: true
     }
 });
 

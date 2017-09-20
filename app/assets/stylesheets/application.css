@@ -991,6 +991,19 @@ main .navigation {
     .page-controls__filter-input-block--editor-buttons {
       width: 50%;
       padding: .5rem; } }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .page-controls__filter-input-block--editor-buttons {
+      width: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: end;
+      -ms-flex-align: end;
+      align-items: flex-end; }
+      .page-controls__filter-input-block--editor-buttons .page-controls__filter-input-grid {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1; } }
   .page-controls__filter-input-block > input {
     display: block;
     width: 100%; }
@@ -2837,6 +2850,19 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
 .medium-insert-images-toolbar2 {
   display: none !important; }
 
+.medium-editor-toolbar-form-active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 1rem;
+  background: #4d4d4d; }
+
+.medium-editor-toolbar-form-row {
+  display: none; }
+
 .editor__content {
   font-size: 1.6rem;
   line-height: 1.375;
@@ -2855,19 +2881,19 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     @media all and (min-width: 768px) {
       .editor__content > h1 {
         margin-bottom: 2rem; } }
-    .editor__content > h1::after {
-      font-size: 1.6rem;
-      line-height: 1.375;
-      font-family: Georgia, Times, "Times New Roman", serif;
-      display: block;
-      margin-top: 1.6rem;
-      font-weight: 400;
-      color: #b2b2b2;
-      content: attr(data-description); }
     .editor__content > h1:empty::before {
       display: block;
       color: #b2b2b2;
       content: attr(data-label); }
+  .editor__content > p[data-placeholder]:empty::after {
+    font-size: 1.6rem;
+    line-height: 1.375;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    display: block;
+    margin-top: 1.6rem;
+    font-weight: 400;
+    color: #b2b2b2;
+    content: attr(data-placeholder); }
   .editor__content > h2,
   .editor__content > h3 {
     font-family: Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif; }
