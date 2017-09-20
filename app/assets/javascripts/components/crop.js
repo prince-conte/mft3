@@ -68,18 +68,50 @@ function demoUpload() {
         });
     }
 
+    console.log(Modernizr.mq(BREAKPOINT_MOBILE))
+    console.log(Modernizr.mq(BREAKPOINT_DESKTOP))
+
+    if (Modernizr.mq(BREAKPOINT_MOBILE)) {
 
 
-    $uploadCrop = $('#upload-photo').croppie({
-        viewport: {
-            width: 240,
-            height: 240,
-            type: 'circle'
-        },
+
+        $uploadCrop = $('#upload-photo').croppie({
+            viewport: {
+                width: 240,
+                height: 240,
+                type: 'circle'
+            },
+
+            boundary: {
+                width: 280,
+                height: 280
+            },
 
 
-        enableExif: true
-    });
+            enableExif: true
+        });
+    }
+
+    if (Modernizr.mq(BREAKPOINT_DESKTOP)) {
+        $uploadCrop = $('#upload-photo').croppie({
+            viewport: {
+                width: 240,
+                height: 240,
+                type: 'circle'
+            },
+
+            boundary: {
+                width: 600,
+                height: 400
+            },
+
+
+            enableExif: true
+        });
+    }
+
+
+
 
     $('#upload').on('change', function () {
 

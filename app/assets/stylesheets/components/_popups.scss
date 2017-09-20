@@ -434,9 +434,20 @@
 
 
   &__input-grid {
-    display: flex;
-    > a, > button {
-      margin-left: 1rem;
+
+    @include mq(xs) {
+      > a, > button {
+        display: block;
+        width: 100%;
+        margin-top: 1rem;
+      }
+    }
+
+    @include mq(sm) {
+      display: flex;
+      > a, > button {
+        margin-left: 1rem;
+      }
     }
   }
 

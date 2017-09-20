@@ -132,7 +132,7 @@
   display: inline-block;
   padding: 1.25rem 2.6rem;
   border-radius: $border-radius-small;
-  border: 1px solid $color-light;
+  border: 1px solid $color-brand;
   text-align: center;
   text-decoration: none;
   background: $color-light;
@@ -148,15 +148,29 @@
     }
   }
 
-  &--edit, &--delete {
+  &--edit {
 
-    @include mq(md) {
+    @include mq(sm) {
       flex-grow: 1;
 
       &:hover {
         border-color: rgba($color-brand, .7);
         background: rgba($color-brand, .7);
         color: #fff;
+        cursor: default;
+      }
+    }
+  }
+
+  &--delete {
+
+    @include mq(md) {
+      flex-grow: 1;
+
+      &:hover {
+        border-color: $color-brand;
+        background: #fff;
+        color: $color-brand;
         cursor: default;
       }
     }

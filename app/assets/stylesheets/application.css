@@ -865,10 +865,10 @@ main .navigation {
   opacity: .15; }
   .navigation__company-logo::after {
     display: none !important; }
-  @media all and (max-width: 767px) {
+  @media (max-width: 768px) {
     .navigation__company-logo:not(:last-child) {
       margin-bottom: 2rem; } }
-  @media all and (min-width: 768px) {
+  @media (min-width: 769px) {
     .navigation__company-logo:not(:last-child) {
       margin-right: 3rem; } }
   .navigation__company-logo > img {
@@ -1351,7 +1351,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   display: inline-block;
   padding: 1.25rem 2.6rem;
   border-radius: 0.6rem;
-  border: 1px solid #4d4d4d;
+  border: 1px solid #b3b3b3;
   text-align: center;
   text-decoration: none;
   background: #4d4d4d;
@@ -1364,15 +1364,25 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
       text-decoration: none;
       border-color: rgba(77, 77, 77, 0.7);
       background: rgba(77, 77, 77, 0.7); } }
-  @media all and (min-width: 1024px) {
-    .control-button--edit, .control-button--delete {
+  @media all and (min-width: 768px) {
+    .control-button--edit {
       -webkit-box-flex: 1;
       -ms-flex-positive: 1;
       flex-grow: 1; }
-      .control-button--edit:hover, .control-button--delete:hover {
+      .control-button--edit:hover {
         border-color: rgba(179, 179, 179, 0.7);
         background: rgba(179, 179, 179, 0.7);
         color: #fff;
+        cursor: default; } }
+  @media all and (min-width: 1024px) {
+    .control-button--delete {
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1; }
+      .control-button--delete:hover {
+        border-color: #b3b3b3;
+        background: #fff;
+        color: #b3b3b3;
         cursor: default; } }
   .control-button--create i, .control-button--delete i, .control-button--min-buttons i {
     font-size: 2.1rem;
@@ -2323,12 +2333,18 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   @media all and (min-width: 768px) {
     .controls-popup__input-block:not(:last-child), .controls-popup__input-grid:not(:last-child) {
       margin-bottom: 6rem; } }
-  .controls-popup__input-grid {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex; }
+  @media all and (max-width: 767px) {
     .controls-popup__input-grid > a, .controls-popup__input-grid > button {
-      margin-left: 1rem; }
+      display: block;
+      width: 100%;
+      margin-top: 1rem; } }
+  @media all and (min-width: 768px) {
+    .controls-popup__input-grid {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+      .controls-popup__input-grid > a, .controls-popup__input-grid > button {
+        margin-left: 1rem; } }
   .controls-popup__team {
     padding-bottom: 3rem; }
     .controls-popup__team:not(:last-child) {
@@ -2818,6 +2834,9 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   border-width: 6px 6px 0;
   border-color: #4d4d4d transparent transparent transparent; }
 
+.medium-insert-images-toolbar2 {
+  display: none !important; }
+
 .editor__content {
   font-size: 1.6rem;
   line-height: 1.375;
@@ -3097,10 +3116,10 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     .crop-box {
       width: 76rem; } }
   .crop-box > .croppie-container {
-    height: 36rem; }
+    height: 30rem; }
     @media all and (min-width: 768px) {
       .crop-box > .croppie-container {
-        height: 50rem; } }
+        min-height: 40rem; } }
 
 .croppie-container .cr-boundary {
   background: #4d4d4d;

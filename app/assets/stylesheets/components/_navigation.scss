@@ -235,14 +235,15 @@
     &::after {
       display: none !important;
     }
-    @include mq(xs) {
+
+    @media (max-width: 768px) {
 
       &:not(:last-child) {
         margin-bottom: 2rem;
       }
     }
 
-    @include mq(sm) {
+    @media (min-width: 769px) {
       &:not(:last-child) {
         margin-right: 3rem;
       }

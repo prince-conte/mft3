@@ -85,14 +85,13 @@
 
   @include mq(sm) {
     width: 76rem;
-
   }
 
   > .croppie-container {
-    height: 36rem;
+    height: 30rem;
 
     @include mq(sm) {
-      height: 50rem;
+      min-height: 40rem;
     }
   }
 }
