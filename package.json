@@ -24,5 +24,8 @@
     "normalize.css": "^6.0.0",
     "parchment": "^1.1.0",
     "quilljs": "^0.18.1"
+  },
+  "devDependencies": {
+    "source-map": "^0.5.7"
   }
 }

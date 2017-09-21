@@ -8,6 +8,7 @@
 
 .mfp-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -29,7 +30,9 @@
     pointer-events: none;
 
     @include mq(md) {
+      flex: 1;
       width: auto;
+      min-height: 2rem;
     }
   }
 }

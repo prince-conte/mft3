@@ -1985,6 +1985,10 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
@@ -2011,7 +2015,11 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     pointer-events: none; }
     @media all and (min-width: 1024px) {
       .mfp-container .mfp-content {
-        width: auto; } }
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        width: auto;
+        min-height: 2rem; } }
 
 .mfp-fade.mfp-bg,
 .mfp-fade.mfp-wrap .mfp-content {
