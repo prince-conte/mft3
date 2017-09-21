@@ -2015,11 +2015,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     pointer-events: none; }
     @media all and (min-width: 1024px) {
       .mfp-container .mfp-content {
-        -webkit-box-flex: 1;
-        -ms-flex: 1;
-        flex: 1;
-        width: auto;
-        min-height: 2rem; } }
+        width: auto; } }
 
 .mfp-fade.mfp-bg,
 .mfp-fade.mfp-wrap .mfp-content {
