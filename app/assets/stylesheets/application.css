@@ -2645,8 +2645,8 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     display: flex;
     top: 0;
     left: -1rem;
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
+    -webkit-transform: translate(-75%, -25%);
+    transform: translate(-75%, -25%);
     padding: .7rem 1rem;
     background: #b3b3b3; }
     .editor__buttons > a {
