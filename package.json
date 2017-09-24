@@ -5,6 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "autosize": "^3.0.20",
+    "babel-core": "^6.26.0",
     "bourbon": "^4.3.4",
     "croppie": "^2.5.0",
     "dropzone": "^5.1.1",
@@ -26,6 +27,8 @@
     "quilljs": "^0.18.1"
   },
   "devDependencies": {
+    "babel-preset-env": "^1.6.0",
+    "gulp-babel": "^7.0.0",
     "source-map": "^0.5.7"
   }
 }

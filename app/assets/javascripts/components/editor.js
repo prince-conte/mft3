@@ -23,21 +23,17 @@ $(function() {
             theme: 'bubble'   // Specify theme in configuration
         });
 
+
+
         $('#show-controls').click(function() {
             $(this).toggleClass('active');
             quill.focus();
         });
 
-        quill.on('text-change', function(delta, source) {
+        quill.setText('Hello Good World!');
+        quill.formatLine(1, 1, 'list', 'bullet');
 
-
-            if (source == 'api') {
-                console.log("An API call triggered this change.");
-            } else if (source == 'user') {
-                console.log("A user action triggered this change.");
-            }
-
-        });
+        let lines = quill.getLines(2, 5);
 
     }
 
