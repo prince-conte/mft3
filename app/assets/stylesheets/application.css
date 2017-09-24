@@ -2697,9 +2697,11 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     color: #000;
     border: 0;
     outline: none; }
-    .ql-bubble .ql-editor > h1:empty::after {
+    .ql-bubble .ql-editor > h1::after {
       content: attr(data-placeholder);
       color: #b2b2b2; }
+    .ql-bubble .ql-editor > h1:empty::after {
+      content: ''; }
   .ql-bubble .ql-editor > h2,
   .ql-bubble .ql-editor > h3 {
     font-family: Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif; }

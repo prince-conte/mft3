@@ -30,8 +30,8 @@ $(function() {
             quill.focus();
         });
 
-        quill.setText('Hello Good World!');
-        quill.formatLine(1, 1, 'list', 'bullet');
+        quill.setText('hj');
+        quill.formatLine(1, 1, 'header', '1');
 
         let lines = quill.getLines(2, 5);
 

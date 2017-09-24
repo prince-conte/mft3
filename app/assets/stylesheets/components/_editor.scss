@@ -145,14 +145,16 @@
     border: 0;
     outline: none;
 
-    &:empty {
-      &::after {
-        content: attr(data-placeholder);
-        color: $color-lighter;
-      }
+    &::after {
+      content: attr(data-placeholder);
+      color: $color-lighter;
     }
 
-
+    &:empty {
+      &::after {
+        content: '';
+      }
+    }
   }
 
   > h2,
