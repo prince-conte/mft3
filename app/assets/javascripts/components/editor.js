@@ -71,7 +71,7 @@ $(function() {
             }
         }
         ImageBlot.blotName = 'image';
-        ImageBlot.tagName = 'img';
+        ImageBlot.tagName = 'figure';
 
         class VideoBlot extends BlockEmbed {
             static create(url) {
@@ -202,7 +202,9 @@ $(function() {
         });
 
         $('#image-button').click(function() {
+
             let range = quill.getSelection(true);
+
             quill.insertEmbed(range.index, 'image', {
                 alt: 'Quill Cloud',
                 url: 'https://quilljs.com/0.20/assets/images/cloud.png'
@@ -212,10 +214,64 @@ $(function() {
         });
 
         $('#video-button').click(function() {
+
             let range = quill.getSelection(true);
-            let url = 'https://www.youtube.com/embed/QHH3iSeDBLo?showinfo=0';
+            var link = prompt('Введите ссылку на видео', 100);
+
+
+            var $v1 = link,
+                $v2;
+
+// Для youtube
+            if($v1.indexOf('youtube.com') + 1 || $v1.indexOf('youtu.be') + 1) {
+                // Ищем и заменяем, чтобы проще обработать
+                $v2 = $v1.replace('.com/embed/', '.com/watch?v=');
+                $v1 = $v2.replace('.be/', '.com/watch?v=');
+                //Отсеиваем ненужные части, чтобы получить чистый id
+                $v2 = $v1.split(".com/watch?v=")[1];
+                $v1 = $v2.split("&index")[0];
+                $v2 = $v1.replace('&', '?');
+
+                //Получаем чистый id, вставляем его непосредственно в плеер
+
+                $v2 = 'https://www.youtube.com/embed/' + $v2;
+            }
+// Для Coub
+            else if ($v1.indexOf('http://coub.com/') + 1) {
+
+                // Производим замену
+                $v2 = $v1.replace('/view/', '/embed/');
+
+                // Вставляем id в плеер
+
+                $v2 = $v2 + '?muted=false&amp;autostart=false&originalSize=false&hideTopBar=false&noSiteButtons=false&startWithHD=false';
+            }
+// Для vimeo
+            else if ($v1.indexOf('vimeo.com') + 1) {
+                // Производим замену
+                $v2 = $v1.replace('vimeo.com/', 'player.vimeo.com/video/');
+
+            }
+
+            // twitter
+            else if ($v1.indexOf('twitter.com') + 1) {
+                // Производим замену
+                $v2 = $v1
+
+            }
+
+
+            //В случае, если не удалось обработать
+            else {document.write('<div style="color:red">Ошибка: не могу воспроизвести.</div>');}
+
+
+
+
+
+
+            let url = $v2;
             quill.insertEmbed(range.index, 'video', url, Quill.sources.USER);
-            quill.formatText(range.index + 1, 1, { height: '170', width: '400' });
+            quill.formatText(range.index + 1, 1, { height: '170', width: '100%' });
             quill.setSelection(range.index + 1, Quill.sources.SILENT);
             $('#sidebar-controls').hide();
         });
@@ -242,7 +298,7 @@ $(function() {
 
         $(document).on('click' , '#add-code', function() {
 
-            quill.setText('Hello World!');
+            quill.setText('<figure><img src="https://quilljs.com/0.20/assets/images/cloud.png"</figure>');
             let [line, offset] = quill.getLine(7);
 
         });
