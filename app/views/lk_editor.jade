@@ -41,9 +41,9 @@ block main
 
                     form.editor__article
 
-                        //.editor__input-block
-                        //    input(placeholder='Заголовок статьи')
-                        //
+                        .editor__input-block
+                            textarea(placeholder='Заголовок статьи')
+
                         //.editor__input-block.editor__input-block--description
                         //    input(placeholder='Описание статьи')
 
@@ -60,11 +60,18 @@ block main
                                 a#video-button(href='#')
                                     i.mdi.mdi-camcorder
 
+                                .editor__input-link-form.js-input-link-form
+                                    input(type='text' placeholder='Ввствьте ссылку (youtube, vimeo, coub)')
+                                    a.button.button--bordered.js-add-link-video(href='#') нажми оке
+
+                                .editor__input-link-form.js-input-figcaption
+                                    input#picField(type='file')
+                                    input(type='text' placeholder='Ввствьте ссылку (youtube, vimeo, coub)')
+                                    a.button.button--bordered.js-add-figcaption(href='#') нажми оке
+
 
                             .editor__content#editor-container
                                 h1(data-placeholder='lol')
-
-
 
 
 

@@ -2607,23 +2607,24 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     @media all and (min-width: 768px) {
       .editor__input-block {
         margin-bottom: 2rem; } }
-    .editor__input-block > input {
+    .editor__input-block > textarea {
       font-size: 3.2rem;
       line-height: 1.0625;
       display: block;
       width: 100%;
+      height: 4.3rem;
       font-weight: 700;
       color: #000;
       border: 0;
       outline: none; }
-      .editor__input-block > input::-webkit-input-placeholder {
+      .editor__input-block > textarea::-webkit-input-placeholder {
         color: #b2b2b2; }
-      .editor__input-block > input:-ms-input-placeholder {
+      .editor__input-block > textarea:-ms-input-placeholder {
         color: #b2b2b2; }
-      .editor__input-block > input::placeholder {
+      .editor__input-block > textarea::placeholder {
         color: #b2b2b2; }
       @media all and (min-width: 768px) {
-        .editor__input-block > input {
+        .editor__input-block > textarea {
           font-size: 4rem;
           line-height: 1; } }
     .editor__input-block--description {
@@ -2643,12 +2644,25 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    top: 0;
-    left: -1rem;
+    top: -.1rem;
+    left: -5rem;
     -webkit-transform: translate(-75%, -25%);
     transform: translate(-75%, -25%);
     padding: .7rem 1rem;
-    background: #b3b3b3; }
+    background: #b3b3b3;
+    z-index: 999; }
+    .editor__buttons::after {
+      height: 0;
+      width: 0;
+      border-bottom: 0.6rem solid transparent;
+      border-left: 0.6rem solid #b3b3b3;
+      border-top: 0.6rem solid transparent;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      -webkit-transform: translate(100%, -50%);
+      transform: translate(100%, -50%);
+      content: ''; }
     .editor__buttons > a {
       display: block;
       color: #e8e8e8; }
@@ -2659,6 +2673,51 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
       .editor__buttons > a > i {
         font-size: 2rem;
         line-height: 1; }
+  .editor__input-link-form {
+    position: absolute;
+    display: none;
+    top: 50%;
+    right: -2.2rem;
+    -webkit-transform: translate(100%, -50%);
+    transform: translate(100%, -50%);
+    padding: .5rem;
+    width: 30rem;
+    background: #fff; }
+    .editor__input-link-form.is-active {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+    @media all and (min-width: 768px) {
+      .editor__input-link-form {
+        width: 40rem; } }
+    .editor__input-link-form > input {
+      font-size: 1.6rem;
+      line-height: 1.375;
+      font-family: Georgia, Times, "Times New Roman", serif;
+      color: #4d4d4d;
+      border: 0;
+      background: #fff;
+      min-width: 25rem;
+      outline: none; }
+      .editor__input-link-form > input::-webkit-input-placeholder {
+        color: #4d4d4d; }
+      .editor__input-link-form > input:-ms-input-placeholder {
+        color: #4d4d4d; }
+      .editor__input-link-form > input::placeholder {
+        color: #4d4d4d; }
+      @media all and (min-width: 768px) {
+        .editor__input-link-form > input {
+          min-width: 45rem; } }
+      .editor__input-link-form > input[type='file'] {
+        height: 0;
+        width: 0;
+        opacity: 0;
+        position: absolute;
+        top: -999999px;
+        left: -999999px; }
+    .editor__input-link-form > a {
+      display: block;
+      margin-left: 1rem; }
 
 .ql-toolbar {
   font-size: 2rem;
@@ -2678,6 +2737,15 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
 .ql-bubble .ql-toolbar button > i {
   font-size: 2rem;
   line-height: 1; }
+
+.ql-editor.ql-blank::before {
+  font-size: 1.6rem;
+  line-height: 1.375;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  padding: 0;
+  left: 0;
+  font-style: normal;
+  color: #4d4d4d; }
 
 .ql-bubble .ql-editor {
   font-size: 1.6rem;
@@ -2734,6 +2802,8 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
         font-size: 2rem;
         line-height: 1.25;
         padding-left: 3rem; } }
+  .ql-bubble .ql-editor .ql-image figcaption::before {
+    content: attr(data-figcaption); }
   .ql-bubble .ql-editor > figure {
     position: relative; }
     .ql-bubble .ql-editor > figure:not(:first-child) {

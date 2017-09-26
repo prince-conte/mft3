@@ -28,10 +28,11 @@
       margin-bottom: 2rem;
     }
 
-    > input {
+    > textarea {
       @include font(3.2rem,3.4rem);
       display: block;
       width: 100%;
+      height: 4.3rem;
       font-weight: 700;
       color: $color-base;
       border: 0;
@@ -68,11 +69,21 @@
   &__buttons {
     position: absolute;
     display: flex;
-    top: 0;
-    left: -1rem;
+    top: -.1rem;
+    left: -5rem;
     transform: translate(-75%, -25%);
     padding: .7rem 1rem;
     background: #b3b3b3;
+    z-index: 999;
+
+    &::after {
+      @include triangle(1.2rem, #b3b3b3, right);
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translate(100%,-50%);
+      content: '';
+    }
 
     > a {
       display: block;
@@ -91,6 +102,60 @@
       }
     }
   }
+
+
+  &__input-link-form {
+    position: absolute;
+    display: none;
+    top: 50%;
+    right: -2.2rem;
+    transform: translate(100%,-50%);
+    padding: .5rem;
+    width: 30rem;
+    background: #fff;
+
+    &.is-active {
+      display: flex;
+    }
+
+    @include mq(sm) {
+      width: 40rem;
+    }
+
+    > input {
+      @include text-large;
+      font-family: $font-family-serif;
+      color: $color-light;
+      border: 0;
+      background: #fff;
+      min-width: 25rem;
+      outline: none;
+
+      &::placeholder {
+        color: $color-light;
+      }
+
+      @include mq(sm) {
+        min-width: 45rem;
+      }
+
+      &[type='file'] {
+        @include size(0);
+        opacity: 0;
+        position: absolute;
+        top: -999999px;
+        left: -999999px;
+      }
+
+    }
+
+    > a {
+      display: block;
+      margin-left: 1rem;
+    }
+  }
+
+
 }
 
 .ql-toolbar {
@@ -117,7 +182,14 @@
   @include font(2rem,2rem);
 }
 
-
+.ql-editor.ql-blank::before {
+  @include text-large;
+  font-family: $font-family-serif;
+  padding: 0;
+  left: 0;
+  font-style: normal;
+  color: $color-light;
+}
 
 
 
@@ -193,6 +265,15 @@
   }
 
   // Figure
+
+  .ql-image figcaption {
+
+    &::before {
+      content: attr(data-figcaption);
+    }
+
+  }
+
   > figure {
     @include content-indents-large;
     position: relative;
