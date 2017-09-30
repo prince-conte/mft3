@@ -80,8 +80,8 @@
       @include triangle(1.2rem, #b3b3b3, right);
       position: absolute;
       top: 50%;
-      right: 0;
-      transform: translate(100%,-50%);
+      left: 99%;
+      transform: translate(0,-50%);
       content: '';
     }
 
@@ -136,7 +136,7 @@
       }
 
       @include mq(sm) {
-        min-width: 45rem;
+        min-width: 29rem;
       }
 
       &[type='file'] {
@@ -200,6 +200,14 @@
   padding: 0;
 
 
+  .ql-add-code {
+
+     &::before {
+       content: attr(data-code);
+     }
+  }
+
+
   a {
     text-decoration: underline;
 
@@ -251,7 +259,7 @@
   }
 
   // Blockquote
-  > blockquote {
+  > blockquote:not(.instagram-media) {
     @include content-indents-base;
     @include font(1.8rem, 2.5rem);
     padding-left: 2rem;
@@ -316,6 +324,7 @@
   > ul {
     @include content-indents-base;
     margin-left: 2rem;
+    padding: 0 !important;
 
     @include mq(sm) {
       margin-left: 3rem;
@@ -326,6 +335,8 @@
     }
 
     > li {
+      padding: 0 !important;
+
       &:not(:last-child) {
         margin-bottom: 1rem;
       }

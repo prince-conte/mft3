@@ -41,6 +41,19 @@ $(function() {
         ImageBlot.tagName = 'figure';
 
 
+        class CodeBlot extends BlockEmbed {
+            static create(value) {
+                let node = super.create(value);
+
+                node.setAttribute('data-code', codeContainer);
+                return node;
+            }
+        }
+        CodeBlot.blotName = 'code';
+        CodeBlot.className = 'ql-add-code';
+        CodeBlot.tagName = 'p';
+
+
 
 
         class VideoBlot extends BlockEmbed {
@@ -87,13 +100,19 @@ $(function() {
 
         Quill.register(ImageBlot);
         Quill.register(VideoBlot);
+        Quill.register(CodeBlot);
+
+        var toolbarOptions = [['bold', 'italic','link', { 'header': '2' },{ 'header': '3' },'blockquote',{ 'list': 'bullet' }]];
 
         var optionsEditor = {
             placeholder: 'Текст или фото...',
-            theme: 'bubble'
+            theme: 'bubble',
+            modules: {
+                toolbar: toolbarOptions
+            }
         };
 
-        let quill = new Quill('#editor-container', optionsEditor);
+        let quill = new Quill('#editor-container', optionsEditor, toolbarOptions);
 
 
 
@@ -125,6 +144,13 @@ $(function() {
         });
 
 
+        quill.on('text-change', function(delta, oldDelta, source) {
+            if (source == 'api') {
+                console.log("An API call triggered this change.");
+            } else if (source == 'user') {
+                console.log("A user action triggered this change.");
+            }
+        });
 
 
 
@@ -220,20 +246,37 @@ $(function() {
         });
 
 
-        $('#video-button').click(function() {
+        $(document).on('click touchend', '.js-editor-cancel', function() {
 
+            $('.editor__input-link-form').removeClass('is-active');
+            $('.js-input-figcaption').removeClass('is-active');
+
+            return false;
+        });
+
+
+
+
+
+        $(document).on('click touchend', '#video-button', function() {
+
+            $('.editor__input-link-form').removeClass('is-active');
+            $('.js-input-figcaption').removeClass('is-active');
             $('.js-input-link-form').addClass('is-active');
 
-
+            return false;
 
         });
 
-        $('#image-button').click(function() {
 
+
+        $(document).on('click touchend', '#image-button', function() {
+
+            $('.editor__input-link-form').removeClass('is-active');
+            $('.js-input-figcaption').removeClass('is-active');
             $('.js-input-figcaption').addClass('is-active');
 
-
-
+            return false;
         });
 
 
@@ -289,52 +332,97 @@ $(function() {
         }
 
 
+        var codeContainer;
+
+        function addCode() {
+
+            quill.clipboard.dangerouslyPasteHTML(5, codeContainer);
+
+        }
+
+
+        $(document).on('click touchend', '.js-add-code', function() {
+
+            codeContainer = $(this).prev('input').val();
+
+
+            $('.js-input-code').removeClass('is-active');
+
+            addCode()
+
+            return false
+        });
 
 
 
 
 
 
+        $(document).on('click touchend', '#tweet-button', function() {
 
-
-
-
-
-
-
-
-        $('#tweet-button').click(function() {
             let range = quill.getSelection(true);
             let id = '464454167226904576';
             quill.insertEmbed(range.index, 'tweet', id, Quill.sources.USER);
             quill.setSelection(range.index + 1, Quill.sources.SILENT);
             $('#sidebar-controls').hide();
+
+            return false
         });
 
-        $('#show-controls').click(function() {
+        $(document).on('click touchend', '#show-controls', function() {
+
             $('#sidebar-controls').toggleClass('active');
             quill.focus();
+
+            return false
         });
 
 
 
-        $('#show-controls').click(function() {
+        $(document).on('click touchend', '#show-controls', function() {
+
             $(this).toggleClass('active');
             quill.focus();
-        });
-
-        $(document).on('click' , '#add-code', function() {
-
-            quill.setText('<figure><img src="https://quilljs.com/0.20/assets/images/cloud.png"</figure>');
-            let [line, offset] = quill.getLine(7);
 
         });
 
+        $(document).on('click touchend', '#add-code', function() {
+
+            $('.editor__input-link-form').removeClass('is-active');
+            $('.js-input-figcaption').removeClass('is-active');
+
+            $('.js-input-code').addClass('is-active');
 
 
+
+            return false;
+
+        });
     }
 
+});
 
 
+$(function(){
+
+    var fixedBox = $('.js-fixed-box');
+    var fixedBoxOffset = fixedBox.offset();
+
+    $(window).scroll(function() {
+
+        if (($(this).scrollTop() >= fixedBoxOffset.top)) {
+
+            fixedBox.css('left', fixedBoxOffset.left);
+            fixedBox.css('width', fixedBox.outerWidth());
+            fixedBox.addClass('is-fixed')
+        }
+        else {
+
+            fixedBox.removeClass('is-fixed')
+            fixedBox.css('left', '');
+            fixedBox.css('width', '');
+        }
+
+    });
 
 });

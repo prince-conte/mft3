@@ -28,7 +28,7 @@ block main
                                 option Option 2
                                 option Option 3
 
-                        .page-controls__filter-input-block.page-controls__filter-input-block--editor-buttons
+                        .page-controls__filter-input-block.page-controls__filter-input-block--editor-buttons.js-fixed-box
                             .page-controls__filter-input-grid
                                 .page-controls__filter-input-grid-item
                                     a.filter-button(href='#') Черновик
@@ -61,13 +61,21 @@ block main
                                     i.mdi.mdi-camcorder
 
                                 .editor__input-link-form.js-input-link-form
-                                    input(type='text' placeholder='Ввствьте ссылку (youtube, vimeo, coub)')
-                                    a.button.button--bordered.js-add-link-video(href='#') нажми оке
+                                    input(type='text' placeholder='Вставьте ссылку (youtube, vimeo, coub)')
+                                    a.button.button--bordered.js-add-link-video(href='#') Продолжить
+                                    a.button.button--bordered.js-editor-cancel(href='#') Отмена
 
                                 .editor__input-link-form.js-input-figcaption
                                     input#picField(type='file')
-                                    input(type='text' placeholder='Ввствьте ссылку (youtube, vimeo, coub)')
-                                    a.button.button--bordered.js-add-figcaption(href='#') нажми оке
+                                    input(type='text' placeholder='Название или описание изображения')
+                                    a.button.button--bordered.js-add-figcaption(href='#') Продолжить
+                                    a.button.button--bordered.js-editor-cancel(href='#') Отмена
+
+                                .editor__input-link-form.js-input-code
+                                    input#picField(type='file')
+                                    input(type='text' placeholder='Название или описание изображения')
+                                    a.button.button--bordered.js-add-code(href='#') Продолжить
+                                    a.button.button--bordered.js-editor-cancel(href='#') Отмена
 
 
                             .editor__content#editor-container

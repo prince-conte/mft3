@@ -2659,9 +2659,9 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
       border-top: 0.6rem solid transparent;
       position: absolute;
       top: 50%;
-      right: 0;
-      -webkit-transform: translate(100%, -50%);
-      transform: translate(100%, -50%);
+      left: 99%;
+      -webkit-transform: translate(0, -50%);
+      transform: translate(0, -50%);
       content: ''; }
     .editor__buttons > a {
       display: block;
@@ -2707,7 +2707,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
         color: #4d4d4d; }
       @media all and (min-width: 768px) {
         .editor__input-link-form > input {
-          min-width: 45rem; } }
+          min-width: 29rem; } }
       .editor__input-link-form > input[type='file'] {
         height: 0;
         width: 0;
@@ -2752,6 +2752,8 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   line-height: 1.375;
   font-family: Georgia, Times, "Times New Roman", serif;
   padding: 0; }
+  .ql-bubble .ql-editor .ql-add-code::before {
+    content: attr(data-code); }
   .ql-bubble .ql-editor a {
     text-decoration: underline; }
     .ql-bubble .ql-editor a:hover {
@@ -2787,18 +2789,18 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     .ql-bubble .ql-editor > h2:not(:last-child),
     .ql-bubble .ql-editor > h3:not(:last-child) {
       margin-bottom: 2rem; }
-  .ql-bubble .ql-editor > blockquote {
+  .ql-bubble .ql-editor > blockquote:not(.instagram-media) {
     font-size: 1.8rem;
     line-height: 1.38889;
     padding-left: 2rem;
     border-left: 1px solid #4d4d4d;
     font-style: italic; }
-    .ql-bubble .ql-editor > blockquote:not(:first-child) {
+    .ql-bubble .ql-editor > blockquote:not(.instagram-media):not(:first-child) {
       margin-top: 2rem; }
-    .ql-bubble .ql-editor > blockquote:not(:last-child) {
+    .ql-bubble .ql-editor > blockquote:not(.instagram-media):not(:last-child) {
       margin-bottom: 2rem; }
     @media all and (min-width: 1024px) {
-      .ql-bubble .ql-editor > blockquote {
+      .ql-bubble .ql-editor > blockquote:not(.instagram-media) {
         font-size: 2rem;
         line-height: 1.25;
         padding-left: 3rem; } }
@@ -2849,7 +2851,8 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
           margin-bottom: 6rem; } }
   .ql-bubble .ql-editor > ol,
   .ql-bubble .ql-editor > ul {
-    margin-left: 2rem; }
+    margin-left: 2rem;
+    padding: 0 !important; }
     .ql-bubble .ql-editor > ol:not(:first-child),
     .ql-bubble .ql-editor > ul:not(:first-child) {
       margin-top: 2rem; }
@@ -2864,9 +2867,12 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
       .ql-bubble .ql-editor > ol,
       .ql-bubble .ql-editor > ul {
         margin-left: 4.5rem; } }
-    .ql-bubble .ql-editor > ol > li:not(:last-child),
-    .ql-bubble .ql-editor > ul > li:not(:last-child) {
-      margin-bottom: 1rem; }
+    .ql-bubble .ql-editor > ol > li,
+    .ql-bubble .ql-editor > ul > li {
+      padding: 0 !important; }
+      .ql-bubble .ql-editor > ol > li:not(:last-child),
+      .ql-bubble .ql-editor > ul > li:not(:last-child) {
+        margin-bottom: 1rem; }
   .ql-bubble .ql-editor > ol {
     list-style: decimal; }
   .ql-bubble .ql-editor > ul {
