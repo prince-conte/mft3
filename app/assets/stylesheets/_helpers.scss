@@ -24,8 +24,6 @@
   @include mq(md) {
     display: block;
   }
-
-
 }
 
 .not-desktop {
@@ -33,4 +31,8 @@
   @include mq(md) {
     display: none;
   }
+}
+
+.is-hidden {
+  display: none !important;
 }

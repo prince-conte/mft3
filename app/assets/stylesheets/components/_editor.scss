@@ -31,8 +31,6 @@
     > textarea {
       @include font(3.2rem,3.4rem);
       display: block;
-      width: 100%;
-      height: 4.3rem;
       font-weight: 700;
       color: $color-base;
       border: 0;
@@ -68,13 +66,23 @@
 
   &__buttons {
     position: absolute;
-    display: flex;
+    display: none;
     top: -.1rem;
     left: -5rem;
     transform: translate(-75%, -25%);
     padding: .7rem 1rem;
     background: #b3b3b3;
     z-index: 999;
+
+    @include mq(xs) {
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      background: transparent;
+
+      &:after{
+        display: none;
+      }
+    }
 
     &::after {
       @include triangle(1.2rem, #b3b3b3, right);
@@ -84,10 +92,21 @@
       transform: translate(0,-50%);
       content: '';
     }
+  }
+
+  &__buttons-body {
+    display: flex;
+
+
+    @include mq(xs) {
+
+      > a {
+        color: $color-light;
+      }
+    }
 
     > a {
       display: block;
-      color: #e8e8e8;
 
       &:not(:last-child) {
         margin-right: 1rem;
@@ -101,6 +120,12 @@
         @include font(2rem, 2rem);
       }
     }
+
+    @include mq(sm) {
+      color: #e8e8e8;
+    }
+
+
   }
 
 
@@ -183,12 +208,41 @@
 }
 
 .ql-editor.ql-blank::before {
-  @include text-large;
-  font-family: $font-family-serif;
-  padding: 0;
+  @include font(3.2rem,3.5rem);
+  position: absolute;
+  top: -1.3rem;
   left: 0;
+  display: block;
+  width: 100%;
+  font-weight: 700;
+  border: 0;
+  outline: none;
+  font-family: $font-family-sans;
   font-style: normal;
-  color: $color-light;
+  color: $color-lighter;
+
+  @include mq(sm) {
+    @include font(4rem,4rem);
+  }
+}
+
+.ql-editor.ql-blank::after {
+  @include text-large;
+  position: absolute;
+  top: 6.4rem;
+  left: 0;
+  display: block;
+  width: 100%;
+  font-weight: 700;
+  border: 0;
+  outline: none;
+  font-style: normal;
+  color: $color-lightest;
+  content: 'Текст или фото...';
+
+  @include mq(sm) {
+    top: 4rem;
+  }
 }
 
 
@@ -198,7 +252,7 @@
   @include text-large;
   font-family: $font-family-serif;
   padding: 0;
-
+  min-height: 48rem;
 
   .ql-add-code {
 
@@ -206,7 +260,6 @@
        content: attr(data-code);
      }
   }
-
 
   a {
     text-decoration: underline;
@@ -216,7 +269,7 @@
     }
   }
 
-  > h1 {
+  h1 {
     @include font(3.2rem,3.4rem);
     display: block;
     width: 100%;
@@ -226,13 +279,17 @@
     outline: none;
 
     &::after {
+      position: absolute;
+      left: 0;
+      right: 0;
       content: attr(data-placeholder);
+      opacity: 1;
       color: $color-lighter;
     }
 
     &:empty {
       &::after {
-        content: '';
+        opacity: 1;
       }
     }
   }

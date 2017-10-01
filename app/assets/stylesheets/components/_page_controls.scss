@@ -12,6 +12,29 @@
     margin-bottom: 3rem;
   }
 
+  &.is-fixed {
+    position: fixed;
+    top: 0;
+    margin-top: 0;
+    background: #f2f2f2;
+    z-index: 999;
+
+    @include mq(xs) {
+      left: 0 !important;;
+      width: 100% !important;
+      padding: .5rem 2rem !important;
+
+      .page-controls__filter-input-block--mobile-fix-hide {
+        display: none;
+      }
+    }
+
+    @include mq(ms) {
+      margin-left: -.7rem;
+      padding: 0 .5rem;
+    }
+  }
+
   &__input-grid {
     align-items: center;
 
@@ -59,24 +82,6 @@
 
 
   &__filter-input-block {
-
-    &.is-fixed {
-      position: fixed;
-      top: 0;
-      background: #f2f2f2;
-      z-index: 999;
-
-      @include mq(xs) {
-        left: 0 !important;;
-        width: 100% !important;
-        padding: .5rem 2rem !important;
-      }
-
-      @include mq(ms) {
-        margin-left: -.7rem;
-        padding: 0 .5rem;
-      }
-    }
 
     @include mq(xs) {
       &:not(:last-child) {

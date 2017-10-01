@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700&subset=cyrillic");
 @import url(vendor/fotorama/fotorama.css);
 @import url(vendor/normalize.css);
@@ -141,6 +142,9 @@ table {
 @media all and (min-width: 1024px) {
   .not-desktop {
     display: none; } }
+
+.is-hidden {
+  display: none !important; }
 
 .forms {
   font-family: Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif; }
@@ -920,6 +924,19 @@ main .navigation {
       margin: 5rem 0 6rem; } }
   .page-controls--editor {
     margin-bottom: 3rem; }
+  .page-controls.is-fixed {
+    position: fixed;
+    top: 0;
+    margin-top: 0;
+    background: #f2f2f2;
+    z-index: 999; }
+    @media all and (max-width: 767px) {
+      .page-controls.is-fixed {
+        left: 0 !important;
+        width: 100% !important;
+        padding: .5rem 2rem !important; }
+        .page-controls.is-fixed .page-controls__filter-input-block--mobile-fix-hide {
+          display: none; } }
   .page-controls__input-grid {
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -953,16 +970,6 @@ main .navigation {
     margin-left: 1rem; }
   .page-controls__input-block--full {
     width: 100%; }
-  .page-controls__filter-input-block.is-fixed {
-    position: fixed;
-    top: 0;
-    background: #f2f2f2;
-    z-index: 999; }
-    @media all and (max-width: 767px) {
-      .page-controls__filter-input-block.is-fixed {
-        left: 0 !important;
-        width: 100% !important;
-        padding: .5rem 2rem !important; } }
   @media all and (max-width: 767px) {
     .page-controls__filter-input-block:not(:last-child) {
       margin-bottom: 1rem; } }
@@ -2611,8 +2618,6 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
       font-size: 3.2rem;
       line-height: 1.0625;
       display: block;
-      width: 100%;
-      height: 4.3rem;
       font-weight: 700;
       color: #000;
       border: 0;
@@ -2641,9 +2646,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     position: relative; }
   .editor__buttons {
     position: absolute;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: none;
     top: -.1rem;
     left: -5rem;
     -webkit-transform: translate(-75%, -25%);
@@ -2651,6 +2654,14 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     padding: .7rem 1rem;
     background: #b3b3b3;
     z-index: 999; }
+    @media all and (max-width: 767px) {
+      .editor__buttons {
+        left: 50% !important;
+        -webkit-transform: translateX(-50%) !important;
+        transform: translateX(-50%) !important;
+        background: transparent; }
+        .editor__buttons:after {
+          display: none; } }
     .editor__buttons::after {
       height: 0;
       width: 0;
@@ -2663,16 +2674,25 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
       -webkit-transform: translate(0, -50%);
       transform: translate(0, -50%);
       content: ''; }
-    .editor__buttons > a {
-      display: block;
-      color: #e8e8e8; }
-      .editor__buttons > a:not(:last-child) {
+  .editor__buttons-body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    @media all and (max-width: 767px) {
+      .editor__buttons-body > a {
+        color: #4d4d4d; } }
+    .editor__buttons-body > a {
+      display: block; }
+      .editor__buttons-body > a:not(:last-child) {
         margin-right: 1rem; }
-      .editor__buttons > a:hover {
+      .editor__buttons-body > a:hover {
         color: #fff; }
-      .editor__buttons > a > i {
+      .editor__buttons-body > a > i {
         font-size: 2rem;
         line-height: 1; }
+    @media all and (min-width: 768px) {
+      .editor__buttons-body {
+        color: #e8e8e8; } }
   .editor__input-link-form {
     position: absolute;
     display: none;
@@ -2739,26 +2759,55 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   line-height: 1; }
 
 .ql-editor.ql-blank::before {
+  font-size: 3.2rem;
+  line-height: 1.09375;
+  position: absolute;
+  top: -1.3rem;
+  left: 0;
+  display: block;
+  width: 100%;
+  font-weight: 700;
+  border: 0;
+  outline: none;
+  font-family: Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-style: normal;
+  color: #b2b2b2; }
+  @media all and (min-width: 768px) {
+    .ql-editor.ql-blank::before {
+      font-size: 4rem;
+      line-height: 1; } }
+
+.ql-editor.ql-blank::after {
   font-size: 1.6rem;
   line-height: 1.375;
-  font-family: Georgia, Times, "Times New Roman", serif;
-  padding: 0;
+  position: absolute;
+  top: 6.4rem;
   left: 0;
+  display: block;
+  width: 100%;
+  font-weight: 700;
+  border: 0;
+  outline: none;
   font-style: normal;
-  color: #4d4d4d; }
+  color: #d9d9d9;
+  content: 'Текст или фото...'; }
+  @media all and (min-width: 768px) {
+    .ql-editor.ql-blank::after {
+      top: 4rem; } }
 
 .ql-bubble .ql-editor {
   font-size: 1.6rem;
   line-height: 1.375;
   font-family: Georgia, Times, "Times New Roman", serif;
-  padding: 0; }
+  padding: 0;
+  min-height: 48rem; }
   .ql-bubble .ql-editor .ql-add-code::before {
     content: attr(data-code); }
   .ql-bubble .ql-editor a {
     text-decoration: underline; }
     .ql-bubble .ql-editor a:hover {
       text-decoration: none; }
-  .ql-bubble .ql-editor > h1 {
+  .ql-bubble .ql-editor h1 {
     font-size: 3.2rem;
     line-height: 1.0625;
     display: block;
@@ -2767,11 +2816,15 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     color: #000;
     border: 0;
     outline: none; }
-    .ql-bubble .ql-editor > h1::after {
+    .ql-bubble .ql-editor h1::after {
+      position: absolute;
+      left: 0;
+      right: 0;
       content: attr(data-placeholder);
+      opacity: 1;
       color: #b2b2b2; }
-    .ql-bubble .ql-editor > h1:empty::after {
-      content: ''; }
+    .ql-bubble .ql-editor h1:empty::after {
+      opacity: 1; }
   .ql-bubble .ql-editor > h2,
   .ql-bubble .ql-editor > h3 {
     font-family: Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif; }

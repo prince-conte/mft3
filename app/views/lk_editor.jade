@@ -13,22 +13,22 @@ block main
         .container
 
             .editor__box
-                form.page-controls.page-controls--editor.forms
+                form.page-controls.page-controls--editor.forms.js-fixed-box
                     .page-controls__input-grid.page-controls__input-grid--filter
 
-                        .page-controls__filter-input-block.page-controls__filter-input-block--1-4
+                        .page-controls__filter-input-block.page-controls__filter-input-block--mobile-fix-hide.page-controls__filter-input-block--1-4
                             select.js-selectmenu-select
                                 option(disabled selected) Категория
                                 option Option 2
                                 option Option 3
 
-                        .page-controls__filter-input-block.page-controls__filter-input-block--1-4
+                        .page-controls__filter-input-block.page-controls__filter-input-block--mobile-fix-hide.page-controls__filter-input-block--1-4
                             select.js-selectmenu-select
                                 option(disabled selected) Приоритет
                                 option Option 2
                                 option Option 3
 
-                        .page-controls__filter-input-block.page-controls__filter-input-block--editor-buttons.js-fixed-box
+                        .page-controls__filter-input-block.page-controls__filter-input-block--editor-buttons
                             .page-controls__filter-input-grid
                                 .page-controls__filter-input-grid-item
                                     a.filter-button(href='#') Черновик
@@ -41,24 +41,25 @@ block main
 
                     form.editor__article
 
-                        .editor__input-block
-                            textarea(placeholder='Заголовок статьи')
 
                         //.editor__input-block.editor__input-block--description
                         //    input(placeholder='Описание статьи')
+
 
                         .editor__content-box
 
                             .editor__buttons#sidebar-controls
 
-                                a#add-code(href='#')
-                                    i.mdi.mdi-code-tags
+                                .editor__buttons-body
 
-                                a#image-button.ql-image(href='#')
-                                    i.mdi.mdi-camera
+                                    a#add-code(href='#')
+                                        i.mdi.mdi-code-tags
 
-                                a#video-button(href='#')
-                                    i.mdi.mdi-camcorder
+                                    a#image-button.ql-image(href='#')
+                                        i.mdi.mdi-camera
+
+                                    a#video-button(href='#')
+                                        i.mdi.mdi-camcorder
 
                                 .editor__input-link-form.js-input-link-form
                                     input(type='text' placeholder='Вставьте ссылку (youtube, vimeo, coub)')
@@ -72,14 +73,14 @@ block main
                                     a.button.button--bordered.js-editor-cancel(href='#') Отмена
 
                                 .editor__input-link-form.js-input-code
-                                    input#picField(type='file')
                                     input(type='text' placeholder='Название или описание изображения')
                                     a.button.button--bordered.js-add-code(href='#') Продолжить
                                     a.button.button--bordered.js-editor-cancel(href='#') Отмена
 
 
                             .editor__content#editor-container
-                                h1(data-placeholder='lol')
+
+
 
 
 

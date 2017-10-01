@@ -105,8 +105,8 @@ $(function() {
         var toolbarOptions = [['bold', 'italic','link', { 'header': '2' },{ 'header': '3' },'blockquote',{ 'list': 'bullet' }]];
 
         var optionsEditor = {
-            placeholder: 'Текст или фото...',
             theme: 'bubble',
+            placeholder: 'Заголовок статьи',
             modules: {
                 toolbar: toolbarOptions
             }
@@ -114,6 +114,12 @@ $(function() {
 
         let quill = new Quill('#editor-container', optionsEditor, toolbarOptions);
 
+        quill.on(Quill.events.TEXT_CHANGE, function(delta, oldDelta, source) {
+            let range = quill.getSelection(true);
+            let d = quill.formatLine(0, 0, 'header', 1);
+            quill.setSelection(range.index, range.length);
+            quill.update();
+        });
 
 
         quill.on(Quill.events.EDITOR_CHANGE, function(eventType, range) {
@@ -141,14 +147,28 @@ $(function() {
                     top: rangeBounds.bottom + 10
                 });
             }
+
+
+            if (range.index < 1 )
+                $('#sidebar-controls').addClass('is-hidden');
+
+            // if (range.index === 0)
+            //     quill.deleteText(0, 0);
+            //     // string.replace("<h1><br></h1>", "");
+
+            if (range.index >= 1)
+                $('#sidebar-controls').removeClass('is-hidden');
         });
 
+        var countLine = 1;
 
-        quill.on('text-change', function(delta, oldDelta, source) {
+        quill.on('text-change', function(delta, oldDelta, source, range) {
+
             if (source == 'api') {
-                console.log("An API call triggered this change.");
+                // console.log(quill.getBounds(range));
             } else if (source == 'user') {
-                console.log("A user action triggered this change.");
+                countLine = countLine + 1
+                console.log(quill.getSelection());
             }
         });
 
