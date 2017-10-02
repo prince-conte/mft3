@@ -105,6 +105,13 @@
       }
     }
 
+    @include mq(sm) {
+
+      > a {
+        color: #fff;
+      }
+    }
+
     > a {
       display: block;
 

@@ -2681,6 +2681,9 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     @media all and (max-width: 767px) {
       .editor__buttons-body > a {
         color: #4d4d4d; } }
+    @media all and (min-width: 768px) {
+      .editor__buttons-body > a {
+        color: #fff; } }
     .editor__buttons-body > a {
       display: block; }
       .editor__buttons-body > a:not(:last-child) {
